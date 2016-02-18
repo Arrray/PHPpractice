@@ -1,0 +1,69 @@
+<div style="width:98%; height:25px; text-align:left"><input type="button" value="添加图书信息"  onclick="window.location.href='{util->baseUrl}/admin-book.php'" />&nbsp;&nbsp;<input type="button" value="浏览图书信息" onclick="window.location.href='{util->baseUrl}/admin-listbook.php'"/>&nbsp;&nbsp;<input type="button" value="查询图书信息" onclick="window.location.href='{util->baseUrl}/admin-searchbook.php'"/></div>       
+    <div style="width:98%;  border:1px solid #006D84">
+        <div style="width:100%; height:25px; border:1px solid #FFFFFF; background-color:#4995A8; text-align:left; padding-top:5px; padding-left:20px; color:#FFFFFF">
+            <li style="display:inline; float:left"><strong>浏览图书信息</strong></li>
+        </div>
+        
+        <div style="width:100%; background-color:#CCCCCC">
+            <div style="width:30%; height:16px; float:left; padding-top:3px; border-right:1px solid #FFFFFF">
+               图书名称
+            </div>            
+ 
+             <div style="width:15%; height:16px; float:left; padding-top:3px; border-right:1px solid #FFFFFF">
+              出版社
+            </div>  
+            <div style="width:15%; height:16px; float:left; padding-top:3px; border-right:1px solid #FFFFFF">
+              作者
+            </div>             
+            <div style="width:15%; height:16px; float:left; padding-top:3px; border-right:1px solid #FFFFFF">
+              市场价（元）
+            </div>
+            <div style="width:15%; height:16px; float:left; padding-top:3px; border-right:1px solid #FFFFFF">
+              会员价（元）
+            </div>                                                              
+             <div style="width:8%; height:16px; float:left; padding-top:3px">
+               操作
+            </div>       
+        </div>  
+        {section name=bID loop=$bookinfos.data }
+        <div style="width:100%; border-top:1px solid #006D84">
+            <div style="width:30%; height:20px; float:left; padding-top:4px; border-right:1px solid #006D84; text-align:left; padding-left:5px">
+               {util->unHtml p=$bookinfos.data[bID].bookname}
+            </div> 
+                       
+            <div style="width:15%; height:20px; float:left; padding-top:4px; border-right:1px solid #006D84">
+               {util->unHtml p=$bookinfos.data[bID].pubname}
+            </div> 
+ 
+            <div style="width:15%; height:20px; float:left; padding-top:4px; border-right:1px solid #006D84">
+               {util->unHtml p=$bookinfos.data[bID].writer}
+            </div>             
+
+            <div style="width:15%; height:20px; float:left; padding-top:4px; border-right:1px solid #006D84">
+               {util->moneyFormat p=$bookinfos.data[bID].oldprice}
+            </div>             
+
+            <div style="width:15%; height:20px; float:left; padding-top:4px; border-right:1px solid #006D84">
+               {util->moneyFormat p=$bookinfos.data[bID].newprice}
+            </div> 
+                                   
+                         
+            <div style="width:9%; height:20px; float:left; padding-top:2px">
+                <a href="{util->baseUrl}/admin-book.php?f=edit&id={$bookinfos.data[bID].id}"><img src="{util->baseUrl}/img/edit.gif" border="0"/></a>&nbsp;<a href="javascript:if(window.confirm('确定删除？')==true){ldelim}window.location.href='{util->baseUrl}/admin-listbook.php?f=del&id={$bookinfos.data[bID].id}';{rdelim}"><img src="{util->baseUrl}/img/del.gif" border="0"/></a>
+            </div>       
+        </div>          
+        {/section}
+    </div>
+    <br />
+    <div style="width:98%; height:25px; border-top:1px dotted #CCCCCC; padding-top:5px; text-align:left; padding-left:20px; background-color:#FFFBE5">
+          {if $bookinfos.countRs > 0}   
+          <li style="display:inline; padding-left:20px">{$nowtype}共&nbsp;{$bookinfos.countRs}&nbsp;本&nbsp;&nbsp;每页显示&nbsp;{$bookinfos.pageSize}&nbsp;本&nbsp;&nbsp;第&nbsp;{$bookinfos.page}&nbsp;页/共&nbsp;{$bookinfos.countPage}&nbsp;页&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="{util->baseUrl}/admin-listbook.php?page={$bookinfos.first}" class="a1">首页</a>&nbsp;
+              <a href="{util->baseUrl}/admin-listbook.php?page={$bookinfos.previous}" class="a1">上一页</a>&nbsp;
+              <a href="{util->baseUrl}/admin-listbook.php?page={$bookinfos.next}" class="a1">下一页</a>&nbsp;
+              <a href="{util->baseUrl}/admin-listbook.php?page={$bookinfos.last}" class="a1">尾页</a>
+          </li>           
+          {/if}
+    </div>     
+    
+    

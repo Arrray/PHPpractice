@@ -1,0 +1,46 @@
+@CHARSET "UTF-8";
+body{margin:0;}
+#continue{margin:0 auto;width:800px;height:740px;background-color:#FDFDFD}
+.search{width:800px;height:120px;}
+.titleTop{float:left;padding-top:25px}
+.titleSea{float:right;padding-top:30px}
+.inputOne{width:200px;border:1px solid #264DD6;}
+.inputTwo{border:0;width:40px;background-color:#264DD6;color:white;padding-top:1px;letter-spacing:5px;}
+#totle{background-image:url(../Images/titlePic.jpg);position:relative;width:800px;height:20px;margin-top:-18px};
+ul{list-style:none;}
+li{float:left;padding-left:60px;padding-top:2px}
+li a{letter-spacing:2px}
+a:link{color:white}
+a:vlink{color:white}
+a:visited{color:white}
+a:action{color:white}
+a{font-size:12px;text-decoration : none }
+.totleDiv{position:absolute;margin-top:20px;display:none;width:100px}
+#span a{color:white;letter-spacing:2px}
+#span{border:1px solid #0447E0;background-color:#0447E0;}
+.titleSea span{font-size:11px;color:blue}
+.footContent{margin:15px 5px;font-size:11px;color:white;float:left}
+.footContentB{font-size:11px;color:white;float:right;margin-top:15px;margin-right:2px}
+.SayIm{float:right;font-size:12px;letter-spacing:2px;color:#AFAFAF}
+#content{width:800px;height:400px}
+#footer{width:800px;height:45px;border:1px solid #e7e7e9;margin-top:10px;background-image:url(../Images/footerPic.jpg)}
+.left{width:200px;height:200px;border:2px solid #0447E0;margin-top:10px;float:left}
+.leftSpan{background-image:url(../Images/titlePic.jpg);width:200px;height:20px;text-align:center;color:white;font-size:14px;font-family:"楷体_gb2312";padding-top:2px}
+.leftSpanDiv ul{style-list:none;margin-top:0px}
+.leftSpanDiv li{width:200px;margin-left:-100px;font-size:14px;color:#0447E0;font-family:"楷体_gb2312"}
+.leftSpanDiv a{color:#0447E0;}
+.leftSpanDiv a:link{color:#0447E0;}
+.leftSpanDiv a:vlink{color:#0447E0;}
+.leftSpanDiv a:visited{color:#0447E0;}
+.leftSpanDiv a:active{color:#0447E0;}
+.right{float:right;width:585px;height:194px;border:2px solid #0447E0;margin-top:10px;}
+.rightSpan{background-image:url(../Public/Images/titlePic.jpg);width:200px;height:20px;text-align:center;color:white;font-size:14px;font-family:"楷体_gb2312";padding-top:2px}
+.MAR{style-list:none;}
+.MARLI{float:right}
+.bottom{width:797px;height:180px;margin-top:10px}
+.bottomSpan{border:2px solid #0447E0;width:60px;font-size:12px;background-image:url(../Images/titlePic.jpg);color:white;padding:0px 30px;}
+.bottomLeft{float:left;position:absolute;z-index:1}
+.bottomRight{float:right;border:2px solid #0447E0;width:747px;height:180px;position:absolute;z-index:0;margin-left:50px}
+.extends{width:650px;height:100px;margin:30px 20px;position:absolute}
+.extendsRight{width:747px;height:20px;background-image:url(../Images/titlePic.jpg);color:white;font-size:14px;text-align:center;font-family:"楷体_gb2312";padding-top:2px}
+.ex{color:#0447E0;font-size:16px;font-family:"楷体_gb2312"}

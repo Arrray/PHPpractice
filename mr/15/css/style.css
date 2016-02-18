@@ -1,0 +1,205 @@
+body
+{
+    margin:0px;
+    pdding:0px;
+    text-align:center;
+    background-color:#006D84;
+    scrollbar-face-color:#F2F8FF; 
+    scrollbar-highlight-color:#4B8DA3; 
+    scrollbar-shadow-color:#4B8DA3; 
+    scrollbar-3dlight-color:#F2F8FF; 
+    scrollbar-arrow-color:#4B8DA3; 
+    scrollbar-trace-color:#F2F8FF;
+    scrollbar-darkshadow-color:#F2F8FF;    
+}
+
+div,tr, td
+{
+  font-size:12px;
+  color:#333333
+}
+
+.input
+{
+  font-size:13px;
+  font-style:normal;
+  font-family:ËÎÌו;
+  border:1px solid #999999
+}
+
+.input1
+{
+  font-size:17px;
+  font-style:normal;
+  font-family:ËÎÌו;
+  color:#666666;
+  border:1px solid #999999
+}
+
+.input2
+{
+  font-size:12px;
+  font-style:normal;
+  font-family:ËÎÌו;
+  border:1px solid #999999
+}
+
+.a1:link 
+{
+	color: #003399; font-size:13px; text-decoration: none
+}
+.a1:visited 
+{
+	color: #003399; font-size:13px; text-decoration: none
+}
+.a1:active 
+{
+	color: #003399; font-size:13px; text-decoration: none
+}
+.a1:hover 
+{
+	color: #FF0000; font-size:13px; text-decoration: none
+}
+
+
+.a2:link 
+{
+	color: #FFFFFF; font-size:13px; text-decoration: none
+}
+.a2:visited 
+{
+	color: #FFFFFF; font-size:13px; text-decoration: none
+}
+.a2:active 
+{
+	color: #FFFFFF; font-size:13px; text-decoration: none
+}
+.a2:hover 
+{
+	color: #003399; font-size:13px; text-decoration: none
+}
+
+
+.a3:link 
+{
+	color: #0328C1; font-size:13px; text-decoration: none
+}
+.a3:visited 
+{
+	color: #0328C1; font-size:13px; text-decoration: none
+}
+.a3:active 
+{
+	color: #0328C1; font-size:13px; text-decoration: none
+}
+.a3:hover 
+{
+	color: #FF0000; font-size:13px; text-decoration: none
+}
+
+.a31:link 
+{
+	color: #FF0000; font-size:13px; text-decoration: none
+}
+.a31:visited 
+{
+	color: #FF0000; font-size:13px; text-decoration: none
+}
+.a31:active 
+{
+	color: #FF0000; font-size:13px; text-decoration: none
+}
+.a31:hover 
+{
+	color: #0328C1; font-size:13px; text-decoration: none
+}
+
+
+.a4:link 
+{
+	color: #000000; font-size:12px; text-decoration: underline
+}
+.a4:visited 
+{
+	color: #000000; font-size:12px; text-decoration: underline
+}
+.a4:active 
+{
+	color: #000000; font-size:12px; text-decoration: underline
+}
+.a4:hover 
+{
+	color: #FF0000; font-size:12px; text-decoration: none
+}
+
+.a5:link 
+{
+	color: #0B597D; font-size:13px; text-decoration: none
+}
+.a5:visited 
+{
+	color: #0B597D; font-size:13px; text-decoration: none
+}
+.a5:active 
+{
+	color: #0B597D; font-size:13px; text-decoration: none
+}
+.a5:hover 
+{
+	color: #FF0000; font-size:13px; text-decoration: underline
+}
+
+
+.a6:link 
+{
+	color: #990000; font-size:12px; text-decoration: none
+}
+.a6:visited 
+{
+	color: #990000; font-size:12px; text-decoration: none
+}
+.a6:active 
+{
+	color: #990000; font-size:12px; text-decoration: none
+}
+.a6:hover 
+{
+	color: #FF0000; font-size:12px; text-decoration: underline
+}
+
+
+.a7:link 
+{
+	color: #000000; font-size:12px; text-decoration: none
+}
+.a7:visited 
+{
+	color: #000000; font-size:12px; text-decoration: none
+}
+.a7:active 
+{
+	color: #000000; font-size:12px; text-decoration: none
+}
+.a7:hover 
+{
+	color: #FF0000; font-size:12px; text-decoration: underline
+}
+
+
+
+.a8:link 
+{
+	color: #0088C2; font-size:12px; text-decoration: none
+}
+.a8:visited 
+{
+	color: #0088C2; font-size:12px; text-decoration: none
+}
+.a8:active 
+{
+	color: #0088C2; font-size:12px; text-decoration: none
+}
+.a8:hover 
+{
+	color: #FF0000; font-size:12px; text-decoration: underline
+}

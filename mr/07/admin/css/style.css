@@ -1,0 +1,59 @@
+/* CSS Document */
+body {
+	margin: 0px;
+	background-image:url(../../images/bg.gif);
+	background-position:center;
+	background-repeat:repeat-y;
+}
+body,td,th {
+	font-size: 12px;
+}
+#contain{
+	margin:0 auto;
+	text-align:center;
+	width:100%;
+}
+
+a:link {
+	text-decoration: none;
+}
+a:visited {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration:underline;
+}
+a:active {
+	text-decoration: none;
+}
+.alink{
+	color:#ede6bc;
+}
+.top {
+	border-top: 1px #666699 solid;
+	border-left: 1px #666699 solid;
+	border-right: 1px #666699 solid;
+}
+.center{
+	border: 1px #666699 solid;
+}
+.bottom {
+	border-left: 1px #666699 solid;
+	border-right: 1px #666699 solid;
+}
+.txt{
+	border:1px #000000 solid;
+	width: 180px;
+	height: 20px;
+}
+.btn{
+	border: 1px #000000 solid;
+}
+.regdiv {
+	border: 1px #f0f0f0 dashed;
+	background-color:#FFFFCC;
+	height:20px;
+	text-align:left;
+	text-indent:2px;
+	vertical-align:bottom;
+}

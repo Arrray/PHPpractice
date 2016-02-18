@@ -1,0 +1,173 @@
+<style type="text/css">
+    .nav                                      {width:96%; height:23px; border-bottom:3px solid #94E279; clear:both;}
+    .nav .li1                                 {width:80px; height:23px; line-height:23px; float:left; background-color:#D0F9C1; margin-left:8px;}
+    .nav .li2                                 {width:80px; height:23px; line-height:23px; float:left; background-color:#E7F6FB; margin-left:8px;}                            
+    .searchArea                               {width:96%; background-color:#D0F9C1; border:1px dashed #4BB922; clear:both;}
+    .searchArea .p1                           {width:100%; height:30px; line-height:30px; text-align:left; clear:both;}
+    .nav1                                     {width:96%; clear:both;}       
+    .dobtn                                    {width:96%; height:25px; line-height:25px; text-align:left; background-color:#D0F9C1; border:1px dashed #4BB922; clear:both;}
+    .table                                    {width:96%; border-collapse:collapse; clear:both;}
+    td                                        {text-align:center;}                         
+</style>
+
+<div class="nav">
+    <ul>
+        <li class="li2">
+            <a href="<?php echo $this->baseUrl('/admin/news/add')?>" class="a3">添加</a>
+        </li>
+        <li class="li2">
+            <a href="<?php echo $this->baseUrl('/admin/news/list/flag/all/lt/0/page/1')?>" class="a3">更改</a>
+        </li>
+        <li class="li1">
+            <a href="<?php echo $this->baseUrl('/admin/news/search')?>" class="a3">查询</a>
+        </li>
+    </ul>
+</div>
+<div class="cell_h"></div>
+<div class="searchArea">
+    <form name="form_searchNews" id="form_searchNews" method="post" action="<?php echo $this->baseUrl('/admin/news/search')?>" style="margin:0px; padding:0px;" onsubmit="return chkInputSearchNews()">
+    <div class="cell_h"></div>
+    <div class="p1">
+　关键字：<input type="text" name="keywords" id="keywords" class="input" style="width:150px; height:17px; line-height:17px;" <?php if($this->fData!=null):?>value="<?php echo $this->fData['keywords']?>"<?php endif;?>/>
+　类　别：<select name="flag" id="flag" class="input" style="height:17px;">
+               <option value="">全部类别</option>
+               <option value="0" <?php if($this->fData!=null && strval($this->fData['flag'])=='0'):?>selected<?php endif;?>>站内新闻</option>
+               <option value="1" <?php if($this->fData!=null && strval($this->fData['flag'])=='1'):?>selected<?php endif;?>>IT人物</option>
+               <option value="2" <?php if($this->fData!=null && strval($this->fData['flag'])=='2'):?>selected<?php endif;?>>高端访谈</option>
+               <option value="3" <?php if($this->fData!=null && strval($this->fData['flag'])=='3'):?>selected<?php endif;?>>产品快讯</option>
+               <option value="4" <?php if($this->fData!=null && strval($this->fData['flag'])=='4'):?>selected<?php endif;?>>企业动态</option>
+               <option value="5" <?php if($this->fData!=null && strval($this->fData['flag'])=='5'):?>selected<?php endif;?>>互联网</option>
+               <option value="6" <?php if($this->fData!=null && strval($this->fData['flag'])=='6'):?>selected<?php endif;?>>游戏资讯</option>
+               <option value="7" <?php if($this->fData!=null && strval($this->fData['flag'])=='7'):?>selected<?php endif;?>>广告传媒</option>
+               <option value="8" <?php if($this->fData!=null && strval($this->fData['flag'])=='8'):?>selected<?php endif;?>>财经报道</option>
+               <option value="9" <?php if($this->fData!=null && strval($this->fData['flag'])=='9'):?>selected<?php endif;?>>图片新闻</option>
+               <option value="10" <?php if($this->fData!=null && strval($this->fData['flag'])=='10'):?>selected<?php endif;?>>综合资讯</option>
+        </select>
+　时间范围：<select name="fromYear" id="fromYear" style="height:17px;">
+               <option value="">请选择</option>
+               <?php for ($i=2000; $i<2051; $i++):?>
+               <option value="<?php echo $i?>" <?php if($this->fData!=null && $this->fData['fromYear']==$i):?>selected<?php endif;?>><?php echo $i?></option>
+               <?php endfor;?>    
+           </select>年<select name="fromMonth" id="fromMonth" style="height:17px;">
+               <option value="">请选择</option>
+               <?php for ($i=1; $i<13; $i++):?>
+               <option value="<?php if(strlen($i)==1):?><?php echo '0'.$i?><?php else:?><?php echo $i?><?php endif;?>"  <?php if($this->fData!=null && ($this->fData['fromMonth']==$i || $this->fData['fromMonth']=='0'.$i)):?>selected<?php endif;?>><?php if(strlen($i)==1):?><?php echo '0'.$i?><?php else:?><?php echo $i?><?php endif;?></option>
+               <?php endfor;?>    
+           </select>月　－　<select name="toYear" id="toYear" style="height:17px;">
+               <option value="">请选择</option>
+               <?php for ($i=2000; $i<2051; $i++):?>
+               <option value="<?php echo $i?>" <?php if($this->fData!=null && $this->fData['toYear']==$i):?>selected<?php endif;?>><?php echo $i?></option>
+               <?php endfor;?>    
+           </select>年<select name="toMonth" id="toMonth" style="height:17px;">
+               <option value="">请选择</option>
+               <?php for ($i=1; $i<13; $i++):?>
+               <option value="<?php if(strlen($i)==1):?><?php echo '0'.$i?><?php else:?><?php echo $i?><?php endif;?>" <?php if($this->fData!=null && ($this->fData['toMonth']==$i || $this->fData['toMonth']=='0'.$i)):?>selected<?php endif;?>><?php if(strlen($i)==1):?><?php echo '0'.$i?><?php else:?><?php echo $i?><?php endif;?></option>
+               <?php endfor;?>    
+           </select>月<br/>       
+    </div> 
+    <div class="p1">
+　主　题：<input name="ftitle" id="ftitle" type="checkbox" value="1" <?php if($this->fData==null || ($this->fData!=null && isset($this->fData['ftitle']) && $this->fData['ftitle']==1)):?>checked<?php endif;?>/>　内容：<input name="fcontent" id="fcontent" type="checkbox" value="1" <?php if($this->fData!=null && isset($this->fData['fcontent']) && $this->fData['fcontent']==1):?>checked<?php endif;?>/>　　<input type="submit" value="查询" />
+    </div>
+    </form>
+</div>
+<?php if($this->paginator!=null && $this->isShow == 'T'):?>
+<div class="cell_h"></div>
+<div class="nav1">
+    <?php echo $this->paginationControl($this->paginator, 'Sliding' ,'list_search_news_pagination_control.phtml', array('fData'=>$this->fData))?>
+</div>
+<div class="cell_h"></div>
+<form name="form_deleteNews" id="form_deleteNews" method="post" action="<?php echo $this->baseUrl('/admin/news/delete')?>" style="margin: 0px; padding:0px;">
+<table class="table" align="center">
+    <tr>
+        <td style="width:50px; height:24px; border:1px solid #BDE2FD; background:url(<?php echo $this->baseUrl('/img/admin/title_bg1.gif')?>);">选择</td>
+        <td style="height:24px; border:1px solid #BDE2FD; background:url(<?php echo $this->baseUrl('/img/admin/title_bg1.gif')?>);">主题</td>
+        <td style="width:100px; height:24px; border:1px solid #BDE2FD; background:url(<?php echo $this->baseUrl('/img/admin/title_bg1.gif')?>);">类别</td>
+        <td style="width:150px; height:24px; border:1px solid #BDE2FD; background:url(<?php echo $this->baseUrl('/img/admin/title_bg1.gif')?>);">添加时间</td>
+        <td style="width:80px; height:24px; border:1px solid #BDE2FD; background:url(<?php echo $this->baseUrl('/img/admin/title_bg1.gif')?>);">浏览(次)</td>
+        <td style="width:80px; height:24px; border:1px solid #BDE2FD; background:url(<?php echo $this->baseUrl('/img/admin/title_bg1.gif')?>);">操作</td>
+    </tr>
+    
+    <?php foreach ($this->paginator as $key => $news):?>
+    <tr>
+        <td style="width:50px; height:24px; border:1px solid #BDE2FD;"><input type="checkbox" name="chk_<?php echo $news['id']?>" id="chk_<?php echo $news['id']?>" value="<?php echo $news['id']?>"/></td>
+        <td style="height:24px; border:1px solid #BDE2FD; text-align:left;">　<a href="<?php echo $this->baseUrl('/news/info-'.$news['id'].'-1.html')?>" class="a12" target="_blank"><?php echo $this->escape($news['title'])?></a></td>
+        <td style="width:100px; height:24px; border:1px solid #BDE2FD;"><?php echo $this->getTypename(0, $news['flag'])?></td>
+        <td style="width:150px; height:24px; border:1px solid #BDE2FD;"><?php echo $news['addtime']?></td>
+        <td style="width:80px; height:24px; border:1px solid #BDE2FD;"><?php echo $news['browse']?></td>
+        <td style="width:80px; height:24px; border:1px solid #BDE2FD;"><a href="<?php echo $this->baseUrl('/admin/news/add/newsid/'.$news['id'])?>"><img src="<?php echo $this->baseUrl('/img/admin/edit.gif')?>" title="编辑" border="0"/></a>　<a href="javascript:if(window.confirm('确认删除该新闻信息么？')){window.location.href='<?php echo $this->baseUrl('/admin/news/delete/id/'.$news['id'].'/keywords/\'+encodeURI(\''.$this->fData['keywords'].'\')+\'/flag/'.$this->fData['flag'].'/fromYear/'.$this->fData['fromYear'].'/fromMonth/'.$this->fData['fromMonth'].'/toYear/'.$this->fData['toYear'].'/toMonth/'.$this->fData['toMonth'].'/ftitle/'.$this->fData['ftitle'].'/fcontent/'.$this->fData['fcontent'].'/isSearch/t')?>';}"><img src="<?php echo $this->baseUrl('/img/admin/del.gif')?>"  title="删除" border="0"/></a></td>
+    </tr>
+    <?php endforeach;?>
+</table>
+    <input type="hidden" name="flag" value="<?php echo $this->flag?>" />
+    <input type="hidden" name="isSearch" value="t" />
+    <input type="hidden" name="keywords" value="<?php echo urlencode($this->fData['keywords'])?>" />
+    <input type="hidden" name="fromYear" value="<?php echo $this->fData['fromYear']?>" />
+    <input type="hidden" name="fromMonth" value="<?php echo $this->fData['fromMonth']?>" />
+    <input type="hidden" name="toYear" value="<?php echo $this->fData['toYear']?>" />
+    <input type="hidden" name="toMonth" value="<?php echo $this->fData['toMonth']?>" />
+    <input type="hidden" name="ftitle" value="<?php echo $this->fData['ftitle']?>" />
+    <input type="hidden" name="fcontent" value="<?php echo $this->fData['fcontent']?>" />
+</form>
+<div class="cell_h"></div>
+<div class="dobtn">
+  　<input id="selectButton" type="button" value="全选" onclick="selectCheckbox()" style="cursor:pointer;"/>　　<input type="button" value="删除所选" onclick="javascript:if(window.confirm('确定删除所选择新闻?')){form_deleteNews.submit();}"/>
+</div>
+<div class="cell_h"></div>
+<div class="nav1">
+    <?php echo $this->paginationControl($this->paginator, 'Sliding' ,'list_search_news_pagination_control.phtml', array('fData'=>$this->fData))?>
+</div>
+<?php endif;?>
+<div class="cell_h"></div>
+
+<script language="javascript">
+    //查询内容录入表单验证
+    function chkInputSearchNews()
+    {
+        if($("#keywords").val()==""){
+            alert("请输入查询关键字！");
+            $("#keywords").focus();
+            return false;
+        }
+
+        if(!(($("#fromYear").val()=="" && $("#fromMonth").val()=="" && $("#toYear").val()=="" && $("#toMonth").val()=="") || ($("#fromYear").val()!="" && $("#fromMonth").val()!="" && $("#toYear").val()!="" && $("#toMonth").val()!=""))){
+            alert("时间范围选择有误！");
+            $("#fromYear").focus();
+            return false;
+        }
+
+        if(parseInt($("#fromYear").val()+$("#fromMonth").val()) > parseInt($("#toYear").val()+$("#toMonth").val())){
+            alert("终止时间应该大于初始时间！");
+            $("#fromYear").focus();
+            return false;
+        } 
+     
+        if(!$("#ftitle").attr("checked") && !$("#fcontent").attr("checked")){
+            alert("请选择所查询内容！");
+            $("#ftitle").attr("checked", true);
+            return false;
+        }
+        return true;
+    }
+　　//复选框全选
+    function selectAll(status)
+    {
+    	var elements = form_deleteNews.getElementsByTagName("input");
+    	for(var i=0; i<elements.length; i++)
+    	{
+    		if(elements[i].type == "checkbox")
+    		{
+    		 	elements[i].checked = status;
+    		}
+    	}
+    }
+    function selectCheckbox()
+    {        
+        if($("#selectButton").val()=="全选"){
+        	selectAll(true);
+        	$("#selectButton").val("取消全选");
+        }else{
+        	selectAll(false);
+        	$("#selectButton").val("全选");
+        }
+    }
+</script>

@@ -1,0 +1,64 @@
+<style type="text/css">
+    .list_frame                                           {width:960px; clear:both;}
+    .list_frame .left                                     {width:660px; float:left;}
+    .list_frame .left .type                               {margin-left:0px; margin-right:0px; height:90px; line-height:30px; font-size:14px; color:#0257AE; border:1px dashed #1B68B8; background-color:#E7F6FB; text-align:left; clear:both;}
+    .list_frame .left .nav                                {margin-left:0px; margin-right:0px; height:20px; clear:both;} 
+    .list_frame .left .list                               {margin-left:0px; margin-right:0px; border:1px solid #92C7ED; background-color:#FAFEFF;}
+    .list_frame .left .list .content                      {width:95%; border-bottom:1px solid #CCCCCC; clear:both;} 
+    .list_frame .left .list .content .title               {width:100%; height:30px; line-height:30px; text-align:left; font-weight:bold; clear:both;}
+    .list_frame .left .list .content .description         {width:100%; height:50px; line-height:25px; text-align:left; color:#888888; clear:both;}   
+    .list_frame .left .list .content .msg                 {width:100%; height:30px; line-height:30px; text-align:left; clear:both;}
+    .list_frame .right                                    {width:290px; float:right;}  
+    .list_frame .right .p1                                {margin-left:0px; margin-right:0px; height:250px; border:1px solid #92C7ED; clear:both;} 
+    .list_frame .right .p1 .title                         {margin-left:0px; margin-right:0px; position:relative; height:28px; line-height:28px; text-align:left; color:#0257AE; background:url(<?php echo $this->baseUrl('/img/title_bg1.gif')?>); border:1px solid #FFFFFF; clear:both;}
+    .list_frame .right .p1 .content                       {margin-left:0px; margin-right:0px; clear:both;}
+    .list_frame .right .p1 .content .p                    {width:49%; height:105px; line-height:22px; float:left;}
+    .list_frame .right .p2                                {margin-left:0px; margin-right:0px; height:240px; border:1px solid #92C7ED; clear:both;} 
+    .list_frame .right .p2 .title                         {margin-left:0px; margin-right:0px; position:relative; height:28px; line-height:28px; text-align:left; color:#0257AE; background:url(<?php echo $this->baseUrl('/img/title_bg1.gif')?>); border:1px solid #FFFFFF; clear:both;}
+    .list_frame .right .p2 .content                       {margin-left:0px; margin-right:0px; clear:both;}
+    .list_frame .right .p2 .content li                    {width:95%; height:26px; line-height:26px; text-align:left; overflow:hidden; clear:both;} 
+    .list_frame .right .p3                                {margin-left:0px; margin-right:0px; height:280px; border:1px solid #92C7ED; clear:both;} 
+    .list_frame .right .p3 .title                         {margin-left:0px; margin-right:0px; position:relative; height:28px; line-height:28px; text-align:left; color:#0257AE; background:url(<?php echo $this->baseUrl('/img/title_bg1.gif')?>); border:1px solid #FFFFFF; clear:both;}
+    .list_frame .right .p3 .content                       {margin-left:0px; margin-right:0px; clear:both;}
+    .list_frame .right .p3 .content .np1                  {width:49%; height:105px; line-height:22px; overflow:hidden;  float:left;}
+    .list_frame .right .p3 .content .np2                  {width:95%; height:26px; line-height:26px; text-align:left; overflow:hidden;}
+    .list_frame .right .p4                                {margin-left:0px; margin-right:0px; height:326px; border:1px solid #92C7ED; clear:both;}    
+    .list_frame .right .p4 .title                         {margin-left:0px; margin-right:0px; position:relative; height:28px; line-height:28px; text-align:left; color:#0257AE; background:url(<?php echo $this->baseUrl('/img/title_bg1.gif')?>); border:1px solid #FFFFFF; clear:both;}
+    .list_frame .right .p4 .content1                      {width:95%; clear:both;}
+    .list_frame .right .p4 .content2                      {width:95%; height:26px; line-height:26px; text-align:left; overflow:hidden; clear:both;}
+    .list_frame .right .p4 .content1 .cl                  {width:40%; height:100px; float:left;}
+    .list_frame .right .p4 .content1 .cr                  {width:58%; height:100px; float:right;}
+    .list_frame .right .p4 .content1 .cr .li1             {margin-left:0px; margin-right:0px; height:30px; line-height:30px; clear:both;}
+    .list_frame .right .p4 .content1 .cr .li2             {margin-left:0px; margin-right:0px; height:60px; line-height:20px; text-align:left; color:#888888; clear:both;}
+    
+</style>
+
+
+<div class="list_frame">
+    <div class="left">
+        <div class="nav">
+            <?php echo $this->paginationControl($this->paginator, 'Sliding', 'list_news_pagination_control.phtml', array('flag'=>$this->flag, 'order'=>$this->order))?>
+        </div>
+        <div class="cell_h"></div>
+        <div class="list">
+            <?php foreach ($this->paginator as $news):?>
+            <div class="content">
+                <div class="title">
+                    ·<a href="#" class="a25"><?php echo $this->escape($news['title'])?></a>
+                </div>
+                <div class="description">
+                    　　<?php echo trim($this->escape($this->substr($news['uncontent'], 220)))?>　<a href="#" class="a3"><nobr>&lt;详细&gt;</nobr></a>
+                </div>
+                <div class="msg">
+                来源：<font color="#888888"><?php echo $this->escape($news['source'])?></font>　|　作者：<font color="#888888"><?php echo $this->escape($news['author'])?></font>　|　时间：<font color="#888888"><?php echo substr($news['addtime'], 0, 16)?></font>　|　浏览：<font color="#888888"><?php echo $news['browse']?></font>&nbsp;次
+                </div>
+            </div>
+            <?php endforeach;?>
+            <div class="cell_h"></div>
+        </div>
+        <div class="cell_h"></div>
+
+    </div>
+
+    <div class="clear"></div>
+</div>

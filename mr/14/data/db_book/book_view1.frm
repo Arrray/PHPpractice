@@ -1,0 +1,13 @@
+TYPE=VIEW
+query=select `db_book`.`tb_book`.`sort` AS `a_sort`,`db_book`.`tb_book`.`talk` AS `a_talk`,`db_book`.`tb_book`.`books` AS `a_books` from `db_book`.`tb_book`
+md5=3dac300a2bbde4b390bb4ee515e12f7b
+updatable=1
+algorithm=0
+definer_user=root
+definer_host=localhost
+suid=2
+with_check_option=0
+revision=1
+timestamp=2011-06-13 08:40:53
+create-version=1
+source=SELECT sort,talk,books\nFROM tb_book

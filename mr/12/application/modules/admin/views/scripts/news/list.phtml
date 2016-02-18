@@ -1,0 +1,96 @@
+<style type="text/css">
+    .nav                                      {width:96%; height:23px; border-bottom:3px solid #94E279; clear:both;}                              
+    .nav .li1                                 {width:80px; height:23px; line-height:23px; float:left; background-color:#D0F9C1; margin-left:8px;}
+    .nav .li2                                 {width:80px; height:23px; line-height:23px; float:left; background-color:#E7F6FB; margin-left:8px;}                            
+    .part1                                    {width:96%; border:1px solid #BDE2FD; clear:both;}
+    .part1 .line                              {width:100%; height:28px; line-height:28px; text-align:left; clear:both;}
+    .part1 .editArea                          {width:100%; text-align:left; clear:both;}
+    .btn                                      {width:96%; height:25px; line-height:25px; text-align:left; clear:both;} 
+    .nav1                                     {width:96%; clear:both;}
+    .looktype                                 {width:96%; height:46px; line-height:23px; text-align:left; background-color:#D0F9C1; border:1px dashed #4BB922; clear:both;}
+    .dobtn                                    {width:96%; height:25px; line-height:25px; text-align:left; background-color:#D0F9C1; border:1px dashed #4BB922; clear:both;}
+    .table                                    {width:96%; border-collapse:collapse; clear:both;}
+    td                                        {text-align:center;}
+</style>
+<div class="nav">
+    <ul>
+        <li class="li2">
+            <a href="<?php echo $this->baseUrl('/admin/news/add')?>" class="a3">添加</a>
+        </li>
+        <li class="li1">
+            <a href="<?php echo $this->baseUrl('/admin/news/list/flag/all/lt/0/page/1')?>" class="a3">更改</a>
+        </li>
+        <li class="li2">
+            <a href="<?php echo $this->baseUrl('/admin/news/search')?>" class="a3">查询</a>
+        </li>
+    </ul>
+</div>
+<div class="cell_h"></div>
+<div class="nav1">
+    <?php echo $this->paginationControl($this->paginator, 'Sliding' ,'list_news_pagination_control.phtml', array('flag'=>$this->flag, 'lt'=>$this->lt))?>
+</div>
+<div class="cell_h"></div>
+<div class="looktype">
+　　新闻类别：<a href="<?php echo $this->baseUrl('/admin/news/list/flag/all/lt/0/page/1')?>" class="<?php if($this->flag=='all'):?>a14<?php else:?>a3<?php endif;?>" >全部类别</a>　<a href="<?php echo $this->baseUrl('/admin/news/list/flag/ttj/lt/0/page/1')?>" class="<?php if($this->flag=='ttj'):?>a14<?php else:?>a3<?php endif;?>" >今日推荐</a>　<a href="<?php echo $this->baseUrl('/admin/news/list/flag/0/lt/0/page/1')?>" class="<?php if(strval($this->flag)=='0'):?>a14<?php else:?>a3<?php endif;?>">站内新闻</a>　<a href="<?php echo $this->baseUrl('/admin/news/list/flag/1/lt/0/page/1')?>" class="<?php if(strval($this->flag)=='1'):?>a14<?php else:?>a3<?php endif;?>">IT人物</a>　<a href="<?php echo $this->baseUrl('/admin/news/list/flag/2/lt/0/page/1')?>" class="<?php if(strval($this->flag)=='2'):?>a14<?php else:?>a3<?php endif;?>">高端访谈</a>　<a href="<?php echo $this->baseUrl('/admin/news/list/flag/3/lt/0/page/1')?>" class="<?php if(strval($this->flag)=='3'):?>a14<?php else:?>a3<?php endif;?>">产品快讯</a>　<a href="<?php echo $this->baseUrl('/admin/news/list/flag/4/lt/0/page/1')?>" class="<?php if(strval($this->flag)=='4'):?>a14<?php else:?>a3<?php endif;?>">企业动态</a>　<a href="<?php echo $this->baseUrl('/admin/news/list/flag/5/lt/0/page/1')?>" class="<?php if(strval($this->flag)=='5'):?>a14<?php else:?>a3<?php endif;?>">互联网</a>　<a href="<?php echo $this->baseUrl('/admin/news/list/flag/6/lt/0/page/1')?>" class="<?php if(strval($this->flag)=='6'):?>a14<?php else:?>a3<?php endif;?>">游戏资讯</a>　<a href="<?php echo $this->baseUrl('/admin/news/list/flag/7/lt/0/page/1')?>" class="<?php if(strval($this->flag)=='7'):?>a14<?php else:?>a3<?php endif;?>">广告传媒</a>　<a href="<?php echo $this->baseUrl('/admin/news/list/flag/8/lt/0/page/1')?>" class="<?php if(strval($this->flag)=='8'):?>a14<?php else:?>a3<?php endif;?>">财经报道</a>　<a href="<?php echo $this->baseUrl('/admin/news/list/flag/9/lt/0/page/1')?>" class="<?php if(strval($this->flag)=='9'):?>a14<?php else:?>a3<?php endif;?>">图片新闻</a>　<a href="<?php echo $this->baseUrl('/admin/news/list/flag/10/lt/0/page/1')?>" class="<?php if(strval($this->flag)=='10'):?>a14<?php else:?>a3<?php endif;?>">综合资讯</a>
+<br/>
+　　查看方式：<a href="<?php echo $this->baseUrl('/admin/news/list/flag/'.$this->flag.'/lt/0/page/1')?>" class="<?php if($this->lt==0):?>a14<?php else:?>a3<?php endif;?>">时间降序</a>　<a href="<?php echo $this->baseUrl('/admin/news/list/flag/'.$this->flag.'/lt/1/page/1')?>" class="<?php if($this->lt==1):?>a14<?php else:?>a3<?php endif;?>">时间升序</a>　<a href="<?php echo $this->baseUrl('/admin/news/list/flag/'.$this->flag.'/lt/2/page/1')?>" class="<?php if($this->lt==2):?>a14<?php else:?>a3<?php endif;?>">关注降序</a>　<a href="<?php echo $this->baseUrl('/admin/news/list/flag/'.$this->flag.'/lt/3/page/1')?>" class="<?php if($this->lt==3):?>a14<?php else:?>a3<?php endif;?>">关注升序</a>
+</div>
+<div class="cell_h"></div>
+<form name="form_deleteNews" id="form_deleteNews" method="post" action="<?php echo $this->baseUrl('/admin/news/delete')?>" style="margin: 0px; padding:0px;">
+<table class="table" align="center">
+    <tr>
+        <td style="width:50px; height:24px; border:1px solid #BDE2FD; background:url(<?php echo $this->baseUrl('/img/admin/title_bg1.gif')?>);">选择</td>
+        <td style="height:24px; border:1px solid #BDE2FD; background:url(<?php echo $this->baseUrl('/img/admin/title_bg1.gif')?>);">主题</td>
+        <td style="width:100px; height:24px; border:1px solid #BDE2FD; background:url(<?php echo $this->baseUrl('/img/admin/title_bg1.gif')?>);">类别</td>
+        <td style="width:150px; height:24px; border:1px solid #BDE2FD; background:url(<?php echo $this->baseUrl('/img/admin/title_bg1.gif')?>);">添加时间</td>
+        <td style="width:80px; height:24px; border:1px solid #BDE2FD; background:url(<?php echo $this->baseUrl('/img/admin/title_bg1.gif')?>);">浏览(次)</td>
+        <td style="width:80px; height:24px; border:1px solid #BDE2FD; background:url(<?php echo $this->baseUrl('/img/admin/title_bg1.gif')?>);">操作</td>
+    </tr>
+    <?php foreach ($this->paginator as $key => $news):?>
+    <tr>
+        <td style="width:50px; height:24px; border:1px solid #BDE2FD;"><input type="checkbox" name="chk_<?php echo $news['id']?>" id="chk_<?php echo $news['id']?>" value="<?php echo $news['id']?>"/></td>
+        <td style="height:24px; border:1px solid #BDE2FD; text-align:left;">　<a href="<?php echo $this->baseUrl('/news/info-'.$news['id'].'-1.html')?>" class="a12" target="_blank"><?php echo $this->escape($news['title'])?></a></td>
+        <td style="width:100px; height:24px; border:1px solid #BDE2FD;"><?php echo $this->getTypename(0, $news['flag'])?></td>
+        <td style="width:150px; height:24px; border:1px solid #BDE2FD;"><?php echo $news['addtime']?></td>
+        <td style="width:80px; height:24px; border:1px solid #BDE2FD;"><?php echo $news['browse']?></td>
+        <td style="width:80px; height:24px; border:1px solid #BDE2FD;"><a href="<?php echo $this->baseUrl('/admin/news/add/newsid/'.$news['id'])?>"><img src="<?php echo $this->baseUrl('/img/admin/edit.gif')?>" title="编辑" border="0"/></a>　<a href="javascript:if(window.confirm('确认删除该新闻信息么？')){window.location.href='<?php echo $this->baseUrl('/admin/news/delete/id/'.$news['id'].'/flag/'.$this->flag)?>';}"><img src="<?php echo $this->baseUrl('/img/admin/del.gif')?>" title="删除" border="0"/></a></td>
+    </tr>
+    <?php endforeach;?>
+</table>
+    <input type="hidden" name="flag" value="<?php echo $this->flag?>" />
+</form>
+<div class="cell_h"></div>
+<div class="dobtn">
+　<input id="selectButton" type="button" value="全选" onclick="selectCheckbox()" style="cursor:pointer;"/>　　<input type="button" value="删除所选" onclick="javascript:if(window.confirm('确定删除所选择新闻?')){form_deleteNews.submit();}"/>
+</div>
+<div class="cell_h"></div>
+<div class="nav1">
+    <?php echo $this->paginationControl($this->paginator, 'Sliding' ,'list_news_pagination_control.phtml', array('flag'=>$this->flag, 'lt'=>$this->lt))?>
+</div>
+<div class="cell_h"></div>
+
+<script language="javascript">
+    //复选框全选
+    function selectAll(status)
+    {
+    	var elements = form_deleteNews.getElementsByTagName("input");
+    	for(var i=0; i<elements.length; i++)
+    	{
+    		if(elements[i].type == "checkbox")
+    		{
+    		 	elements[i].checked = status;
+    		}
+    	}
+    }
+    function selectCheckbox()
+    {        
+        if($("#selectButton").val()=="全选"){
+        	selectAll(true);
+        	$("#selectButton").val("取消全选");
+        }else{
+        	selectAll(false);
+        	$("#selectButton").val("全选");
+        }
+    }
+    
+</script>

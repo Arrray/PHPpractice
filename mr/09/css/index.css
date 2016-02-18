@@ -1,0 +1,15 @@
+/* CSS Document */
+body{text-align:center;}
+.tbody{ width:800px; height:460px; margin:1px; text-align:center;}
+.leftbox{width:213px; height:257px; float:left; margin:0px 0px 0px 10px;}
+.leftboxbot{background:url(images/Ê×Ò³_07.jpg); width:213px; height:257px;}
+.leftboxtop{height:175px; width:213px;  margin:2px 0 0 0;}
+.leftboxbot2{width:213px; height:200px; margin:0px auto; background:url(../images/Ê×Ò³_07.jpg);}
+.rightbox{margin:1px 5px 5px 0; height:257px;}
+.rightboxtitle{height:50px; background:url(../images/Ê×Ò³_04.jpg);}
+.rightboxtm{height:22px; margin:19px 35px 0 40px; text-align:left;}
+.tightboxinclude{font-size:14px; font-weight:bolder; line-height:22px; }
+.classes{margin:5px 5px 5px 5px; height:70px;}
+.listenm{margin:2px0 0 0 ; height:360px;}
+.header{ text-align:center;}
+.footermain{ text-align:center;}

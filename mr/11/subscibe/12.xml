@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="gb2312"?>
+<rss xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:taxo="http://purl.org/rss/1.0/modules/taxonomy/" version="2.0">
+  <channel>
+    <title>明日科技</title>
+    <link>http://www.mingrisoft.com</link>
+    <description>$_GET['video_user']</description>
+    <dc:creator>http://www.mingrisoft.com</dc:creator>
+	<item>
+		<title>英雄本色2</title>
+		<link>http://192.168.1.59/MR/sl/21/01/look.php?video_id=16&amp;video_name=英雄本色2</link>			
+　		<description>
+
+&lt;a href='http://192.168.1.59/MR/sl/21/01/look.php?video_id=16&amp;video_name=英雄本色2' target='_blank'&gt;&lt;img name=news src=upfiles/video/1215418318.gif alt='天堂2' width=130 height=150 border=3 style=border-color:#CCCCCC; margin-top:15px; margin-left:15px; margin-bottom:15px; margin-right:15px;/&gt;&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;播放：1
+
+
+</description>
+　		<pubDate>2008-07-07 16:11:59</pubDate>　　
+	</item>
+	<item>
+		<title>谁是谁的谁</title>
+		<link>http://192.168.1.59/MR/sl/21/01/look.php?video_id=17&amp;video_name=谁是谁的谁</link>			
+　		<description>
+
+&lt;a href='http://192.168.1.59/MR/sl/21/01/look.php?video_id=17&amp;video_name=谁是谁的谁' target='_blank'&gt;&lt;img name=news src=upfiles/video/1215418413.gif alt='谁是谁的谁' width=130 height=150 border=3 style=border-color:#CCCCCC; margin-top:15px; margin-left:15px; margin-bottom:15px; margin-right:15px;/&gt;&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;播放：14
+
+
+</description>
+　		<pubDate>2008-07-07 16:13:33</pubDate>　　
+	</item></channel></rss>

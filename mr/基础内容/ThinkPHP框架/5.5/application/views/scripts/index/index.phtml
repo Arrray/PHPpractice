@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>文件上传</title>
+</head>
+
+<body>
+<style type="text/css">
+<!--
+.STYLE1 {
+	color: #990000;
+	font-weight: bold;
+	font-size: 16px;
+}
+-->
+</style>
+<table width="650" border="0">
+    <tr>
+        <td colspan="3"><img src="<?php echo $this->baseUrl('images/bg01.jpg');?>" width="900" height="150" /></td>
+    </tr>
+    <tr>
+        <td width="129" height="75">&nbsp;</td>
+        <td width="634" align="center" valign="bottom"><form enctype="multipart/form-data" action="<?php echo $this->Url(array('controller'=>'index','action'=>'index')); ?>" method="POST">
+            <span class="STYLE1">选择上传文件:</span> 
+                <input name="uploadedfile" type="file" />&nbsp;&nbsp;<input type="image" name="imageField" src="<?php echo $this->baseUrl('images/sc.jpg');?>" />
+                </form></td>
+        <td width="129">&nbsp;</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+
+</body>
+</html>

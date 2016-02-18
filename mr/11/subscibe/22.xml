@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="gb2312"?>
+<rss xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:taxo="http://purl.org/rss/1.0/modules/taxonomy/" version="2.0">
+  <channel>
+    <title>明日科技</title>
+    <link>http://www.mingrisoft.com</link>
+    <description>$_SESSION['name']</description>
+    <dc:creator>http://www.mingrisoft.com</dc:creator>
+	<item>
+		<title>video2</title>
+		<link>http://localhost/boke/look.php?video_id=8&amp;video_name=video2</link>			
+　		<description>
+
+&lt;a href='http://localhost/boke/look.php?video_id=8&amp;video_name=video2' target='_blank'&gt;&lt;img name=news src=upfiles/video/1295511533.gif alt='13224123' width=130 height=150 border=3 style=border-color:#CCCCCC; margin-top:15px; margin-left:15px; margin-bottom:15px; margin-right:15px;/&gt;&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;
+
+
+</description>
+　		<pubDate>2011-01-20 08:18:54</pubDate>　　
+	</item>
+	<item>
+		<title>shome</title>
+		<link>http://localhost/boke/look.php?video_id=16&amp;video_name=shome</link>			
+　		<description>
+
+&lt;a href='http://localhost/boke/look.php?video_id=16&amp;video_name=shome' target='_blank'&gt;&lt;img name=news src=upfiles/video/1295576282.gif alt='4z23zc13zx2' width=130 height=150 border=3 style=border-color:#CCCCCC; margin-top:15px; margin-left:15px; margin-bottom:15px; margin-right:15px;/&gt;&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;
+
+
+</description>
+　		<pubDate>2011-01-21 02:18:02</pubDate>　　
+	</item></channel></rss>

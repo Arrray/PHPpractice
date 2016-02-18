@@ -1,0 +1,68 @@
+    <div style="width:98%; height:25px; text-align:left"><input type="button" value="添加出版社类别信息"  onclick="window.location.href='{util->baseUrl}/admin-pub.php'" />&nbsp;&nbsp;<input type="button" value="浏览出版社类别信息" onclick="window.location.href='{util->baseUrl}/admin-listpub.php'"/></div>    
+    <div style="width:98%;  border:1px solid #006D84">
+        <div style="width:100%; height:25px; border:1px solid #FFFFFF; background-color:#4995A8; text-align:left; padding-top:5px; padding-left:20px; color:#FFFFFF">
+            <li style="display:inline; float:left"><strong>浏览出版社类别信息</strong></li>
+        </div>
+        
+        <div style="width:100%; background-color:#CCCCCC">
+            <div style="width:20%; height:16px; float:left; padding-top:3px; border-right:1px solid #FFFFFF">
+               出版社logo图片
+            </div> 
+                       
+             <div style="width:50%; height:16px; float:left; padding-top:3px; border-right:1px solid #FFFFFF">
+               出版社名称
+            </div> 
+            
+             <div style="width:20%; height:16px; float:left; padding-top:3px; border-right:1px solid #FFFFFF">
+               添加时间
+            </div>  
+                         
+             <div style="width:10%; height:16px; float:left; padding-top:3px">
+               操作
+            </div>       
+        </div>  
+        {section name=pID loop=$pubs}
+        <div style="width:100%; border-top:1px solid #006D84">
+             <div style="width:20%; height:20px; float:left; padding-top:4px; border-right:1px solid #006D84">
+               <img src="{$system[0].bookimgurl}/{util->unHtml p=$pubs[pID].pubimg}"  width="22" height="22"/>
+            </div> 
+                       
+            <div style="width:50%; height:20px; float:left; padding-top:4px; border-right:1px solid #006D84; text-align:left; padding-left:20px">
+               {util->unHtml p=$pubs[pID].pubname}
+            </div>            
+
+            <div style="width:20%; height:20px; float:left; padding-top:4px; border-right:1px solid #006D84">
+               {util->unHtml p=$pubs[pID].addtime}
+            </div>  
+                         
+            <div style="width:10%; height:20px; float:left; padding-top:2px">
+                <a href="{util->baseUrl}/admin-listpub.php?f=edit&id={$pubs[pID].id}"><img src="{util->baseUrl}/img/edit.gif" border="0"/></a>&nbsp;<a href="javascript:if(window.confirm('确定删除？')==true){ldelim}window.location.href='{util->baseUrl}/admin-listpub.php?f=del&id={$pubs[pID].id}';{rdelim}"><img src="{util->baseUrl}/img/del.gif" border="0"/></a>
+            </div>       
+        </div>          
+        {/section}
+    </div>
+    <br />
+    {if $isShow == "T"}
+    <div style="width:98%;  border:1px solid #006D84">
+        <div style="width:100%; height:25px; border:1px solid #FFFFFF; background-color:#4995A8; text-align:left; padding-top:5px; padding-left:20px; color:#FFFFFF">
+            <li style="display:inline; float:left"><strong>更改出版社类别信息</strong></li>
+        </div>
+        
+        <div style="width:100%; text-align:left; padding-top:5px; padding-left:20px; padding-left:70px">
+         
+          <form name="form_pub" method="post" action="{util->baseUrl}/admin-listpub.php" onsubmit="return chkInputPub(this)" enctype="multipart/form-data">
+            <div style="width:100%; text-align:left; padding-top:5px; padding-left:50px">
+                  出版社名称：&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="pubname" size="30" class="input" value="{$pub[0].pubname}"/><br /><br /> 
+       出版社logo图片：<input type="file" name="pubimg" size="30" class="input" /> <br /><br />     
+                  <input type="hidden" name="f" value="edit" /> 
+                  <input type="hidden" name="id" value="{$pub[0].id}" />       
+                <input type="submit" value="更改" />&nbsp;&nbsp;<input type="reset" value="重置" />
+            </div> 
+            </form>  
+        
+    
+        </div>    
+    </div>
+    {/if}
+    <br />
+    

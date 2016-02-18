@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>登录</title>
+</head>
+<style>
+#form{width:400px;height:300px;margin:100px 500px}
+.title{width:400px;height:33px;-moz-border-radius: 6px;-webkit-border-radius: 6px;border-radius:6px;behavior: url(../Public/Hac/styleCss.htc);background-color:white;background-image:url(../Public/Images/adminTitleImage.jpg);position:absolute;z-index:1}
+img{margin-left:8px;margin-top:6px}
+.titleName{font-size:15px;padding:5px 15px;margin-top:-9px;color:white;font-family:"楷体_gb2312"}
+.titleBottom{width:400px;height:100px;-moz-border-radius: 6px;-webkit-border-radius: 6px;border-radius:6px;behavior: url(../Public/Hac/styleCss.htc);background-color:white;border:1px solid #21920C;}
+.titleForm{margin-left:100px;margin-top:60px;font-size:15px;font-weight:1000;}
+.inOne{border:1px solid #909090;width:140px}
+.inTwo{border:0;width:74px;height:25px;background-image:url(../Public/Images/bottomLogin.jpg)}
+.inThree{border:0;width:74px;height:25px;background-image:url(../Public/Images/bottomRes.jpg)}
+
+</style>
+<body>
+<div id="form">
+	<div class="title">
+		<div class="titleName"><img src='../Public/Images/admin.ico'>&nbsp;&nbsp;&nbsp;&nbsp;<b>明日企业登录系统</b></div>
+	</div>
+	<div class="titleBottom">
+		<div class="titleForm">
+			<form action="__URL__/adminManager" method="post">
+				<b>管理员：</b><input class="inOne type="text" name="text" ><br>
+				<b>密&nbsp;&nbsp;&nbsp;&nbsp;码：</b><input class="inOne type="password" name="pwd"><br><br>
+				<input class="inTwo" type="submit" name="sub" value="">&nbsp;&nbsp;&nbsp;&nbsp;
+				<input class="inThree"type="reset" value="">
+			</form>
+		</div>
+	</div>
+</div>
+</body>
+</html>

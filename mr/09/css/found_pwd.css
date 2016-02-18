@@ -1,0 +1,8 @@
+/* CSS Document */
+
+*{margin:0; padding:0; font-size:12px;}
+body{ text-align:center;}
+.divbg{ background:url(../images/113.jpg);width:1004px; height:720px;}
+<!---->.main{border:1px solid #0099FF; width:520px; height:340px; margin:210px auto 2px auto;}
+.main{ width:520px; height:340px; margin:210px auto 2px auto;}
+.found{margin:100px auto 2px auto;}

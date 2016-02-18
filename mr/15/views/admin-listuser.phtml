@@ -1,0 +1,103 @@
+ <div style="width:98%;  border:1px solid #006D84">
+        <div style="width:100%; height:25px; border:1px solid #FFFFFF; background-color:#4995A8; text-align:left; padding-top:5px; padding-left:20px; color:#FFFFFF">
+            <li style="display:inline; float:left"><strong>浏览用户信息</strong></li>
+        </div>
+        
+        <div style="width:100%; background-color:#CCCCCC">
+            <div style="width:15%; height:16px; float:left; padding-top:3px; border-right:1px solid #FFFFFF">
+               用户昵称
+            </div>            
+ 
+             <div style="width:15%; height:16px; float:left; padding-top:3px; border-right:1px solid #FFFFFF">
+              真实姓名
+            </div>  
+            <div style="width:15%; height:16px; float:left; padding-top:3px; border-right:1px solid #FFFFFF">
+              性别
+            </div>             
+            <div style="width:15%; height:16px; float:left; padding-top:3px; border-right:1px solid #FFFFFF">
+               联系电话
+            </div>
+            <div style="width:15%; height:16px; float:left; padding-top:3px; border-right:1px solid #FFFFFF">
+              最后登录时间
+            </div>
+            <div style="width:15%; height:16px; float:left; padding-top:3px; border-right:1px solid #FFFFFF">
+              登录次数
+            </div>                                                                          
+             <div style="width:10%; height:16px; float:left; padding-top:3px">
+               操作
+            </div>       
+        </div>  
+        {section name=uID loop=$users.data }
+        <div style="width:100%; border-top:1px solid #006D84">
+            <div style="width:15%; height:20px; float:left; padding-top:4px; border-right:1px solid #006D84; text-align:left; padding-left:5px">
+              {if $users.data[uID].usertype==1}<font color="blue">{util->unHtml p=$users.data[uID].usernc}</font>{else} {util->unHtml p=$users.data[uID].usernc}{/if}
+            </div> 
+                       
+            <div style="width:15%; height:20px; float:left; padding-top:4px; border-right:1px solid #006D84">
+               {util->unHtml p=$users.data[uID].truename}
+            </div> 
+ 
+            <div style="width:15%; height:20px; float:left; padding-top:4px; border-right:1px solid #006D84">
+               {util->unHtml p=$users.data[uID].sex}
+            </div>             
+
+            <div style="width:15%; height:20px; float:left; padding-top:4px; border-right:1px solid #006D84">
+               {$users.data[uID].tel}
+            </div>             
+
+            <div style="width:15%; height:20px; float:left; padding-top:4px; border-right:1px solid #006D84">
+               {$users.data[uID].lastlogintime}
+            </div> 
+                                   
+             <div style="width:15%; height:20px; float:left; padding-top:4px; border-right:1px solid #006D84">
+               {$users.data[uID].logintimes}
+            </div> 
+                                    
+            <div style="width:9%; height:20px; float:left; padding-top:2px">
+                <a href="{util->baseUrl}/admin-listuser.php?f=edit&id={$users.data[uID].id}"><img src="{util->baseUrl}/img/edit.gif" border="0"/></a>&nbsp;<a href="javascript:if(window.confirm('确定删除？')==true){ldelim}window.location.href='{util->baseUrl}/admin-listuser.php?f=del&id={$users.data[uID].id}';{rdelim}"><img src="{util->baseUrl}/img/del.gif" border="0"/></a>
+            </div>       
+        </div>          
+        {/section}
+    </div>
+    <br />
+    <div style="width:98%; height:25px; border-top:1px dotted #CCCCCC; padding-top:5px; text-align:left; padding-left:20px; background-color:#FFFBE5">
+          {if $users.countRs > 0}   
+          <li style="display:inline; padding-left:20px">{$nowtype}共&nbsp;{$users.countRs}&nbsp;人&nbsp;&nbsp;每页显示&nbsp;{$users.pageSize}&nbsp;人&nbsp;&nbsp;第&nbsp;{$users.page}&nbsp;页/共&nbsp;{$users.countPage}&nbsp;页&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="{util->baseUrl}/admin-listuser.php?page={$users.first}" class="a1">首页</a>&nbsp;
+              <a href="{util->baseUrl}/admin-listuser.php?page={$users.previous}" class="a1">上一页</a>&nbsp;
+              <a href="{util->baseUrl}/admin-listuser.php?page={$users.next}" class="a1">下一页</a>&nbsp;
+              <a href="{util->baseUrl}/admin-listuser.php?page={$users.last}" class="a1">尾页</a>
+          </li>           
+          {/if}
+    </div> 
+    
+    <br>
+    {if $isShow=='T'}
+    <div style="width:98%;  border:1px solid #006D84">
+        <div style="width:100%; height:25px; border:1px solid #FFFFFF; background-color:#4995A8; text-align:left; padding-top:5px; padding-left:20px; color:#FFFFFF">
+            <li style="display:inline; float:left"><strong>用户详细信息</strong></li>
+        </div>
+        <div style="width:100%; padding-top:15px">
+           <li style="display:inline; width:49%; float:left; text-align:left; height:22px; padding-left:10px"> 用户昵称：{$user[0].usernc}</li>
+           <li style="display:inline; width:49%; float:left; text-align:left; height:22px; padding-left:10px">真实姓名：{$user[0].truename}</li>
+           <li style="display:inline; width:49%; float:left; text-align:left; height:22px; padding-left:10px">性别：{$user[0].sex}</li>
+           <li style="display:inline; width:49%; float:left; text-align:left; height:22px; padding-left:10px">联系电话： {$user[0].tel}</li>
+           <li style="display:inline; width:49%; float:left; text-align:left; height:22px; padding-left:10px">最后登录时间 ：{$user[0].lastlogintime}</li>
+           <li style="display:inline; width:49%; float:left; text-align:left; height:22px; padding-left:10px">登录次数 ：{$user[0].logintimes}</li>
+           <li style="display:inline; width:49%; float:left; text-align:left; height:22px; padding-left:10px">E-mail ：{$user[0].email}</li>
+           <li style="display:inline; width:49%; float:left; text-align:left; height:22px; padding-left:10px">QQ ：{$user[0].qq}</li>
+           <li style="display:inline; width:49%; float:left; text-align:left; height:22px; padding-left:10px">注册时间 ：{$user[0].regtime}</li>
+           <li style="display:inline; width:49%; float:left; text-align:left; height:22px; padding-left:10px">最后登录IP ：{$user[0].ip}</li>
+           <li style="display:inline; width:49%; float:left; text-align:left; height:22px; padding-left:10px">邮编：{$user[0].yb}</li>
+           <li style="display:inline; width:49%; float:left; text-align:left; height:22px; padding-left:10px">用户类型 ：{ if $user[0].usertype==1}管理员{else}普通用户{/if}</li>
+           <li style="display:inline; width:100%; float:left; text-align:left; height:22px; padding-left:10px">联系地址：{$user[0].address}</li>
+       
+        
+        </div>
+    
+    
+    </div>    
+    {/if}
+            
+    
+    

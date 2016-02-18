@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="../Public/Jquery/jquery-1.4.2.js"></script>
+<script type="text/javascript" src="../Public/Jquery/developAuto.js"></script>
+<script type="text/javascript" src="../Public/Jquery/developTo.js"></script>
+<link tyle="text/css" rel="stylesheet" href="../Public/Css/develop.css">
+<title>图书开发</title>
+</head>
+<body>
+	<div id="continue">
+		<div class="search">
+			<div class="titleTop"><img src="../Public/Images/logo.jpg"></div>
+			<div class="titleSea">
+			<form action="__URL__/action" method="post">
+				<span>MY MINGRI&nbsp;&nbsp;|&nbsp;&nbsp;HOME&nbsp;&nbsp;|&nbsp;&nbsp;EMAIL&nbsp;&nbsp;|&nbsp;&nbsp;PHONE</span><br>
+				<input class="inputOne" type="text" name="text"><input type="submit" name="sub"class="inputTwo"  value="搜索">
+			</form>
+			</div>
+		</div>
+		<div id="totle">
+			<ul>
+				<li><a href="__URL__">网站首页</a></li>
+				<li><a class="liA"href="#">Java</a></li>
+				<div class="totleDiv">
+					<volist name="Java" id="javaContent">
+						<span id="span"><a href="__URL__/dev/id/{$javaContent.id}">{$javaContent.new_book}</a></span><br>
+					</volist>
+				</div>
+				<li><a class="liA"href="#">C#</a></li>
+					<div class="totleDiv">
+					<volist name="C" id="Content">
+						<span id="span" ><a href="__URL__/dev/id/{$Content.id}">{$Content.new_book}</a></span><br>
+					</volist>
+				</div>
+				<li><a class="liA"href="#">PHP</a></li>
+					<div class="totleDiv">
+					<volist name="PHP" id="phpContent">
+						<span id="span"><a href="__URL__/dev/id/{$phpContent.id}">{$phpContent.new_book}</a></span><br>
+					</volist>
+				</div>
+			</ul>
+		</div>
+		<div id="content">
+			<div class="left">
+				<div class="leftSpan" style="width:200px">新闻热点</div>
+				<div class="leftSpanDiv">
+    				<ul><volist name='content' id='ContentType'>
+        				<li>&nbsp;&nbsp;<a href='__URL__/lord/id/{$ContentType.id}'>{$ContentType.content|msubstr=0,12}...</a></li>
+    				</volist></ul>
+				</div>
+			</div>
+			<div class="right">
+				<div class="rightSpan" style="width:585px;height:20px">新书展示</div>
+				<div class="rightSpanDiv">
+    				<MARQUEE DIRECTION=LEFT BEHAVIOR=alternate SCROLLAMOUNT=1 SCROLLDELAY=200>
+    						<img src="../Public/Images/JavaII.jpg" width="140px" height="174px">
+    						<img src="../Public/Images/JavaPP.jpg" width="140px" height="174px">
+    						<img src="../Public/Images/CII.jpg" width="140px" height="174px">
+    						<img src="../Public/Images/CPP.jpg" width="140px" height="174px">
+    						<img src="../Public/Images/PHPII.jpg" width="140px" height="174px">
+    						<img src="../Public/Images/PHPP.jpg" width="140px" height="174px">
+    				</MARQUEE>
+				</div>
+			</div>
+			<div class="bottom">
+				<div class="bottomLeft">
+					<br><br><div class="bottomSpan">什么是Java</div><br>
+					<div class="bottomSpan">什么是PHP</div><br>
+					<div class="bottomSpan">什么是C#</div>
+				</div>
+				<div class="bottomRight">
+					<div class="extendsRight">学习园地</div>
+					<div class="extends">
+						<ul class="exc">
+							<li class="ex">
+								Java是1995年6月有Sun（太阳微电子）公司引进的变个性语言。Java较其他语言相比，最大的特点是
+								编写的软件能在执行码上兼容，可以在所有的计算机上运行。除此之外Java还有如下特点：1、简单（待考究）2、面向对象3、与平台无关即可移植性较好4、多线程5、
+								安全6、动态
+							</li>
+							<li class="ex">
+								PHP起源于1995年，由Rasmus Lerdorf开发。PHP是Hypertext Preprocessor（超文本预处理器）的缩写。是一种开源、跨平台、独立于架构、解释型、面向对象、快速安全
+								、简单易学、性能优越的Web服务器端动态网页开发语言。目前已有超过2200万个网站、1.5万家公司、450万程序员在使用PHP语言，它是目前动态网页开发中使用最为广泛的
+								语言之一。
+							</li>
+							<li class="ex">
+								C#是微软公司为Visual Studio开发平台推出的一种简洁、安全的面向对象的编程语言，开发人员可以通过它编写
+								在.NET Framwork上运行的各种安全可靠的应用程序，例如控制台应用程序、WinForms应用程序和Web应用程序等。
+								由于C#简单易学，而且可以跨平台使用，因此它正在成为程序开发人员使用的主流编程语言。
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript">
+				$(".ex:gt(0))").hide();
+				$(".bottomSpan:first").click(function(){
+					$(".ex:first").show(1500);
+					$(".ex:not(:first)").hide();
+				});
+				$(".bottomSpan:eq(1)").click(function(){
+					$(".ex:eq(1)").show(1500);
+					$(".ex:not(:eq(1))").hide();
+				});
+				$(".bottomSpan:last").click(function(){
+					$(".ex:last").show(1500);
+					$(".ex:not(:last)").hide();
+				});
+		</script>
+		<div id="footer">
+			<div class="footContent">MY MINGRI&nbsp;&nbsp;|&nbsp;&nbsp;HOME&nbsp;&nbsp;|&nbsp;&nbsp;EMAIL&nbsp;&nbsp;|&nbsp;&nbsp;PHONE</div>
+			<div class="footContentB">版权所有(c)明日科技</div>
+		</div>
+		<div class="SayIm">IPC备案证书号：0123456789</div>
+	</div> 
+</body>
+</html>

@@ -1,0 +1,154 @@
+<style type="text/css">
+    .list_frame                                           {width:960px; clear:both;}
+    .list_frame .left                                     {width:660px; float:left;}
+    .list_frame .left .type                               {margin-left:0px; margin-right:0px; height:90px; line-height:30px; font-size:14px; color:#0257AE; border:1px dashed #1B68B8; background-color:#E7F6FB; text-align:left; clear:both;}
+    .list_frame .left .nav                                {margin-left:0px; margin-right:0px; height:20px; clear:both;} 
+    .list_frame .left .list                               {margin-left:0px; margin-right:0px; border:1px solid #92C7ED; background-color:#FAFEFF;}
+    .list_frame .left .list .content                      {width:95%; border-bottom:1px solid #CCCCCC; clear:both;} 
+    .list_frame .left .list .content .title               {width:100%; height:30px; line-height:30px; text-align:left; font-weight:bold; clear:both;}
+    .list_frame .left .list .content .description         {width:100%; height:50px; line-height:25px; text-align:left; color:#888888; clear:both;}   
+    .list_frame .left .list .content .msg                 {width:100%; height:30px; line-height:30px; text-align:left; clear:both;}
+    .list_frame .right                                    {width:290px; float:right;}  
+    .list_frame .right .p1                                {margin-left:0px; margin-right:0px; height:250px; border:1px solid #92C7ED; clear:both;} 
+    .list_frame .right .p1 .title                         {margin-left:0px; margin-right:0px; position:relative; height:28px; line-height:28px; text-align:left; color:#0257AE; background:url(<?php echo $this->baseUrl('/img/title_bg1.gif')?>); border:1px solid #FFFFFF; clear:both;}
+    .list_frame .right .p1 .content                       {margin-left:0px; margin-right:0px; clear:both;}
+    .list_frame .right .p1 .content .p                    {width:49%; height:105px; line-height:22px; float:left;}
+    .list_frame .right .p2                                {margin-left:0px; margin-right:0px; height:240px; border:1px solid #92C7ED; clear:both;} 
+    .list_frame .right .p2 .title                         {margin-left:0px; margin-right:0px; position:relative; height:28px; line-height:28px; text-align:left; color:#0257AE; background:url(<?php echo $this->baseUrl('/img/title_bg1.gif')?>); border:1px solid #FFFFFF; clear:both;}
+    .list_frame .right .p2 .content                       {margin-left:0px; margin-right:0px; clear:both;}
+    .list_frame .right .p2 .content li                    {width:95%; height:26px; line-height:26px; text-align:left; overflow:hidden; clear:both;} 
+    .list_frame .right .p3                                {margin-left:0px; margin-right:0px; height:280px; border:1px solid #92C7ED; clear:both;} 
+    .list_frame .right .p3 .title                         {margin-left:0px; margin-right:0px; position:relative; height:28px; line-height:28px; text-align:left; color:#0257AE; background:url(<?php echo $this->baseUrl('/img/title_bg1.gif')?>); border:1px solid #FFFFFF; clear:both;}
+    .list_frame .right .p3 .content                       {margin-left:0px; margin-right:0px; clear:both;}
+    .list_frame .right .p3 .content .np1                  {width:49%; height:105px; line-height:22px; overflow:hidden;  float:left;}
+    .list_frame .right .p3 .content .np2                  {width:95%; height:26px; line-height:26px; text-align:left; overflow:hidden;}
+    .list_frame .right .p4                                {margin-left:0px; margin-right:0px; height:326px; border:1px solid #92C7ED; clear:both;}    
+    .list_frame .right .p4 .title                         {margin-left:0px; margin-right:0px; position:relative; height:28px; line-height:28px; text-align:left; color:#0257AE; background:url(<?php echo $this->baseUrl('/img/title_bg1.gif')?>); border:1px solid #FFFFFF; clear:both;}
+    .list_frame .right .p4 .content1                      {width:95%; clear:both;}
+    .list_frame .right .p4 .content2                      {width:95%; height:26px; line-height:26px; text-align:left; overflow:hidden; clear:both;}
+    .list_frame .right .p4 .content1 .cl                  {width:40%; height:100px; float:left;}
+    .list_frame .right .p4 .content1 .cr                  {width:58%; height:100px; float:right;}
+    .list_frame .right .p4 .content1 .cr .li1             {margin-left:0px; margin-right:0px; height:30px; line-height:30px; clear:both;}
+    .list_frame .right .p4 .content1 .cr .li2             {margin-left:0px; margin-right:0px; height:60px; line-height:20px; text-align:left; color:#888888; clear:both;}
+    
+</style>
+
+
+<div class="list_frame">
+    <div class="left">
+        <div class="type">
+　新闻分类：<a href="<?php echo $this->baseUrl('/news/list-all-0-1.html')?>" <?php if($this->flag=='all'):?>class="a8"<?php endif;?>>全部新闻</a>　<a href="<?php echo $this->baseUrl('/news/list-ttj-0-1.html')?>" <?php if($this->flag=='ttj'):?>class="a8"<?php endif;?>>今日推荐</a>　<a href="<?php echo $this->baseUrl('/news/list-0-0-1.html')?>" <?php if(strval($this->flag)=='0'):?>class="a8"<?php endif;?>>站内新闻</a>　<a href="<?php echo $this->baseUrl('/news/list-1-0-1.html')?>" <?php if(strval($this->flag)=='1'):?>class="a8"<?php endif;?>>人物新闻</a>　<a href="<?php echo $this->baseUrl('/news/list-2-0-1.html')?>" <?php if(strval($this->flag)=='2'):?>class="a8"<?php endif;?>>高端访谈</a>　<a href="<?php echo $this->baseUrl('/news/list-3-0-1.html')?>" <?php if(strval($this->flag)=='3'):?>class="a8"<?php endif;?>>产品快讯</a>　<a href="<?php echo $this->baseUrl('/news/list-4-0-1.html')?>" <?php if(strval($this->flag)=='4'):?>class="a8"<?php endif;?>>企业动态</a>　<a href="<?php echo $this->baseUrl('/news/list-5-0-1.html')?>" <?php if(strval($this->flag)=='5'):?>class="a8"<?php endif;?>>互联网</a><br/>
+　　　　　　<a href="<?php echo $this->baseUrl('/news/list-6-0-1.html')?>" <?php if(strval($this->flag)=='6'):?>class="a8"<?php endif;?>>游戏资讯</a>　<a href="<?php echo $this->baseUrl('/news/list-7-0-1.html')?>" <?php if(strval($this->flag)=='7'):?>class="a8"<?php endif;?>>广告传媒</a>　<a href="<?php echo $this->baseUrl('/news/list-8-0-1.html')?>" <?php if(strval($this->flag)=='8'):?>class="a8"<?php endif;?>>财经报道</a>　<a href="<?php echo $this->baseUrl('/news/list-9-0-1.html')?>" <?php if(strval($this->flag)=='9'):?>class="a8"<?php endif;?>>图片新闻</a>　<a href="<?php echo $this->baseUrl('/news/list-10-0-1.html')?>" <?php if(strval($this->flag)=='10'):?>class="a8"<?php endif;?>>综合资讯</a><br/>
+　查看方式：<a href="<?php echo $this->baseUrl('/news/list-'.$this->flag.'-0-1.html')?>" <?php if(strval($this->order)=='0'):?>class="a8"<?php endif;?>>时间降序</a>　<a href="<?php echo $this->baseUrl('/news/list-'.$this->flag.'-1-1.html')?>" <?php if(strval($this->order)=='1'):?>class="a8"<?php endif;?>>时间升序</a>　<a href="<?php echo $this->baseUrl('/news/list-'.$this->flag.'-2-1.html')?>" <?php if(strval($this->order)=='2'):?>class="a8"<?php endif;?>>关注降序</a>　<a href="<?php echo $this->baseUrl('/news/list-'.$this->flag.'-3-1.html')?>" <?php if(strval($this->order)=='3'):?>class="a8"<?php endif;?>>关注升序</a>
+        </div>
+        <div class="cell_h"></div>
+        <div class="nav">
+            <?php echo $this->paginationControl($this->paginator, 'Sliding', 'list_news_pagination_control.phtml', array('flag'=>$this->flag, 'order'=>$this->order))?>
+        </div>
+        <div class="cell_h"></div>
+        <div class="list">
+            <?php foreach ($this->paginator as $news):?>
+            <div class="content">
+                <div class="title">
+                    ·<a href="<?php echo $this->baseUrl('/news/info-'.$news['id'].'-1.html')?>" class="a25"><?php echo $this->escape($news['title'])?></a>
+                </div>
+                <div class="description">
+                    　　<?php echo trim($this->escape($this->substr($news['uncontent'], 220)))?>　<a href="<?php echo $this->baseUrl('/news/info-'.$news['id'].'-1.html')?>" class="a3"><nobr>&lt;详细&gt;</nobr></a>
+                </div>
+                <div class="msg">
+                来源：<font color="#888888"><?php echo $this->escape($news['source'])?></font>　|　作者：<font color="#888888"><?php echo $this->escape($news['author'])?></font>　|　时间：<font color="#888888"><?php echo substr($news['addtime'], 0, 16)?></font>　|　浏览：<font color="#888888"><?php echo $news['browse']?></font>&nbsp;次
+                </div>
+            </div>
+            <?php endforeach;?>
+            <div class="cell_h"></div>
+        </div>
+        <div class="cell_h"></div>
+        <div class="nav">
+            <?php echo $this->paginationControl($this->paginator, 'Sliding', 'list_news_pagination_control.phtml', array('flag'=>$this->flag, 'order'=>$this->order))?>
+        </div>
+    </div>
+    <div class="right">
+        <div style="margin-left:0px; margin-right:0px; height:150px; clear:both; background-color:#DDDDDD;">
+        <!-- 广告位 -->
+        </div>
+        
+        <div class="cell_h"></div>
+        <div class="p1">
+            <div class="title">
+                <img src="<?php echo $this->baseUrl('/img/title_mark1.gif')?>" style="position:absolute; left:8px; top:9px;" alt="图片新闻"/>　　图片新闻　　　　　　　　　　　　　<a href="<?php echo $this->baseUrl('/news/list-9-0-1.html')?>" class="a7">[更多]</a>
+            </div>
+            <div class="content">
+                <?php foreach ($this->imgNewses as $imgNews):?>
+                <div class="p">
+                    <a href="<?php echo $this->baseUrl('/news/info-'.$imgNews['id'].'-1.html')?>"><img src="<?php echo $this->baseUrl('/upfile/file/'.$imgNews['imagename'])?>" style="width:110px; height:73px; margin-top:8px; border:1px solid #40D70B" onmouseover="this.style.borderColor='#CCCCCC'" onmouseout="this.style.borderColor='#40D70B'" alt="<?php echo $this->escape($imgNews['title'])?>"/></a> 
+                    <br/><a href="<?php echo $this->baseUrl('/news/info-'.$imgNews['id'].'-1.html')?>" title="<?php echo $this->escape($imgNews['title'])?>" class="a24"><?php echo $this->substr($this->escape($imgNews['title']), 20)?></a>
+                </div> 
+                <?php endforeach;?>
+            </div>
+        </div>
+        <div class="cell_h"></div>
+        <div class="p2">
+            <div class="title">
+                <img src="<?php echo $this->baseUrl('/img/title_mark1.gif')?>" style="position:absolute; left:8px; top:9px;" alt="热门新闻" />　　热门新闻　　　　　　　　　　　　　<a href="<?php echo $this->baseUrl('/news/list-all-2-1.html')?>" class="a7">[更多]</a>
+            </div>
+            <div class="content">
+                <ul>
+                    <?php foreach ($this->hotNewses as $hotNews):?>
+                    <li>·<a href="<?php echo $this->baseUrl('/news/info-'.$hotNews['id'].'-1.html')?>" title="<?php echo $this->escape($hotNews['title'])?>"><?php echo $this->substr($this->escape($hotNews['title']), 40)?></a>&nbsp;<font style="font-size:11px; color:#666666; font-family:Arial;">/<?php echo $hotNews['browse']?>/</font></li>
+                    <?php endforeach;?>
+                </ul>
+            </div>
+        </div>
+        <div class="cell_h"></div>
+        <div class="p3">
+            <div class="title">
+                <img src="<?php echo $this->baseUrl('/img/title_mark1.gif')?>" style="position:absolute; left:8px; top:9px;" alt="IT人物"/>　　IT人物　　　　　　　　　　　　　　<a href="<?php echo $this->baseUrl('/news/list-1-0-1.html')?>" class="a7">[更多]</a>
+            </div>
+            <div class="content">
+                <?php foreach ($this->personNewses as $key => $personNews):?>
+                    <?php if($key < 2):?>
+                <div class="np1">
+                    <a href="<?php echo $this->baseUrl('/news/info-'.$personNews['id'].'-1.html')?>"><img src="<?php echo $this->baseUrl('/upfile/file/'.$personNews['imagename'])?>" style="width:110px; height:73px; margin-top:8px; border:1px solid #40D70B" onmouseover="this.style.borderColor='#CCCCCC'" onmouseout="this.style.borderColor='#40D70B'" alt="<?php echo $this->escape($personNews['title'])?>"/></a> 
+                    <br/><a href="<?php echo $this->baseUrl('/news/info-'.$personNews['id'].'-1.html')?>" title="<?php echo $this->escape($personNews['title'])?>" class="a24"><?php echo $this->substr($this->escape($personNews['title']), 20)?></a>
+                </div>
+                    <?php endif;?>
+                    <?php if($key == 2):?>
+                <div class="clear"></div>
+                    <?php endif;?>   
+                    <?php if($key > 1):?>  
+                <div class="np2">
+                    ·<a href="<?php echo $this->baseUrl('/news/info-'.$personNews['id'].'-1.html')?>" title="<?php echo $this->escape($personNews['title'])?>"><?php echo $this->substr($this->escape($personNews['title']), 50)?></a>
+                </div>  
+                    <?php endif;?>   
+                <?php endforeach;?>
+            </div>
+        </div>
+        <div class="cell_h"></div>
+        <div class="p4">
+            <div class="title">
+                <img src="<?php echo $this->baseUrl('/img/title_mark1.gif')?>" style="position:absolute; left:8px; top:9px;" alt="高端访谈"/>　　高端访谈　　　　　　　　　　　　　<a href="<?php echo $this->baseUrl('/news/list-2-0-1.html')?>" class="a7">[更多]</a>
+            </div>
+            <?php foreach ($this->heighPersonNewses as $key => $heighPersonNews):?>
+                <?php if($key == 0):?>
+            <div class="content1">
+                <div class="cl">
+                    <a href="<?php echo $this->baseUrl('/news/info-'.$heighPersonNews['id'].'-1.html')?>"><img src="<?php echo $this->baseUrl('/upfile/file/'.$heighPersonNews['imagename'])?>" style="width:90px; height:60px; margin-top:15px; border:1px solid #40D70B" onmouseover="this.style.borderColor='#CCCCCC'" onmouseout="this.style.borderColor='#40D70B'" alt="<?php echo $this->escape($heighPersonNews['title'])?>"/></a> 
+                </div>
+                <div class="cr">
+                    <ul>
+                        <li class="li1"><a href="<?php echo $this->baseUrl('/news/info-'.$heighPersonNews['id'].'-1.html')?>" title="<?php echo $this->escape($heighPersonNews['title'])?>" class="a24"><?php echo $this->substr($this->escape($heighPersonNews['title']), 30)?></a></li>
+                        <li class="li2">　　<?php echo trim($this->substr($this->escape($heighPersonNews['uncontent']), 75))?><a href="<?php echo $this->baseUrl('/news/info-'.$heighPersonNews['id'].'-1.html')?>" class="a3">&lt;详细&gt;</a></li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+                <?php else:?>
+            <div class="content2">
+                ·<a href="<?php echo $this->baseUrl('/news/info-'.$heighPersonNews['id'].'-1.html')?>" title="<?php echo $this->escape($heighPersonNews['title'])?>"><?php echo $this->substr($this->escape($heighPersonNews['title']), 50)?></a> 
+            </div>    
+                <?php endif;?>
+            <?php endforeach;?>  
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>

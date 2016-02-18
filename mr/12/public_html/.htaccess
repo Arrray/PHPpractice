@@ -1,0 +1,4 @@
+#开启URL重写引擎
+RewriteEngine on
+#定义URL重写规则
+RewriteRule !\.(css|js|gif|jpg|png|bmp|swf|CSS|JS|GIF|JPG|PNG|BMP|SWF)$ index.php

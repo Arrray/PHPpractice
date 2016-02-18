@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="../Public/Jquery/jquery-1.4.2.js"></script>
+<title>后台管理系统</title>
+</head>
+<style>
+body{margin:0px 0px;font-size:12px}
+#content{width:930px;height:400px;margin:0px auto;}
+.top{width:930px;height:80px;}
+.topLeft{float:left;margin-top:18px;}
+.topRight{float:right;margin-top:35px;margin-right:100px;color:#294BE6;font-size:13px;font-family:"楷体_gb2312";font-weight:930}
+.title{height:20px;width:930px;background-image:url(../Public/Images/titlePic.jpg)}
+.titleButton{list-style:none;}
+.title li{float:left;padding-left:40px;color:white;padding-top:4px;font-size:12px}
+.title li a:link{color:white;}
+.title li a:vlink{color:white;}
+.title li a:visited{color:white;}
+.title li a:action{color:white;}
+.title li a{text-decoration:none;}
+.left{width:200px;margin-top:5px;float:left}
+#footer{width:930px;height:45px;border:1px solid #e7e7e9;margin-top:5px;background-image:url(../Public/Images/footerPic.jpg)}
+.footContent{margin:15px 5px;font-size:12px;color:white;float:left;}
+.footContentB{font-size:12px;color:white;float:right;margin-top:15px;margin-right:2px}
+.SayIm{font-size:12px;letter-spacing:2px;color:#AFAFAF;margin-top:5px;padding-left:800px}
+.leftLi{width:175px;height:20px;background-image:url(../Public/Images/titlePic.jpg);padding-left:20px;color:white;font-size:13px;font-family:"楷体_gb2312";padding-top:2px}
+.liDiv{background-color:#45CCF4;width:195px;}
+.liDiv li a{color:white;margin-top:5px;font-size:13px;font-family:"楷体_gb2312"}
+.liDiv li a{text-decoration:none;}
+.liDiv li a:link{color:white;}
+.liDiv li a:vlink{color:white;}
+.liDiv li a:visited{color:white;}
+.liDiv li a:action{color:white;}
+.liDiv ul{height:300px}
+.right{float:right;width:710px;border:1px solid #043FDB;height:405px;margin:5px 0px;background-color:#45CCF4; padding-left:10px;}
+.right_1{height:405px;width:720px;color:white;font-family:"楷体_gb2312";}
+.right_1 .inputOne{width:450px;}
+.right_1 .inputTwo{width:450px;height:100px;}
+.right_2{height:405px;width:720px;color:white;font-family:"楷体_gb2312";display:none}
+.right_3{height:405px;width:720px;color:white;font-family:"楷体_gb2312";display:none}
+.rightTitle{width:700px;height:20px;background-image:url(../Public/Images/titlePic.jpg);text-align:center;color:white;font-size:13px;font-family:"楷体_gb2312"}
+.inputThree{margin-top:20px;width:450px; height:120px;}
+.right_4{height:405px;width:720px;color:white;font-family:"楷体_gb2312";display:none}
+.right_4 .inputOne{width:450px;}
+.right_4 .inputTwo{width:450px;height:100px;}
+.right_5{height:405px;width:720px;color:white;font-family:"楷体_gb2312";display:none}
+.right_5 .inputOne{width:450px;}
+.right_5 .inputTwo{width:450px;height:100px;}
+.right_6{height:405px;width:720px;color:white;font-family:"楷体_gb2312";display:none}
+.right_6 .inputOne{width:450px;}
+.right_6 .inputTwo{width:450px;height:100px;}
+.right_7{height:405px;width:720px;color:white;font-family:"楷体_gb2312";display:none}
+.right_8{height:405px;width:720px;color:white;font-family:"楷体_gb2312";display:none}
+.right_8 .inputOne{width:450px;}
+.right_8 .inputTwo{width:450px;height:100px;}
+.change{position:absolute;width:450px;height:100px;background-color:#45CCF4;border:1px solid #0348E3;margin-top:20px;margin-left:-50px;padding-top:5px;padding-left:5px;display:none}
+.back{position:absolute;width:100px;height:80px;background-color:#45CCF4;border:1px solid #0348E3;margin-top:20px;margin-left:-50px;padding-top:5px;padding-left:5px;letter-spacing:2px;display:none}
+</style>
+<body>
+	<div id="content">
+		<div class="top">
+			<div class="topLeft"><img src="../Public/Images/adminLogo.jpg"></div>
+			<div class="topRight" style="background-image: url(../Public/Images/titlePic.JPG)" ></div>
+		</div>
+		<div class="title">
+			<ul class="titleButton">
+				<li><a class="titleChange" href="#">更改密码</a></li>
+				<div class="change">
+					<form action="__URL__/change" method="post">
+						新&nbsp;&nbsp;密&nbsp;&nbsp;码：<input type="password" name="pwd"><br>
+						重复输入：<input type="password" name="pwdd">
+						<input type="submit" value="确定">
+					</form>
+				</div>
+				<li><a class="titleBack" href="__URL__/framework/id/back">项目所需数据表</a></li>
+				<div class="back" style="display:{$type}">
+					<volist name="list" id="idList">
+						<a href="__URL__/framework/id/back/{$idList.Tables_in_project}">{$idList.Tables_in_db_project}</a><br>
+					</volist>
+					<a style="float:right;border:1px solid #0348E3;background-color:white;color:#0348E3;margin-top:4px" href="__URL__/framework/id/cancel">取消</a>
+				</div>
+				<li><a href="__URL__/clear">用户注销</a></li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			$(function(){
+				$(".titleChange").toggle(function(){
+					$(this).next(".change").fadeIn("slow");
+				},function(){
+					$(this).next(".change").fadeOut("slow");
+				});			
+			});
+		</script>
+		<div class="left">
+				<div class="leftLi">增加新闻</div>
+				<div class="liDiv" >
+					<ul class="liDivUl">
+						<li><a href="__URL__/framework/id/addNews">单条增加新闻</a></li>
+					</ul>
+				</div>
+				<div class="leftLi">更新新闻</div>
+				<div class="liDiv">
+					<ul class="liDivUl">
+						<li><a href="__URL__/framework/id/updateNews">操作代码式更新</a></li>
+						<li><a href="__URL__/framework/id/viewUpdateNews">操作界面式更新</a></li>
+					</ul>
+				</div>
+				<div class="leftLi">增加新书</div>
+				<div class="liDiv">
+					<ul class="liDivUl">
+						<li><a href="__URL__/framework/id/addBook">单条增加新书</a></li>
+					</ul>
+				</div>
+				<div class="leftLi">更新新书</div>
+				<div class="liDiv" >
+				<ul class="liDivUl">
+						<li><a href="__URL__/framework/id/updateNewbook">操作代码式更新</a></li>
+						<li><a href="__URL__/framework/id/viewUpdateNewbook">操作界面式更新</a></li>
+				</ul>
+				</div>
+		</div>
+		<script type="text/javascript">
+			$(".liDiv:gt(0)").hide();
+			$(".leftLi").toggle(function(){
+				$(".liDiv").hide();
+				$(this).next(".liDiv").fadeIn("fast");	
+			},function(){
+				$(this).next(".liDiv").hide();
+				$(".liDiv:not(:first)").hide();
+				$(".liDiv:first").fadeIn("fast");
+			});
+		</script>
+		<div class="right">
+			<div class="rightTitle">{$title}</div>
+				<div class="right_1" style="display:{$language_1}">
+					<form action="__URL__/adminForm" method="post">
+						新闻标题：<input class="inputOne" type="text" name="text"><br>
+						新闻内容：<textarea class="inputTwo" name="textarea"></textarea>
+						<input type="submit" name="sub" value="确定">
+					</form>
+				</div>
+				<div class="right_2" style="display:{$language_2}">
+					<form action="__URL__/adminUpdateFormSQL" method="post">
+						SQL代码：<textarea class="inputThree" name="textarea"></textarea>
+						<input type="submit" name="sub" value="确定">
+					</form>
+				</div>
+			<div class="right_3"style="display:{$language_3}">
+				<table align="center">
+					<volist name="pc" id="pList">
+					<tr>
+						<td style="border:1px solid white" width=50px>{$pList.id}</td><td style="border:1px solid white"width="500">{$pList.title|msubstr=0,30}...</td><td width="100px" style="border:1px solid white"><a href="__URL__/update/newIdUpdate/{$pList.id}">编辑</a>|<a href="__URL__/delete/newIdDelet/{$pList.id}">删除</a></td>
+					</tr>
+					</volist>
+					<tr>
+						<td colspan='3'>{$page}</td>
+					</tr>
+				</table>
+			</div>
+			<div class="right_4" style="display:{$language_4}">
+				<form action="__URL__/adminUpdate" method="post">
+					<input type="hidden" name="head" value="{$head}">
+					新闻标题：<input class="inputOne"type="text" name="title" value="{$title}"><br>
+					新闻内容：<textarea name="content" class="inputTwo">{$content}</textarea><br>
+					发布时间：<input type="text" class="inputOne" name="time" value="{$time}">
+					<input type="submit"  value="更新">
+				</form>
+			</div>
+			<div class="right_5" style="display:{$language_5}">
+				<form action="__URL__/adminBookAdd" method="post">
+					<input type="hidden" name="head" value="{$head}">
+					类别选择：<select name="select" class="inputOne">
+								<option value="1">Java</option>
+								<option value="2">C#</option>
+								<option value="3">PHP</option>
+							 </select><br>
+					新书名称：<input class="inputOne"type="text" name="text" ><br>
+					新书说明：<textarea class="inputTwo" name="textarea"></textarea><br>
+					<input type="submit"  value="发布">
+				</form>
+			</div>
+			<div class="right_6" style="display:{$language_6}">
+				<form action="__URL__/adminUpdateFormBookSQL" method="post">
+					SQL代码：<textarea class="inputThree" name="textarea"></textarea>
+					<input type="submit" name="sub" value="确定">
+				</form>
+			</div>
+			<div class="right_7"style="display:{$language_7}">
+				<table align="center">
+					<volist name="pc" id="pList">
+					<tr>
+						<td style="border:1px solid white" width=50px>{$pList.id}</td><td style="border:1px solid white"width="500">{$pList.new_book|msubstr=0,30}...</td><td width="100px" style="border:1px solid white"><a href="__URL__/updateBook/viewNewIdUpdate/{$pList.id}">编辑</a>|<a href="__URL__/deleteBook/viewNewIdDelet/{$pList.id}">删除</a></td>
+					</tr>
+					</volist>
+					<tr>
+						<td colspan='3'>{$page}</td>
+					</tr>
+				</table>
+			</div>
+			<div class="right_8" style="display:{$language_8}">
+				<form action="__URL__/adminUpdateBook" method="post">
+					<input type="hidden" name="name" value="{$head}">
+					图书名称：<input class="inputOne"type="text" name="title" value="{$title}"><br>
+					图书说明：<textarea name="textarea" class="inputTwo">{$content}</textarea><br>
+					类别选择：<input type="text" name="type" value="{$type}"><br>
+					<input type="submit"  value="更新">
+				</form>
+			</div>
+		</div>
+		
+		<div id="footer">
+			<div class="footContent">MY MINGRI&nbsp;&nbsp;|&nbsp;&nbsp;HOME&nbsp;&nbsp;|&nbsp;&nbsp;EMAIL&nbsp;&nbsp;|&nbsp;&nbsp;PHONE</div>
+			<div class="footContentB">版权所有(c)明日科技</div>
+		</div>
+		<div class="SayIm">IPC备案证书号：0123456789</div>
+	</div>
+</body>
+</html>

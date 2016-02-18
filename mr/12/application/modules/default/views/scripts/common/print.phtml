@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <?php 
+            echo $this->headMeta()->setHttpEquiv('content-type', 'text/html; charset=utf-8')
+                                  ->setHttpEquiv('keywords', $this->escape($this->keywords))
+                                  ->setHttpEquiv('description', $this->escape($this->description));
+        ?>
+        <?php echo $this->headTitle($this->escape($this->title))?>
+        <?php echo $this->headLink()->setStylesheet($this->baseUrl('/css/style.css'))?>
+        <style type="text/css">
+            .title                              {width:680px; height:28px; line-height:28px; font-weight:bold; text-align:left; border-bottom:2px solid #888888; clear:both;}
+            .content                            {width:680px; line-height:22px; text-align:left; clear:both;}    
+            .copyright                          {width:680px; height:28px; line-height:28px; text-align:left; border-top:2px solid #888888; clear:both;}
+            @media print{
+               .noprint{
+        	       display:none
+               }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="noprint" style="width:680px; height:30px; line-height:30px; color:#0257AE; text-align:left;">
+            [<a href="#" onclick="printView()" class="a3">打印预览</a>]　[<a href="#" onclick="window.print()" class="a3">打印</a>]
+        </div> 
+        <div class="title">
+                               主题：<?php echo $this->escape($this->content['title'])?>
+        </div>
+        <div class="cell_h"></div>
+        <div class="content">
+        <?php  
+             $content = $this->content['content'];
+             $content = str_replace($this->config['pageInfo']['default']['baseUrlStr_replace'], $this->config['pageInfo']['default']['baseUrlStr'], $content);
+             echo str_replace('@p@', '', stripcslashes($content));
+         ?>
+        </div>
+        <div class="cell_h"></div>
+        <div class="copyright">
+        Copyright&nbsp;&copy;&nbsp;<?php echo $this->escape($this->config['pageInfo']['default']['siteRunTime'])?>&nbsp;<?php echo $this->escape($this->config['pageInfo']['default']['title'])?>
+        </div>
+        <object id="webBrowser" width="0" height="0" classid="CLSID:8856F961-340A-11D0-A96B-00C04FD705A2"></object>
+        <script language="javascript">     
+            function printView(){  
+                document.all.webBrowser.ExecWB(7,1) ;
+            }     
+        </script>
+    </body>
+</html>

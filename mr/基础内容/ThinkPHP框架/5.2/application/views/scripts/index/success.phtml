@@ -1,0 +1,28 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title><?php echo $this->escape($this->title); ?></title>
+<style type="text/css">
+<!--
+.STYLE5 {font-size: 12px; color: #FFCC00; font-weight: bold; }
+-->
+</style>
+</head>
+
+<body>
+<table width="231" border="1" cellpadding="1" cellspacing="1" bordercolor="#FFFFFF" bgcolor="#F9D541">
+  <tr height="30">
+    <td width="76" align="right" bgcolor="#FFFFFF"><span class="STYLE5">用户名：</span></td>
+    <td width="142" bgcolor="#FFFFFF">&nbsp;<span class="STYLE5"><?php echo $this->escape($this->username); ?></span></td>
+  </tr>
+  <tr height="30">
+    <td align="right" bgcolor="#FFFFFF"><span class="STYLE5">密&nbsp; 码：</span></td>
+    <td bgcolor="#FFFFFF">&nbsp;<span class="STYLE5"><?php echo $this->escape($this->password); ?></span></td>
+  </tr>
+  <tr height="30">
+    <td colspan="2" align="center" bgcolor="#FFFFFF" id="clickout"><a href="<?php echo $this->Url(array('controller'=>'index','action'=>'logout')); ?>" class="STYLE5">安全退出</a></td>
+  </tr>
+</table>
+</body>
+</html>

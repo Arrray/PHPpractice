@@ -1,0 +1,124 @@
+<div style="width:950px; height:200px; background-color:#FFFFFF">
+    <div style="width:930px; height:30px; text-align:left; padding-top:5px; font-size:13px">
+        {util->unHtml p=$bigtype[0].typename}类图书所有子类导航：
+        {section name=stID loop=$smalltypes}     
+            <li style="display:inline"><a href="{util->baseUrl}/listbook-{$smalltypes[stID].id}-1.html" class="{if $stid == $smalltypes[stID].id}a31{else}a3{/if}">·{util->unHtml p=$smalltypes[stID].typename}</a>&nbsp;</li>
+        {/section}
+    </div>    
+    <div style="width:930px; height:21px; background:url({util->baseUrl}/img/title4.gif); border-top:1px solid #CCCCCC; padding-top:5px; text-align:left; padding-left:20px; font-size:13px">
+                      您当前的位置：明日网上书店&nbsp;>>&nbsp;{util->unHtml p=$bigtype[0].typename}类图书专区&nbsp;>>&nbsp;{util->unHtml p=$smalltype[0].typename}类图书         
+    </div>    
+    <div style="width:930px; height:60px; text-align:left; padding-top:5px; background-color:#F7F7F7; line-height:22px; padding-left:30px">
+        <font color="#990000">·排序方式：</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{util->baseUrl}/listbook-{$page}-1-{$cctype}-{$stid}.html" class="{if $pltype=='1'}a31{else}a3{/if}">上架时间</a>&nbsp;|&nbsp;<a href="{util->baseUrl}/listbook-{$page}-2-{$cctype}-{$stid}.html" class="{if $pltype=='2'}a31{else}a3{/if}">出版时间</a>&nbsp;|&nbsp;<a href="{util->baseUrl}/listbook-{$page}-3-{$cctype}-{$stid}.html" class="{if $pltype=='3'}a31{else}a3{/if}">价格由低到高</a>&nbsp;|&nbsp;<a href="{util->baseUrl}/listbook-{$page}-4-{$cctype}-{$stid}.html" class="{if $pltype=='4'}a31{else}a3{/if}">浏览次数由多到少</a>&nbsp;    
+                       <br>
+        <font color="#990000">·图书层次：</font><br>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{util->baseUrl}/listbook-{$page}-{$pltype}-1-{$stid}.html" class="{if $cctype=='1'}a31{else}a3{/if}">全部</a>&nbsp;|&nbsp; <a href="{util->baseUrl}/listbook-{$page}-{$pltype}-2-{$stid}.html" class="{if $cctype=='2'}a31{else}a3{/if}">初级入门</a>&nbsp;|&nbsp;<a href="{util->baseUrl}/listbook-{$page}-{$pltype}-3-{$stid}.html" class="{if $cctype=='3'}a31{else}a3{/if}">提高必备</a>&nbsp;|&nbsp;<a href="{util->baseUrl}/listbook-{$page}-{$pltype}-4-{$stid}.html" class="{if $cctype=='4'}a31{else}a3{/if}">高级导向 </a>                                       
+    </div>  
+    <div style="width:930px; height:25px; border-top:1px dotted #CCCCCC; padding-top:5px; text-align:left; padding-left:20px; background-color:#FFFBE5">
+        <li style="display:inline"> 当前排列方式：</li>
+        <li style="background-color:#EAEDEE; display:inline; width:120px; height:16px; text-align:center; padding-top:2px">
+             {if $pltype=='1'}
+                                                 上架时间
+             {elseif $pltype=='2'}
+                                                   出版时间
+             {elseif $pltype=='3'}
+                                                    价格由低到高  
+             {elseif $pltype=='4'}
+                                                      浏览次数由多到少               
+             {/if}
+         </li>    
+         <li style="display:inline; padding-left:20px">当前图书层次： </li>
+         <li style="background-color:#EAEDEE; display:inline; width:90px; height:16px; text-align:center; padding-top:2px">
+              {if $cctype=='1'}
+                                                      全部
+              {elseif $cctype=='2'}
+                                                       初级入门
+              {elseif $cctype=='3'}
+                                                       提高必备 
+              {elseif $cctype=='4'}
+                                                       高级导向               
+              {/if}
+          </li>
+          {if $bookinfos.countRs > 0}     
+          <li style="display:inline; padding-left:20px">该类图书共&nbsp;{$bookinfos.countRs}&nbsp;本&nbsp;&nbsp;每页显示&nbsp;{$bookinfos.pageSize}&nbsp;本&nbsp;&nbsp;第&nbsp;{$bookinfos.page}&nbsp;页/共&nbsp;{$bookinfos.countPage}&nbsp;页&nbsp;&nbsp;&nbsp;&nbsp;<a href="{util->baseUrl}/listbook-{$bookinfos.first}-{$pltype}-{$cctype}-{$stid}.html" class="a1">首页</a>&nbsp;
+              <a href="{util->baseUrl}/listbook-{$bookinfos.previous}-{$pltype}-{$cctype}-{$stid}.html" class="a1">上一页</a>&nbsp;
+              <a href="{util->baseUrl}/listbook-{$bookinfos.next}-{$pltype}-{$cctype}-{$stid}.html" class="a1">下一页</a>&nbsp;
+              <a href="{util->baseUrl}/listbook-{$bookinfos.last}-{$pltype}-{$cctype}-{$stid}.html" class="a1">尾页</a>
+          </li>            
+          {/if}
+    </div> 
+{if $bookinfos.countRs > 0} 
+{section name=pbID loop=$bookinfos.data}
+<div style="width:930px">
+    <br>
+    <div style="width:100%; height:180px">
+        <div style="width:20%; height:100%; float:left">
+            <a href="{util->baseUrl}/bookinfo-{$bookinfos.data[pbID].id}.html"><img src="{$system[0].bookimgurl}/{$bookinfos.data[pbID].bookimg}" width="110" height="150" style="border:1px solid #123456" /></a>
+        </div>
+        
+        <div style="width:78%; height:100%; float:right; text-align:left; font-size:13px">
+            <li style="display:inline"><a href="{util->baseUrl}/bookinfo-{$bookinfos.data[pbID].id}.html" class="a5"><strong>{$bookinfos.data[pbID].bookname}</strong></a></li>
+            <br><br>
+            <li style="display:inline">出版社：{$bookinfos.data[pbID].pubname}</li>
+            <br><br>
+            <li style="display:inline">作者：{$bookinfos.data[pbID].writer}</li>
+            <br><br>
+            <li style="display:inline">上架时间：{$bookinfos.data[pbID].addtime|truncate:10:""}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出版时间：{$bookinfos.data[pbID].pubtime|truncate:10:""}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;浏览次数：{$bookinfos.data[pbID].browsertime}&nbsp;次</li>
+            <br><br>
+            <li style="display:inline">市场价：<img src="{util->baseUrl}/img/mark_green.gif" />&nbsp;<s>{util->moneyFormat p=$bookinfos.data[pbID].oldprice}</s>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <font color="#FF0000">会员价：<img src="{util->baseUrl}/img/mark_red.gif" />&nbsp;{util->moneyFormat p=$bookinfos.data[pbID].newprice}</font>          
+             </li> 
+             <br><br> 
+             <li style="display:inline"><a href="{util->baseUrl}/cart-{$bookinfos.data[pbID].id}-add.html"><img src="{util->baseUrl}/img/button_order.gif" border="0"/></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{util->baseUrl}/bookinfo-{$bookinfos.data[pbID].id}.html"><img src="{util->baseUrl}/img/button_info.gif" border="0"/></a></li>                            
+        </div>
+        
+    </div>
+    <div style="width:95%; height:50px; border:1px solid #CCCCCC; text-align:left; line-height:18px; color:#990000; padding:5px">
+    {util->unHtml p=$bookinfos.data[pbID].about|truncate:420:"...":false}
+    </div>
+</div>
+{/section}   
+{else}
+<div style="width:500px; height:80px; font-size:14px; color:#FF0000">
+    <img src="{util->baseUrl}/img/mark_telllogin.gif"><br />
+                <strong>对不起，暂无该类图书！</strong>
+</div>
+{/if}
+    
+    <div style="width:50px; height:10px; font-size:0px"></div>
+    <div style="width:930px; height:25px; border-top:1px dotted #CCCCCC; padding-top:5px; text-align:left; padding-left:20px; background-color:#FFFBE5">
+        <li style="display:inline"> 当前排列方式：</li>
+        <li style="background-color:#EAEDEE; display:inline; width:110px; height:16px; text-align:center; padding-top:2px">
+             {if $pltype=='1'}
+                                                 上架时间
+             {elseif $pltype=='2'}
+                                                   出版时间
+             {elseif $pltype=='3'}
+                                                    价格由低到高  
+             {elseif $pltype=='4'}
+                                                      浏览次数由多到少               
+             {/if}
+         </li>    
+         <li style="display:inline; padding-left:20px">当前图书层次： </li>
+         <li style="background-color:#EAEDEE; display:inline; width:80px; height:16px; text-align:center; padding-top:2px">
+              {if $cctype=='1'}
+                                                      全部
+              {elseif $cctype=='2'}
+                                                       初级入门
+              {elseif $cctype=='3'}
+                                                       提高必备 
+              {elseif $cctype=='4'}
+                                                       高级导向               
+              {/if}
+          </li>  
+          {if $bookinfos.countRs > 0}   
+          <li style="display:inline; padding-left:20px">该类图书共&nbsp;{$bookinfos.countRs}&nbsp;本&nbsp;&nbsp;每页显示&nbsp;{$bookinfos.pageSize}&nbsp;本&nbsp;&nbsp;第&nbsp;{$bookinfos.page}&nbsp;页/共&nbsp;{$bookinfos.countPage}&nbsp;页&nbsp;&nbsp;&nbsp;&nbsp;<a href="{util->baseUrl}/listbook-{$bookinfos.first}-{$pltype}-{$cctype}-{$stid}.html" class="a1">首页</a>&nbsp;
+              <a href="{util->baseUrl}/listbook-{$bookinfos.previous}-{$pltype}-{$cctype}-{$stid}.html" class="a1">上一页</a>&nbsp;
+              <a href="{util->baseUrl}/listbook-{$bookinfos.next}-{$pltype}-{$cctype}-{$stid}.html" class="a1">下一页</a>&nbsp;
+              <a href="{util->baseUrl}/listbook-{$bookinfos.last}-{$pltype}-{$cctype}-{$stid}.html" class="a1">尾页</a>
+          </li>         
+          {/if}
+    </div>   
+  
+    <div style="width:50px; height:10px; font-size:0px"></div> 
+  
+</div>

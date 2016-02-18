@@ -1,0 +1,108 @@
+RewriteEngine on
+RewriteRule ^index\.html$ index.php [L]
+RewriteRule ^index-([0-9]+)\.html$ index.php?cctype=$1 [L]
+RewriteRule ^listbook-([0-9]+)-([0-9]+)\.html$ listbook.php?stid=$1&cctype=$2 [L]
+RewriteRule ^bookinfo-([0-9]+)\.html$ bookinfo.php?bid=$1 [L]
+RewriteRule ^cart-([0-9]+)-add\.html$ cart.php?bid=$1&t=add [L]
+RewriteRule ^login\.html$ login.php [L]
+RewriteRule ^logout\.html$ logout.php [L]
+RewriteRule ^register\.html$ register.php [L]
+RewriteRule ^pubbook-([0-9]+)\.html$ pubbook.php?pubid=$1 [L]
+RewriteRule ^tellinfo-([0-9]+)\.html$ tellinfo.php?tid=$1 [L]
+RewriteRule ^mrbookphinfo-([0-9]+)\.html$ mrbookphinfo.php?pid=$1 [L]
+RewriteRule ^cxsxinfo-([0-9]+)\.html$ cxsxinfo.php?cid=$1 [L]
+RewriteRule ^cart\.html$ cart.php [L]
+RewriteRule ^listsepbook-new\.html$ listsepbook.php?t=new [L]
+RewriteRule ^listsepbook-sepprice\.html$ listsepbook.php?t=sepprice [L]
+RewriteRule ^listsepbook-hotsell\.html$ listsepbook.php?t=hotsell [L]
+RewriteRule ^listsepbook-term\.html$ listsepbook.php?t=term [L]
+RewriteRule ^listsepbook-mrbook\.html$ listsepbook.php?t=mrbook [L]
+RewriteRule ^listreadbook\.html$ listreadbook.php [L]
+RewriteRule ^listbook-([0-9]+)-([0-9]+)-([0-9]+)-([0-9]+)\.html$ listbook.php?page=$1&pltype=$2&cctype=$3&stid=$4 [L]
+RewriteRule ^listsepbook-([0-9]+)-new\.html$ listsepbook.php?page=$1&t=new [L]
+RewriteRule ^listsepbook-([0-9]+)-sepprice\.html$ listsepbook.php?page=$1&t=sepprice [L]
+RewriteRule ^listsepbook-([0-9]+)-hotsell\.html$ listsepbook.php?page=$1&t=hotsell [L]
+RewriteRule ^listsepbook-([0-9]+)-term\.html$ listsepbook.php?page=$1&t=term [L]
+RewriteRule ^listsepbook-([0-9]+)-mrbook\.html$ listsepbook.php?page=$1&t=mrbook [L]
+RewriteRule ^listreadbook-([0-9]+)\.html$ listreadbook.php?page=$1 [L]
+RewriteRule ^pubbook-([0-9]+)-([0-9]+)\.html$ pubbook.php?page=$1&pubid=$2 [L]
+RewriteRule ^cart-(.*)-gAdd\.html$ cart.php?ids=$1&t=gAdd [L]
+RewriteRule ^bookinfo-([0-9]+)-([0-9]+)\.html$ bookinfo.php?cctype=$1&bid=$2 [L]
+RewriteRule ^bookinfo-([0-9]+)-([0-9]+)-([0-9]+)\.html$ bookinfo.php?cctype=$1&bid=$2&did=$3 [L]
+RewriteRule ^bookinfo\.html$ bookinfo.php [L]
+RewriteRule ^cart-clearAll\.html$ cart.php?t=clearAll [L]
+RewriteRule ^cart-([0-9]+)-(.*)-update\.html$ cart.php?ubid=$1&num=$2&t=update [L]
+RewriteRule ^cart-([0-9]+)-remove\.html$ cart.php?rbid=$1&t=remove [L]
+RewriteRule ^telllogin\.html$ telllogin.php [L]
+RewriteRule ^getbuyuserinfo\.html$ getbuyuserinfo.php [L]
+RewriteRule ^deforder\.html$ deforder.php [L]
+RewriteRule ^selectpaytype\.html$ selectpaytype.php [L]
+RewriteRule ^defpay-([a-zA-Z]+)\.html$ defpay.php?t=$1 [L]
+RewriteRule ^qxorder\.html$ qxorder.php [L]
+RewriteRule ^getuserinfo\.html$ getuserinfo.php [L]
+RewriteRule ^search\.html$ search.php [L]
+RewriteRule ^search-([0-9]+)-(.*)-simple\.html$ search.php?page=$1&keyWord=$2&stype=simple [L]
+RewriteRule ^advancedsearch\.html$ advancedsearch.php [L]
+RewriteRule ^search-([0-9]+)-(.*)-(.*)-([0-9]+)-([0-9]+)-([0-9]+)-([0-9]+)-([0-9]+)-([0-9]+)-adv\.html$ search.php?page=$1&keyWord=$2&writer=$3&fyear=$4&fmonth=$5&tyear=$6&tmonth=$7&pubid=$8&smalltypeid=$9&stype=adv [L]
+RewriteRule ^searchorder\.html$ searchorder.php [L]
+RewriteRule ^usercenter\.html$ usercenter.php [L]
+RewriteRule ^usercenterchangepwd\.html$ usercenterchangepwd.php [L]
+RewriteRule ^usercenterorder\.html$ usercenterorder.php [L]
+RewriteRule ^usercenterorder-([0-9]+)\.html$ usercenterorder.php?orderno=$1 [L]
+RewriteRule ^usercenterorder-([0-9]+)-y\.html$ usercenterorder.php?orderno=$1&def=y [L]
+RewriteRule ^usercenterorder-([0-9]+)-qx\.html$ usercenterorder.php?orderno=$1&def=qx [L]
+RewriteRule ^userfeedback\.html$ userfeedback.php [L]
+RewriteRule ^tell\.html$ tell.php [L]
+RewriteRule ^tell-([0-9]+)\.html$ tell.php?cctype=$1 [L]
+RewriteRule ^tell-([0-9]+)-([0-9]+)\.html$ tell.php?page=$1&cctype=$2 [L]
+RewriteRule ^tellinfo-([0-9]+)-([0-9]+)\.html$ tellinfo.php?tid=$1&cctype=$2 [L]
+RewriteRule ^cxsx\.html$ cxsx.php [L]
+RewriteRule ^cxsx-([0-9]+)\.html$ cxsx.php?cctype=$1 [L]
+RewriteRule ^cxsx-([0-9]+)-([0-9]+)\.html$ cxsx.php?page=$1&cctype=$2 [L]
+RewriteRule ^mrbookph\.html$ mrbookph.php [L]
+RewriteRule ^mrbookph-([0-9]+)\.html$ mrbookph.php?cctype=$1 [L]
+RewriteRule ^mrbookph-([0-9]+)-([0-9]+)\.html$ mrbookph.php?page=$1&cctype=$2 [L]
+RewriteRule ^pub\.html$ pub.php [L]
+RewriteRule ^pub-([0-9]+)\.html$ pub.php?cctype=$1 [L]
+RewriteRule ^pub-([0-9]+)-([0-9]+)\.html$ pub.php?page=$1&cctype=$2 [L]
+RewriteRule ^mrbookphinfo-([0-9]+)-([0-9]+)\.html$ mrbookphinfo.php?cctype=$1&pid=$2 [L]
+RewriteRule ^cxsxinfo-([0-9]+)-([0-9]+)\.html$ cxsxinfo.php?cctype=$1&cid=$2 [L]
+RewriteRule ^help\.html$ help.php [L]
+RewriteRule ^help-([0-9]+)\.html$ help.php?cctype=$1 [L]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

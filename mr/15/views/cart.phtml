@@ -1,0 +1,52 @@
+
+<div style="width:950px; background-color:#FFFFFF">
+    <div style="width:930px; height:20px; background:url({util->baseUrl}/img/title4.gif); border-top:1px solid #CCCCCC; padding-top:3px; padding-left:20px; font-size:13px; text-align:left">
+               您当前的位置：明日网上书店&nbsp;>>&nbsp;购物车
+    </div>
+    <br />
+    <div>
+        <img src="{util->baseUrl}/img/gulc1.gif" />
+    </div>
+   <br />
+    <div style="width:850px; height:12px">
+        <div style="width: 30%; height:12px; float:left; text-align:center; font-size:13px; color:#003399">图书名称</div>  
+        <div style="width: 12%; height:12px; float:left; text-align:center; font-size:13px; color:#003399">市场价（元）</div> 
+        <div style="width: 12%; height:12px; float:left; text-align:center; font-size:13px; color:#003399">会员价（元）</div> 
+        <div style="width: 12%; height:12px; float:left; text-align:center; font-size:13px; color:#003399">数量（本）</div>   
+        <div style="width: 20%; height:12px; float:left; text-align:center; font-size:13px; color:#003399">价格小计（元）</div>    
+        <div style="width: 12%; height:12px; float:left; text-align:center; font-size:13px; color:#003399">操作</div>    
+    </div>
+    <hr style="width:850px; border-bottom:1px dotted #003399; height:1px" /> 
+    {if $arrayCarInfos==false || $arrayCarInfos == ''}
+    <br />
+    您的购物车中暂无图书信息，请<strong><a href="{util->baseUrl}/index.html" class="a1">选择图书</a>！</strong>
+    <br />
+    {else}
+    {section name=cbID loop=$arrayCarInfos}
+    <div style="width:850px; height:22px">
+        <div style="width: 30%; height:22px; float:left; text-align:left"><strong><a href="bookinfo-{$arrayCarInfos[cbID].id}.html" class="a7" target="_blank">{util->unHtml p=$arrayCarInfos[cbID].bookname}</a></strong></div>  
+        <div style="width: 12%; height:22px; float:left; text-align:center"><strong><s>{util->moneyFormat p=$arrayCarInfos[cbID].oldprice}</s></strong></div> 
+        <div style="width: 12%; height:22px; float:left; text-align:center"><strong>{util->moneyFormat p=$arrayCarInfos[cbID].newprice}</strong></div> 
+        <div style="width: 12%; height:22px; float:left; text-align:center"><input name="num_{$arrayCarInfos[cbID].id}" type="text" value="{$arrayCarInfos[cbID].num}" class="input" size="5"/></div>   
+        <div style="width: 20%; height:22px; float:left; text-align:center"><strong>{util->moneyFormat p=$arrayCarInfos[cbID].smallTotalPrice}</strong></div>    
+        <div style="width: 12%; height:22px; float:left; text-align:center"><a href="javascript:window.location.href='{util->baseUrl}/cart-{$arrayCarInfos[cbID].id}-'+num_{$arrayCarInfos[cbID].id}.value+'-update.html';" class="a1">更新</a>|<a href="javascript:if(window.confirm('确定从购物车中移除该图书？')==true){ldelim}window.location.href='{util->baseUrl}/cart-{$arrayCarInfos[cbID].id}-remove.html';{rdelim}" class="a1">移除</a></div>    
+    </div>    
+    {/section}
+    {/if}
+    <hr style="width:850px; border-bottom:1px dotted #003399; height:1px" /> 
+     <div style="width:850px; height:22px">
+         <div style="width:200px; text-align:left; float:left"><a href="{util->baseUrl}/index.html" class="a1">继续购物</a>&nbsp;|&nbsp;<a href="javascript:if(window.confirm('确定清空购物车？')==true){ldelim}window.location.href='{util->baseUrl}/cart-clearAll.html';{rdelim}" class="a1">清空购物车</a></div>
+         <div style="width:200px; text-align:right; float:right; padding-right:20px">价格总计：&nbsp;<strong>{util->moneyFormat p=$totalPrice}</strong>&nbsp;元</div>
+     </div>
+     <div style="width:850px; height:40px">
+         <div style="width:200px; text-align:right; float:right; padding-top:10px; padding-right:10px"><a href="{if $arrayCarInfos==false || $arrayCarInfos == ''}javascript:alert('请选择图书，然后提交订单！'); {else}{if $isLogin=='T'}{util->baseUrl}/getbuyuserinfo.html{else} {util->baseUrl}/telllogin.html{/if}{/if}"><img src="{util->baseUrl}/img/button_gosyt.gif"  border="0"/></a></div>
+     </div>
+     <div style="width:850px; height:40px; text-align:left; font-size:13px; line-height:20px; color:#0088C2">
+           <strong><font color="#FF0000">温馨提示：</font></strong><br />
+         ·在本站购物时,请<font color="#FF0000">不要禁用浏览器的cookie支持</font>，否则无法将商品添加到购物车<br />
+         ·购买图书过程中，建议<font color="#FF0000">不要使用浏览器工具栏中的“前进”和“后退”按钮</font>，尽量使用本站页面内部中的导航链接，这样可以防止因浏览器缓存造成购物车中商品信息错误
+     </div>
+    <br>
+           
+</div>
+       

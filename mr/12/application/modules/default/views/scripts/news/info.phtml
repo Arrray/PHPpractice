@@ -1,0 +1,319 @@
+<style type="text/css">
+    .info_frame                                           {width:960px; clear:both;}
+    .info_frame .left                                     {width:660px; border:1px solid #92C7ED; background-color:#FAFEFF; float:left;}
+    .info_frame .left .title                              {width:95%; height:50px; line-height:50px; color:#0257AE; font-size:16px; font-weight:bold; border-bottom:1px dashed #666666; clear:both;}    
+    .info_frame .left .msg                                {width:95%; height:28px; line-height:28px; color:#0257AE; clear:both;}
+    .info_frame .left .msg .li1                           {width:91%; height:28px; line-height:28px; text-align:left; float:left;}
+    .info_frame .left .msg .li2                           {position:relative; width:8%; height:28px; line-height:28px; text-align:right; float:right;}
+    .info_frame .left .content                            {width:95%; height:500px; display:table; line-height:22px; font-size:14px; text-align:left; clear:both;}    
+    .info_frame .left .nav                                {width:95%; height:22px; clear:both;}
+    .info_frame .left .tag                                {width:95%; height:23px; line-height:23px; color:#333333; text-align:left; border:1px dashed #92C7ED; background-color:#FFFFFF; clear:both;}
+    .info_frame .left .pntitle                            {width:95%; height:23px; border-top:1px solid #CCCCCC; border-bottom:1px solid #CCCCCC; clear:both;}
+    .info_frame .left .pntitle .li1                       {width:49%; height:23px; line-height:23px; color:#333333; overflow:hidden; text-align:left; float:left;}
+    .info_frame .left .pntitle .li2                       {width:49%; height:23px; line-height:23px; color:#333333; overflow:hidden; text-align:left; float:right;}
+    .info_frame .left .relative                           {width:95%; border:1px solid #92C7ED; clear:both;}
+    .info_frame .left .relative .t                        {margin-left:0px; margin-right:0px; color:#333333; position:relative; height:28px; line-height:28px; text-align:left; background:url(<?php echo $this->baseUrl('/img/title_bg1.gif')?>); border:1px solid #FFFFFF; clear:both;}
+    .info_frame .left .relative .c                        {margin-left:0px; margin-right:0px; clear:both;}
+    .info_frame .left .relative .c .info                  {width:49%; height:25px; line-height:25px; overflow:hidden; text-align:left; float:left;} 
+    .info_frame .left .login_form                         {width:95%; height:26px; line-height:26px; text-align:left; clear:both;}
+    .info_frame .left .pl_form                            {width:95%; text-align:left; clear:both;}
+    .info_frame .left .submit_form                        {position:relative; width:95%; height:26px; line-height:26px; text-align:left; clear:both;}
+    .info_frame .left .pl_list                            {width:95%; border:1px solid #92C7ED; clear:both;}
+    .info_frame .left .pl_list .t                         {margin-left:0px; margin-right:0px; position:relative; height:28px; line-height:28px; text-align:left; background:url(<?php echo $this->baseUrl('/img/title_bg1.gif')?>); border:1px solid #FFFFFF; clear:both;}
+    .info_frame .left .pl_list .c1                        {width:95%; border-bottom:1px solid #999999; clear:both;}
+    .info_frame .left .pl_list .c2                        {width:95%; clear:both;}
+    .info_frame .left .pl_list .l                         {position:relative; width:11%; float:left;}
+    .info_frame .left .pl_list .l .face                   {position:absolute; left:3px; top:5px; width:46px; height:46px; border:1px solid #CCCCCC; font-size:0px; clear:both;}
+    .info_frame .left .pl_list .r                         {width:88%; float:right;}
+    .info_frame .left .pl_list .r .pl_info                {margin-left:0px; margin-right:0px; height:22px; clear:both;}
+    .info_frame .left .pl_list .r .pl_info .li1           {width:39%; height:22px; line-height:22px; text-align:left; float:left;}
+    .info_frame .left .pl_list .r .pl_info .li2           {width:60%; height:22px; line-height:22px; text-align:right; float:right;}
+    .info_frame .left .pl_list .r .pl_content             {margin-left:0px; margin-right:0px; height:40px; line-height:20px; text-align:left; color:#888888; clear:both;}
+    .info_frame .left .pl_msg                             {width:520px; height:30px; font-size:14px; color:#0257AE; line-height:30px; background-color:#FCD9D7; border:1px dashed #FF0000; clear:both;}
+    .info_frame .right                                    {width:290px; float:right;}  
+    .info_frame .right .p1                                {margin-left:0px; margin-right:0px; height:250px; border:1px solid #92C7ED; clear:both;} 
+    .info_frame .right .p1 .title                         {margin-left:0px; margin-right:0px; position:relative; height:28px; line-height:28px; text-align:left; color:#0257AE; background:url(<?php echo $this->baseUrl('/img/title_bg1.gif')?>); border:1px solid #FFFFFF; clear:both;}
+    .info_frame .right .p1 .content                       {margin-left:0px; margin-right:0px; clear:both;}
+    .info_frame .right .p1 .content .p                    {width:49%; height:105px; line-height:22px; float:left;}
+    .info_frame .right .p2                                {margin-left:0px; margin-right:0px; height:240px; border:1px solid #92C7ED; clear:both;} 
+    .info_frame .right .p2 .title                         {margin-left:0px; margin-right:0px; position:relative; height:28px; line-height:28px; text-align:left; color:#0257AE; background:url(<?php echo $this->baseUrl('/img/title_bg1.gif')?>); border:1px solid #FFFFFF; clear:both;}
+    .info_frame .right .p2 .content                       {margin-left:0px; margin-right:0px; clear:both;}
+    .info_frame .right .p2 .content li                    {width:95%; height:26px; line-height:26px; text-align:left; overflow:hidden; clear:both;} 
+    .info_frame .right .p3                                {margin-left:0px; margin-right:0px; height:280px; border:1px solid #92C7ED; clear:both;} 
+    .info_frame .right .p3 .title                         {margin-left:0px; margin-right:0px; position:relative; height:28px; line-height:28px; text-align:left; color:#0257AE; background:url(<?php echo $this->baseUrl('/img/title_bg1.gif')?>); border:1px solid #FFFFFF; clear:both;}
+    .info_frame .right .p3 .content                       {margin-left:0px; margin-right:0px; overflow:hidden; clear:both;}
+    .info_frame .right .p3 .content .np1                  {width:49%; height:105px; line-height:22px; overflow:hidden; float:left;}
+    .info_frame .right .p3 .content .np2                  {width:95%; height:26px; line-height:26px; text-align:left; overflow-x:hidden;}
+    .info_frame .right .p4                                {margin-left:0px; margin-right:0px; height:326px; border:1px solid #92C7ED; clear:both;}    
+    .info_frame .right .p4 .title                         {margin-left:0px; margin-right:0px; position:relative; height:28px; line-height:28px; text-align:left; color:#0257AE; background:url(<?php echo $this->baseUrl('/img/title_bg1.gif')?>); border:1px solid #FFFFFF; clear:both;}
+    .info_frame .right .p4 .content1                      {width:95%; clear:both;}
+    .info_frame .right .p4 .content2                      {width:95%; height:26px; line-height:26px; text-align:left; overflow:hidden; clear:both;}
+    .info_frame .right .p4 .content1 .cl                  {width:40%; height:100px; float:left;}
+    .info_frame .right .p4 .content1 .cr                  {width:58%; height:100px; float:right;}
+    .info_frame .right .p4 .content1 .cr .li1             {margin-left:0px; margin-right:0px; height:30px; line-height:30px; clear:both;}
+    .info_frame .right .p4 .content1 .cr .li2             {margin-left:0px; margin-right:0px; height:60px; line-height:20px; text-align:left; color:#888888; clear:both;}
+</style>
+
+<div class="info_frame">
+    <div class="left">
+        <div class="title">
+            <?php echo $this->escape($this->news['title'])?><?php if($this->pageCount > 1):?>[<?php echo $this->page?>]<?php endif;?>
+        </div>
+        <?php $count = count($this->comments)?>
+        <div class="msg">
+            <div class="li1">
+            发表时间：<font color="#888888"><?php echo substr($this->news['addtime'],0,16)?></font>　作者：<font color="#888888"><?php echo $this->escape($this->news['author'])?></font>　来源：<font color="#888888"><?php echo $this->escape($this->news['source'])?></font>　评论：<font color="#888888"><?php echo $count?></font>&nbsp;条
+            </div>
+            <div class="li2">
+                <a href="<?php echo $this->baseUrl('/print-0-'.$this->news['id'].'.html')?>" target="_blank" class="a3"><img src="<?php echo $this->baseUrl('/img/mark_print.gif')?>" style="position:absolute; left:0px; top:6px; border:0px;"/>　打印</a>
+            </div>
+        </div>
+        <div class="cell_h"></div>
+        <div class="content">
+            <?php echo stripcslashes($this->content)?>
+        </div>
+        <?php if($this->pageCount > 1):?>
+        <div class="nav">
+            <?php for ($i=1; $i <= $this->pageCount; $i++):?>
+            <span style="width:22px; height:22px; line-height:22px; font-weight:bold; font-family:Arial; font-style:italic; <?php if($i==$this->page):?>background-color:#E3F4FC;<?php endif;?> cursor:pointer; border:1px solid #B3DBF9; padding:2px; margin-left:3px;" onclick="window.location.href='<?php echo $this->baseUrl('/news/info-' . $this->news['id'] . '-' . $i . '.html')?>'">&nbsp;<a href="<?php echo $this->baseUrl('/news/info-' . $this->news['id'] . '-' . $i . '.html')?>" class="a3"><?php echo $i?></a>&nbsp;</span>
+            <?php endfor;?>
+        </div>
+        <?php endif;?>
+        <div class="cell_h"></div>
+        <div class="tag">
+            　TAG：<?php echo $this->showTags($this->news['tags'], $this->baseUrl())?>
+        </div>
+        <div class="cell_h"></div>
+        <div class="pntitle">
+            <ul>
+                <?php if($this->news['pid']!=null):?><li class="li1">上一篇：<a href="<?php echo $this->baseUrl('/news/info-' . $this->news['pid'] . '-1.html')?>" title="<?php echo $this->escape($this->news['ptitle'])?>" class="a13"><?php echo $this->substr($this->escape($this->news['ptitle']),50)?></a></li><?php endif;?>
+                <?php if($this->news['nid']!=null):?><li class="<?php if($this->news['pid']!=null):?>li2<?php else:?>li1<?php endif;?>">下一篇：<a href="<?php echo $this->baseUrl('/news/info-' . $this->news['nid'] . '-1.html')?>" title="<?php echo $this->escape($this->news['ntitle'])?>" class="a13"><?php echo $this->substr($this->escape($this->news['ntitle']),50)?></a></li><?php endif;?>
+            </ul>
+        </div>
+        <div class="cell_h"></div>
+        <div class="relative">
+            <div class="t">
+                <img src="<?php echo $this->baseUrl('/img/title_mark1.gif')?>" style="position:absolute; left:8px; top:9px;" alt="相关新闻"/>　　相关热门新闻
+            </div>
+            <div class="c">
+                <?php foreach ($this->relatives as $relative):?>
+                <div class="info">
+                    　·<a href="<?php echo $this->baseUrl('/news/info-' . $relative['id'] . '-1.html')?>" title="<?php echo $this->escape($relative['title'])?>" class="a13"><?php echo $this->escape($this->substr($relative['title'], 50))?></a>
+                </div>
+                <?php endforeach;?>
+                <div class="clear"></div>
+            </div> 
+        </div>
+        <div class="cell_h"></div>
+        <form name="form_comment" id="form_comment" method="post" style="margin:0px; padding:0px;">
+        <div class="login_form">
+            <?php if($this->loginUser == null):?>
+        昵称：<input type="text" name="netname" id="netname" class="input" style="width:120px; height:16px;">　　密码：<input type="password" name="password" id="password" class="input" style="width:120px; height:16px;">　<a href="<?php echo $this->baseUrl('/user/register?url=/news/info-'.$this->news['id'].'-1.html')?>" class="a3">注册</a>
+            <?php else:?>
+            当前用户：<?php echo $this->escape($this->loginUser['netname'])?>
+            <?php endif;?>
+            　注：评论中严禁相互诋毁与污蔑！
+        </div>
+        <div class="pl_form">
+            <textarea name="content" id="content" class="input" style="width:100%; height:66px"></textarea>
+        </div>
+        <div class="cell_h"></div>
+        <div class="submit_form">
+            <input type="hidden" name="postMark" id="postMark" value="<?php echo $this->postMark?>" />
+            <input type="button" value="提交" onclick="chkInputComment()">　　<input type="reset" value="重置">　　验证码：<input type="text" name="vcode" id="vcode" class="input" maxlength="4" style="width:66px; height:16px; line-height:16px;" /><img id="vcodeImg" src="<?php echo $this->baseUrl('/common/vcode/w/60/h/22/t/0')?>" style="position:absolute; left:270px; top:2px;" />　　　　　　　<a href="javascript:changeVcode()" class="a25">看不清，换一张</a>
+        </div>
+        </form>  
+        <?php if($this->msg != null):?>
+        <div class="cell_h"></div>
+        <div class="pl_msg">
+            <?php echo $this->msg?>
+        </div>
+        <?php endif;?>  
+        <div class="cell_h"></div>
+        <div class="pl_list">
+            <div class="t">
+                     <img src="<?php echo $this->baseUrl('/img/title_mark1.gif')?>" style="position:absolute; left:8px; top:9px;" alt="网友评论"/>　　网友评论　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　　共有网友评论&nbsp;<font color="#0257AE"><?php echo $count?></font>&nbsp;条
+            </div>  
+            <?php foreach ($this->comments as $key => $comment):?>
+            <div class="<?php if($key < $count-1):?>c1<?php else:?>c2<?php endif;?>">
+                <div class="l">
+                    <div class="face" onmouseover="this.style.border='1px solid #89CE26'" onmouseout="this.style.border='1px solid #CCCCCC'">
+                        <img src="<?php if($this->loginUser['face']==''):?><?php echo $this->baseUrl('/img/unface.gif')?><?php else:?><?php endif;?>" style="width:40px; height:40px; border:0px; margin:3px;"  alt="<?php echo $comment['netname']?>"/>
+                    </div>
+                </div>
+                <div class="r">
+                    <div class="pl_info">
+                        <ul>
+                            <li class="li1">
+                            网友：<?php echo $this->escape($comment['netname'])?>
+                            </li>
+                            <li class="li2">
+                            时间：<font color="#0257AE"><?php echo substr($comment['addtime'], 0, 16)?></font>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="pl_content">
+                        <?php echo $this->escape($comment['content'])?><?php if($this->loginUser!=null && ($this->loginUser['usertype']==1 || $this->loginUser['netname']==$comment['netname'])):?>　<a href="javascript:if(window.confirm('确定删除该条评论？')){window.location.href='?dcommentid=<?php echo $comment['id']?>';}" class="a7">[删除]</a><?php endif;?>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <?php endforeach;?>
+        </div>
+        <div class="cell_h"></div>
+    </div>
+    <div class="right">
+        <div style="margin-left:0px; margin-right:0px; height:150px; clear:both; background-color:#DDDDDD;">
+        <!-- 广告位 -->
+        </div>
+        
+        <div class="cell_h"></div>
+        <div class="p1">
+            <div class="title">
+                <img src="<?php echo $this->baseUrl('/img/title_mark1.gif')?>" style="position:absolute; left:8px; top:9px;" alt="图片新闻"/>　　图片新闻　　　　　　　　　　　　　<a href="<?php echo $this->baseUrl('/news/list-9-0-1.html')?>" class="a7">[更多]</a>
+            </div>
+            <div class="content">
+                <?php foreach ($this->imgNewses as $imgNews):?>
+                <div class="p">
+                    <a href="<?php echo $this->baseUrl('/news/info-'.$imgNews['id'].'-1.html')?>"><img src="<?php echo $this->baseUrl('/upfile/file/'.$imgNews['imagename'])?>" style="width:110px; height:73px; margin-top:8px; border:1px solid #40D70B" onmouseover="this.style.borderColor='#CCCCCC'" onmouseout="this.style.borderColor='#40D70B'" alt="<?php echo $this->escape($imgNews['title'])?>"/></a> 
+                    <br/><a href="<?php echo $this->baseUrl('/news/info-'.$imgNews['id'].'-1.html')?>" title="<?php echo $this->escape($imgNews['title'])?>" class="a24"><?php echo $this->substr($this->escape($imgNews['title']), 20)?></a>
+                </div> 
+                <?php endforeach;?>
+            </div>
+        </div>
+        <div class="cell_h"></div>
+        <div class="p2">
+            <div class="title">
+                <img src="<?php echo $this->baseUrl('/img/title_mark1.gif')?>" style="position:absolute; left:8px; top:9px;" alt="热门新闻" />　　热门新闻　　　　　　　　　　　　　<a href="<?php echo $this->baseUrl('/news/list-all-2-1.html')?>" class="a7">[更多]</a>
+            </div>
+            <div class="content">
+                <ul>
+                    <?php foreach ($this->hotNewses as $hotNews):?>
+                    <li>·<a href="<?php echo $this->baseUrl('/news/info-'.$hotNews['id'].'-1.html')?>" title="<?php echo $this->escape($hotNews['title'])?>"><?php echo $this->substr($this->escape($hotNews['title']), 40)?></a>&nbsp;<font style="font-size:11px; color:#666666; font-family:Arial;">/<?php echo $hotNews['browse']?>/</font></li>
+                    <?php endforeach;?>
+                </ul>
+            </div>
+        </div>
+        <div class="cell_h"></div>
+        <div class="p3">
+            <div class="title">
+                <img src="<?php echo $this->baseUrl('/img/title_mark1.gif')?>" style="position:absolute; left:8px; top:9px;" alt="IT人物"/>　　IT人物　　　　　　　　　　　　　　<a href="<?php echo $this->baseUrl('/news/list-1-0-1.html')?>" class="a7">[更多]</a>
+            </div>
+            <div class="content">
+                <?php foreach ($this->personNewses as $key => $personNews):?>
+                    <?php if($key < 2):?>
+                <div class="np1">
+                    <a href="<?php echo $this->baseUrl('/news/info-'.$personNews['id'].'-1.html')?>"><img src="<?php echo $this->baseUrl('/upfile/file/'.$personNews['imagename'])?>" style="width:110px; height:73px; margin-top:8px; border:1px solid #40D70B" onmouseover="this.style.borderColor='#CCCCCC'" onmouseout="this.style.borderColor='#40D70B'" alt="<?php echo $this->escape($personNews['title'])?>"/></a> 
+                    <br/><a href="<?php echo $this->baseUrl('/news/info-'.$personNews['id'].'-1.html')?>" title="<?php echo $this->escape($personNews['title'])?>" class="a24"><?php echo $this->substr($this->escape($personNews['title']), 20)?></a>
+                </div>
+                    <?php endif;?>
+                    <?php if($key == 2):?>
+                <div class="clear"></div>
+                    <?php endif;?>   
+                    <?php if($key > 1):?>  
+                <div class="np2">
+                    ·<a href="<?php echo $this->baseUrl('/news/info-'.$personNews['id'].'-1.html')?>" title="<?php echo $this->escape($personNews['title'])?>"><?php echo $this->substr($this->escape($personNews['title']), 50)?></a>
+                </div>  
+                    <?php endif;?>   
+                <?php endforeach;?>
+            </div>
+        </div>
+        <div class="cell_h"></div>
+        <div class="p4">
+            <div class="title">
+                <img src="<?php echo $this->baseUrl('/img/title_mark1.gif')?>" style="position:absolute; left:8px; top:9px;" alt="高端访谈"/>　　高端访谈　　　　　　　　　　　　　<a href="<?php echo $this->baseUrl('/news/list-2-0-1.html')?>" class="a7">[更多]</a>
+            </div>
+            <?php foreach ($this->heighPersonNewses as $key => $heighPersonNews):?>
+                <?php if($key == 0):?>
+            <div class="content1">
+                <div class="cl">
+                    <a href="<?php echo $this->baseUrl('/news/info-'.$heighPersonNews['id'].'-1.html')?>"><img src="<?php echo $this->baseUrl('/upfile/file/'.$heighPersonNews['imagename'])?>" style="width:90px; height:60px; margin-top:15px; border:1px solid #40D70B" onmouseover="this.style.borderColor='#CCCCCC'" onmouseout="this.style.borderColor='#40D70B'" alt="<?php echo $this->escape($heighPersonNews['title'])?>"/></a> 
+                </div>
+                <div class="cr">
+                    <ul>
+                        <li class="li1"><a href="<?php echo $this->baseUrl('/news/info-'.$heighPersonNews['id'].'-1.html')?>" title="<?php echo $this->escape($heighPersonNews['title'])?>" class="a24"><?php echo $this->substr($this->escape($heighPersonNews['title']), 30)?></a></li>
+                        <li class="li2">　　<?php echo trim($this->substr($this->escape($heighPersonNews['uncontent']), 75))?><a href="<?php echo $this->baseUrl('/news/info-'.$heighPersonNews['id'].'-1.html')?>" class="a3">&lt;详细&gt;</a></li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+                <?php else:?>
+            <div class="content2">
+                ·<a href="<?php echo $this->baseUrl('/news/info-'.$heighPersonNews['id'].'-1.html')?>" title="<?php echo $this->escape($heighPersonNews['title'])?>"><?php echo $this->substr($this->escape($heighPersonNews['title']), 50)?></a> 
+            </div>    
+                <?php endif;?>
+            <?php endforeach;?>  
+        </div>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<script language="javascript">
+    //切换验证码图片
+    function changeVcode()
+    {
+         $("#vcodeImg").attr("src", "<?php echo $this->baseUrl('/common/vcode/w/66/h/22/t/0/rand/"+Math.random()+"')?>");   
+    }
+    //表单验证
+    function chkInputComment()
+    {
+        $.get("<?php echo $this->baseUrl('/common/check-vcode/vcode/"+encodeURI($("#vcode").val())+"')?>", null, function(chkVcodeReturnData){
+            var k1=false;
+            var k2=false;
+            var k3=false;
+            var k4=false;
+
+            <?php if($this->loginUser == null):?>
+            //用户昵称
+            if($.trim($("#netname").val())==""){
+                alert("请输入登录昵称！");
+                $("#netname").focus();
+                return false;
+            }else{
+                k1=true;
+            }
+           
+            //登录密码
+            if($.trim($("#password").val())==""){
+                alert("请输入登录密码！");
+                $("#password").focus();
+                return false;
+            }else{
+                k2=true;
+            }
+            <?php endif;?>
+            //评论内容
+            if($.trim($("#content").val())==""){
+                alert("请输入评论内容！");
+                $("#content").focus();
+                return false;
+            }else{
+                k3=true;
+            }
+            //验证码
+            if($.trim($("#vcode").val())==""){
+                alert("请输入验证码！");
+                $("#vcode").focus();
+                return false;
+            }else if(chkVcodeReturnData == "N"){
+                alert("验证码输入有误");
+                $("#vcode").focus();
+                return false;
+            }else{
+                k4=true;
+            }
+            
+            //提交表单
+            <?php if($this->loginUser == null):?>
+            if(k1 && k2 && k3 && k4){
+                $("#form_comment").submit();               
+            }
+            <?php else:?>
+            if(k3 && k4){
+                $("#form_comment").submit();               
+            } 
+            <?php endif;?> 
+        });  
+    }
+    
+</script>    

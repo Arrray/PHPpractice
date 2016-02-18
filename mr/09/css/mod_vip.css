@@ -1,0 +1,5 @@
+/* CSS Document */
+*{margin:0; padding:0; font-size:12px;}
+body{text-align:center;}
+.divimg{width:1004px; height:720px; background:url(../images/115.jpg);}
+.main{ width:520px; height:340px; margin:210px auto 2px auto;}

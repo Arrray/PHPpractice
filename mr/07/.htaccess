@@ -1,0 +1,9 @@
+RewriteEngine On
+
+RewriteRule ^([0-9a-zA-Z_]+)/$ personphoto.php?upname=$1 [L]
+
+#RewriteRule ^index.html$ /news.php [L]
+
+#RewriteCond %{REQUEST_FILENAME} !-s
+
+#RewriteRule ^html/news_([0-9]+).html$ getnews.php?id=$1 [L]

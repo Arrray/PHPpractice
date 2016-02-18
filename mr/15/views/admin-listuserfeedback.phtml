@@ -1,0 +1,76 @@
+    
+    <div style="width:98%;  border:1px solid #006D84">
+        <div style="width:100%; height:25px; border:1px solid #FFFFFF; background-color:#4995A8; text-align:left; padding-top:5px; padding-left:20px; color:#FFFFFF">
+            <li style="display:inline; float:left"><strong>浏览用户反馈信息</strong></li>
+        </div>
+        
+        <div style="width:100%; background-color:#CCCCCC">
+            <div style="width:50%; height:16px; float:left; padding-top:3px; border-right:1px solid #FFFFFF">
+              主题
+            </div> 
+                       
+             <div style="width:20%; height:16px; float:left; padding-top:3px; border-right:1px solid #FFFFFF">
+               用户
+            </div> 
+            
+             <div style="width:20%; height:16px; float:left; padding-top:3px; border-right:1px solid #FFFFFF">
+               发表时间
+            </div>  
+                         
+             <div style="width:10%; height:16px; float:left; padding-top:3px">
+               操作
+            </div>       
+        </div>  
+        {section name=fID loop=$feedbacks.data}
+        <div style="width:100%; border-top:1px solid #006D84">
+             <div style="width:50%; height:20px; float:left; padding-top:4px; border-right:1px solid #006D84; text-align:left; padding-left:10px">
+               {util->unHtml p=$feedbacks.data[fID].title}
+            </div> 
+                       
+            <div style="width:20%; height:20px; float:left; padding-top:4px; border-right:1px solid #006D84">
+               {util->unHtml p=$feedbacks.data[fID].usernc}
+            </div>            
+
+            <div style="width:20%; height:20px; float:left; padding-top:4px; border-right:1px solid #006D84">
+               {$feedbacks.data[fID].addtime}
+            </div>  
+                         
+            <div style="width:10%; height:20px; float:left; padding-top:2px">
+                <a href="{util->baseUrl}/admin-listuserfeedback.php?f=edit&id={$feedbacks.data[fID].id}"><img src="{util->baseUrl}/img/edit.gif" border="0"/></a>&nbsp;<a href="javascript:if(window.confirm('确定删除？')==true){ldelim}window.location.href='{util->baseUrl}/admin-listuserfeedback.php?f=del&id={$feedbacks.data[fID].id}';{rdelim}"><img src="{util->baseUrl}/img/del.gif" border="0"/></a>
+            </div>       
+        </div>          
+        {/section}
+    </div>
+    <br />
+    <div style="width:98%; height:25px; border-top:1px dotted #CCCCCC; padding-top:5px; text-align:left; padding-left:20px; background-color:#FFFBE5">
+          {if $feedbacks.countRs > 0}   
+          <li style="display:inline; padding-left:20px">{$nowtype}共&nbsp;{$feedbacks.countRs}&nbsp;条&nbsp;&nbsp;每页显示&nbsp;{$feedbacks.pageSize}&nbsp;条&nbsp;&nbsp;第&nbsp;{$feedbacks.page}&nbsp;页/共&nbsp;{$feedbacks.countPage}&nbsp;页&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="{util->baseUrl}/admin-listuserfeedback.php?page={$feedbacks.first}" class="a1">首页</a>&nbsp;
+              <a href="{util->baseUrl}/admin-listuserfeedback.php?page={$feedbacks.previous}" class="a1">上一页</a>&nbsp;
+              <a href="{util->baseUrl}/admin-listuserfeedback.php?page={$feedbacks.next}" class="a1">下一页</a>&nbsp;
+              <a href="{util->baseUrl}/admin-listuserfeedback.php?page={$feedbacks.last}" class="a1">尾页</a>
+          </li>           
+          {/if}
+    </div>  
+    
+    
+    
+    {if $isShow == "T"}
+    <br />
+    <div style="width:98%;  border:1px solid #006D84">
+        <div style="width:100%; height:25px; border:1px solid #FFFFFF; background-color:#4995A8; text-align:left; padding-top:5px; padding-left:20px; color:#FFFFFF">
+            <li style="display:inline; float:left"><strong>查看用户反馈详细信息</strong></li>
+        </div>
+        
+        <div style="width:100%; text-align:left; padding-top:5px; font-size:13px">
+            <li style="display:inline; width:49%; float:left; text-align:left; height:22px; padding-left:10px"> 用户昵称：{$userfeed[0].usernc}</li>
+            <li style="display:inline; width:49%; float:left; text-align:left; height:22px; padding-left:10px"> 发表时间：{$userfeed[0].addtime}</li>
+            <li style="display:inline; width:100%; float:left; text-align:left; height:22px; padding-left:10px"> 发表时间：{util->unHtml p=$userfeed[0].title}</li>
+            <li style="display:inline; width:100%; float:left; text-align:left; height:100px; padding-left:10px"> {util->unHtml p=$userfeed[0].content}</li>
+        
+    
+        </div>    
+    </div>
+    {/if}
+    <br />
+    

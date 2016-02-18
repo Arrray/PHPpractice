@@ -1,0 +1,26 @@
+<style type="text/css">
+    .unlogin_top                                  {width:769px; height:26px; background:url(<?php echo $this->baseUrl('/img/user_reg_top.gif')?>); clear:both;}  
+    .unlogin_center                               {width:769px; background:url(<?php echo $this->baseUrl('/img/user_reg_center.gif')?>); clear:both;}  
+    .unlogin_center .left                         {position:relative; width:30%;float:left;} 
+    .unlogin_center .right                        {width:68%; text-align:left; line-height:26px; float:left;} 
+    .unlogin_bottom                               {width:769px; height:35px; background:url(<?php echo $this->baseUrl('/img/user_reg_bottom.gif')?>); clear:both;} 
+  
+    
+</style>
+<div class="unlogin_top"></div>
+<div class="unlogin_center">
+    <div class="left">
+        <img src="<?php echo $this->baseUrl('/img/mark_unlogin.gif')?>" />
+    </div>
+    
+    <div class="right">
+    <font style="font-size:14px; color:#048F21; font-weight:bold;">友情提示：</font><br/>
+    　　您还没有登录本站，暂时不能进行本站活动。您可以<a href="<?php echo $this->baseUrl('/user/register?url='.$this->url)?>" class="a3">注册</a>一个账号，并以此<a href="<?php echo $this->baseUrl('/user/login?url='.$this->url)?>" class="a3">登录</a>，以便与大家交流并获得本站更多资源！
+    </div>
+   
+    <div class="clear"></div>   
+   
+</div>
+<div class="unlogin_bottom"></div>
+
+

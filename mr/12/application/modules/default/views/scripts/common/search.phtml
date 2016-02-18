@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <?php 
+            echo $this->headMeta()->setHttpEquiv('content-type', 'text/html; charset=utf-8')
+                                  ->appendHttpEquiv('x-ua-compatible', 'ie=7');
+        ?>
+        <?php echo $this->headTitle($this->escape($this->title))?>
+        <?php echo $this->headLink()->setStylesheet($this->baseUrl('/css/style.css'))?>
+        <?php echo $this->headScript()->setFile($this->baseUrl('/js/jquery.js'))?>
+        <style type="text/css">
+            .header_top                                 {width:100%; height:80px; background:url(<?php echo $this->baseUrl('/img/user_top_bg.gif')?>); clear:both;}
+            .header_top .logo                           {width:880px; clear:both;}
+            .header_top .logo .left                     {width:300px; height:80px; background-color:#FFFFFF; float:left;}
+            .header_top .logo .right                    {width:550px; height:80px; float:right;}
+            .nav                                        {width:763px; height:20px; clear:both;} 
+ 
+            .search                                     {width:750px; text-align:left; clear:both;}
+            .search .t                                  {width:100%; height:25px; line-height:25px; text-align:left; clear:both;}
+            .search .c                                  {width:100%; line-height:20px; text-align:left; color:#666666; clear:both;}
+            .search .i                                  {width:100%; height:13px; line-height:13px; font-size:13px; text-align:left; clear:both;}
+
+            .search_top                                  {width:769px; height:26px; background:url(<?php echo $this->baseUrl('/img/user_reg_top.gif')?>); clear:both;}  
+            .search_center                               {width:769px; background:url(<?php echo $this->baseUrl('/img/user_reg_center.gif')?>); clear:both;}  
+            .search_center .left                         {position:relative; width:30%; float:left;} 
+            .search_center .right                        {width:69%; text-align:left; line-height:30px; float:right;} 
+            .search_bottom                               {width:769px; height:35px; background:url(<?php echo $this->baseUrl('/img/user_reg_bottom.gif')?>); clear:both;} 
+ 
+            
+            .footer_msg                                 {width:763px; height:31px; line-height:31px; text-align:left; background:url(<?php echo $this->baseUrl('/img/user_bottom_bg.gif')?>); clear:both;}
+    
+        </style>
+    </head>
+    <body>
+        <div class="cell_h"></div>
+        <div class="header_top">
+            <div class="logo">
+                <div class="left">
+                    <a href="<?php echo $this->baseUrl('/')?>"><img src="<?php echo $this->baseUrl('/img/logo.jpg')?>" style="margin-top:13px; border:0px;"/></a>
+                </div>
+                <div class="right">
+            
+                </div>
+            </div>
+        </div>
+        <div class="cell_h"></div>
+        <?php if(count($this->paginator)>0):?>
+        <div class="nav">
+            <?php echo $this->paginationControl($this->paginator, 'Sliding', 'list_search_pagination_control.phtml', array('keyWord'=>$this->keyWord))?>
+        </div>
+        <div class="cell_h"></div>
+        <?php foreach ($this->paginator as $search):?>
+        <div class="search">
+            <div class="t">
+                <a href="<?php echo $this->baseUrl($this->searchLink($search['id'], $search['flag'], 0, $search['user_id']))?>" target="_blank" class="a25"><?php echo $this->setRed($this->keywordsStrArray, $this->escape($search['title']))?></a>
+            </div>
+            <div class="c">
+                　　<?php echo $this->setRed($this->keywordsStrArray, $this->substr($search['uncontent'], 380))?>　<a href="<?php echo $this->baseUrl($this->searchLink($search['id'], $search['flag'], 0))?>" target="_blank"  class="a24">&lt;详细&gt;</a>
+            </div>
+            <div class="i">
+                <font color="#339900"><?php echo $this->searchLink($search['id'], $search['flag'], 1, $search['user_id'])?></font>　<?php echo substr($search['addtime'], 0, 16)?>
+            </div>
+        </div>
+        <br/>
+        <?php endforeach;?>
+
+        <div class="cell_h"></div>
+        <div class="nav">
+            <?php echo $this->paginationControl($this->paginator, 'Sliding', 'list_search_pagination_control.phtml', array('keyWord'=>$this->keyWord))?>
+        </div>
+        <?php else:?>
+        
+        <div class="search_top"></div>
+        <div class="search_center">
+            <div class="left">
+                <img src="<?php echo $this->baseUrl('/img/mark_unlogin.gif')?>" />
+            </div>
+            
+            <div class="right">
+                <font style="font-size:18px; color:#2BA007; font-weight:bold;"> 对不起，没有查找到您要找的内容！</font><br/>
+                您可以：<br/>
+                （１）　更换其他关键字，多关键字之间用空格分割<br/>
+                （２）　浏览其他页面：<a href="<?php echo $this->baseUrl('/')?>" class="a3">首页</a>　<a href="<?php echo $this->baseUrl('/common/map')?>" class="a3">站点地图</a>
+            </div>
+           
+            <div class="clear"></div>   
+           
+        </div>
+        <div class="search_bottom"></div>
+        <?php endif;?>
+        <div class="cell_h"></div>
+        <div class="footer_msg">
+        　　<a href="<?php echo $this->baseUrl('/')?>">(C)　<?php echo $this->escape($this->config['pageInfo']['default']['siteRunTime'])?>&nbsp;<?php echo $this->escape($this->config['pageInfo']['default']['title'])?></a>
+        </div>
+    </body>
+</html>

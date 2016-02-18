@@ -1,0 +1,178 @@
+<div style="width:950px; height:1000px; background-color:#FFFFFF">
+    <div style="width:930px">
+        <div style="width:200px; height:300px; float:left">
+            <div style="width:200px; height:30px">
+                <div style="width:6px; height:30px; background:url({util->baseUrl}/img/dg_left.gif); float:left"></div>
+                <div style="width:188px; height:30px; background:url({util->baseUrl}/img/dg_center.gif); float:left; padding-top:5px">
+                    <div style="width:45px; height:25px; float:left; padding-top:5px; {if $cctype == 1}background:url({util->baseUrl}/img/dg_button_bg.gif){/if}"><a href="{util->baseUrl}/bookinfo-1-{$bid}.html" class="{if $cctype == 1}a2{else}a1{/if}"><strong>全部</strong></a></div>
+                    
+                    <div style="width:45px; height:25px;  float:left; padding-top:5px; {if $cctype == 2}background:url({util->baseUrl}/img/dg_button_bg.gif){/if}"><a href="{util->baseUrl}/bookinfo-2-{$bid}.html" class="{if $cctype == 2}a2{else}a1{/if}"><strong>初级</strong></a></div>
+                
+                    <div style="width:45px; height:25px;  float:left; padding-top:5px; {if $cctype == 3}background:url({util->baseUrl}/img/dg_button_bg.gif){/if}"><a href="{util->baseUrl}/bookinfo-3-{$bid}.html" class="{if $cctype == 3}a2{else}a1{/if}"><strong>中级</strong></a></div>
+                    
+                    <div style="width:45px; height:25px;  float:left; padding-top:5px; {if $cctype == 4}background:url({util->baseUrl}/img/dg_button_bg.gif){/if}"><a href="{util->baseUrl}/bookinfo-4-{$bid}.html" class="{if $cctype == 4}a2{else}a1{/if}"><strong>高级</strong></a></div>
+                </div>    
+                <div style="width:6px; height:30px; background:url({util->baseUrl}/img/dg_right.gif); float:right"></div>        
+            </div>
+            <div style="width:200px; background-color:#FDFBED; border-left:1px solid #FF6700; border-right:1px solid #FF6700; border-bottom:1px solid #FF6700">
+                <div style="width:100%; height:22px; border-bottom:1px dotted #CCCCCC; background-color:#F7F7F7; padding-top:5px; text-align:left; padding-left:15px">
+                                                     当前导航：
+                    {if $cctype == '1'}
+                                                                全部图书导航
+                    {elseif $cctype == '2'}
+                                                                  初级入门类图书
+                    {elseif $cctype == '3'}
+                                                                  提高必备类图书
+                    {elseif $cctype == '4'}
+                                                                  高级导向类图书
+                    {/if}
+                </div>
+                <div style="width:50px; height:10px; font-size:0px"></div>
+                {section name=bID loop=$bigtypes}
+                <div style="width:195px">
+                    <div style="width:100%; height:25px; text-align:left; padding-left:6px; padding-top:5px; color:#990000">
+                        ·&nbsp;{util->unHtml p=$bigtypes[bID].typename}
+                    </div>
+                
+                    <div style="width:100%">
+                        {section name=sID loop=$smalltypes}
+                        {if $bigtypes[bID].id == $smalltypes[sID].bigtypeid}
+                        <div style="width:49%; height:18px; float:left; text-align:left; padding-left:12px">
+                            ·&nbsp;<a href="{util->baseUrl}/listbook-{$smalltypes[sID].id}-{if $cctype==1}1{elseif $cctype==2}2{elseif $cctype==3}3{elseif $cctype==4}4{/if}.html" class="a4">{util->unHtml p=$smalltypes[sID].typename}</a>
+                        </div>
+                        {/if}    
+                        {/section}   
+                    </div>
+                
+                </div>
+                {/section}
+                <div style="width:50px; height:10px; font-size:0px"></div>
+            </div>
+            
+            <div style="width:50px; height:7px; font-size:0px"></div>        
+
+            <div style="width:200px;border:1px solid #FF6700">
+                <div style="width:198px; height:25px; background-color:#F5F8FC; padding-top:6px; padding-left:20px; text-align:left; font-size:13px; border:1px solid #FFFFFF">
+                    <strong>您所浏览过的图书</strong>
+                </div>   
+                
+                <div style="width:50px; height:10px; font-size:0px"></div>
+               {section name=bbID loop=$arrayBrowserBooks}
+                <div style="width:98%; height:60px; border-top:1px dotted #CCCCCC">
+                    <div style="width:30%; height:60px; float:left; padding-top:3px"><a href="{util->baseUrl}/bookinfo-{$arrayBrowserBooks[bbID].0.id}.html"><img src="{$system[0].bookimgurl}/{$arrayBrowserBooks[bbID].0.bookimg}" width="36" height="48" style="border: 1px solid #123456"/></a></div> 
+                    <div style="width:68%; height:60px; float:right; text-align:left; padding-top:15px"><a href="{util->baseUrl}/bookinfo-{$arrayBrowserBooks[bbID].0.id}.html" class="a1"><strong>{util->unHtml p=$arrayBrowserBooks[bbID].0.bookname}</strong></a></div>    
+                </div>   
+               {/section} 
+             </div>
+            
+            
+            
+        </div>
+        <!-- 中间 -->
+        
+        <div style="width:700px; height:100%; float:right">
+            <div style="width: 100%; height:30px; text-align:left; padding-top:5px; border-bottom:1px solid #CCCCCC">
+                                         当前位置：明日网上书店&nbsp;>>&nbsp;图书详细信息&nbsp;>>&nbsp;{util->unHtml p=$bookinfo[0].bookname}
+            </div>  
+            
+            <div style="width:100%">
+                <div style="width:220px; height:100%; float:left">
+                    <br>
+                    <img src="{$system[0].bookimgurl}/{$bookinfo[0].bookimg}" width="115" height="160" style="border:1px solid #123456" />
+                    <br><br>
+                    <li style="display:inline; width:17px; height:15px; background:url({util->baseUrl}/img/mark_lookbigimg.gif); font-size:0px"></li>
+                    <li style="display:inline">&nbsp;&nbsp;点击查看大图</li>
+                </div>
+                
+                <div style="width:480px; height:100%; float:left; text-align:left; font-size:13px; line-height:28px">
+                    <br>
+                    <strong><font color="#003399">书名：{util->unHtml p=$bookinfo[0].bookname}</font></strong>
+                    <br>
+                    <li style="display:inline; width:48%"><font color="#003399">出版社：</font>{util->unHtml p=$bookinfo[0].pubname}</li>
+                    <li style="display:inline; width:48%"><font color="#003399">页数：</font>{util->unHtml p=$bookinfo[0].page}（页）</li>
+                    <li style="display:inline; width:48%"><font color="#003399">ISBN：</font>{util->unHtml p=$bookinfo[0].isbn}</li>
+                    <li style="display:inline; width:48%"><font color="#003399">字数：</font>{util->unHtml p=$bookinfo[0].zs}（千字）</li>
+                    <li style="display:inline; width:48%"><font color="#003399">出版时间：</font>{util->unHtml p=$bookinfo[0].pubtime}</li>
+                    <li style="display:inline; width:48%"><font color="#003399">印刷版次：</font>{util->unHtml p=$bookinfo[0].bc}</li>
+                    <li style="display:inline; width:48%"><font color="#003399">作者：</font>{util->unHtml p=$bookinfo[0].writer}</li>
+                    <li style="display:inline; width:48%"><font color="#003399">图书类别：</font>{util->unHtml p=$bookinfo[0].typename}</li>
+                    <li style="display:inline; width:100%"><font color="#003399">图书层次：</font>{if $bookinfo[0].bookcc == 1}初级入门{elseif $bookinfo[0].bookcc == 2}提高必备{elseif $bookinfo[0].bookcc == 3}高级导向{/if}</li>
+              
+                    <div style="padding-left:6px; padding-top:10px; font-size:14px"><strong>·市场价：<img src="{util->baseUrl}/img/mark_green.gif" />&nbsp;<s>{util->moneyFormat p=$bookinfo[0].oldprice}</s>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <font color="#FF0000">·会员价：<img src="{util->baseUrl}/img/mark_red.gif" />&nbsp;{util->moneyFormat p=$bookinfo[0].newprice}</font>   </strong>       
+                    </div> 
+                    <div style="width:100%; padding-top:10px"><a href="cart-{$bookinfo[0].bid}-add.html"><img src="{util->baseUrl}/img/button_incart.gif" border="0" /></a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="{if $isRead == 'T'}{$system[0].readurl}/download.php?rid={$sdinfo[0].id}&filename={$sdinfo[0].filename}{else}javascript:alert('该书暂未提供试读！');{/if}"><img src="{util->baseUrl}/img/button_readdown.gif" border="0" /></a></div>
+                </div>
+                <hr style="width:95%; height:1px; border:1px dotted #CCCCCC"/>
+                <div style="width:93%; height:33px">
+                    <div id="tab_bg" style="width:350px; height:33px; float:left; background:url({util->baseUrl}/img/n_bg1.gif)">
+                        <div id="b_about" style="width:155px; height:30px; float:left; padding-top:13px; color:#003399" onmouseover="changeTab1(about, directory, b_directory, b_about, '{util->baseUrl}/img/n_bg1.gif')">内容简介</div>
+                        <div id="b_directory" style="width:155px; height:30px; float:left; padding-top:13px; color:#333333"  onmouseover="changeTab1(directory, about, b_about, b_directory, '{util->baseUrl}/img/n_bg2.gif')">图书目录</div>
+                    </div>
+                </div>
+                <div id="about" style="display:; width:90%; height:220px; text-align:left; line-height:18px; padding-top:10px; font-size:13px; overflow-y:auto">
+                    {util->unHtml p=$bookinfo[0].about}
+                </div>
+                <div id="directory" style="display:none ;width:90%; height:220px; text-align:left; line-height:18px; padding-top:10px; font-size:13px; overflow-y:auto;" ondblclick="">
+                    {util->unHtml p=$bookinfo[0].directory}
+                </div>               
+                <hr style="width:95%; height:1px; border:1px dotted #CCCCCC"/>
+                
+                <div style="width:95%; height:25px; text-align:left">
+                    <strong>·推荐组合购买</strong>
+                </div>
+                
+                <div style="width:95%; height:150px">
+                    <div style="width:150px; height:100%; float:left; padding-top:7px">
+                        <a href="{util->baseUrl}/bookinfo-{$bookinfo[0].bid}.html"><img src="{$system[0].bookimgurl}/{$bookinfo[0].bookimg}" width="90" height="110" style="border:1px solid #333333" /></a><br /><br />
+                        <a href="{util->baseUrl}/bookinfo-{$bookinfo[0].bid}.html" class="a1" title="{util->unHtml p=$bookinfo[0].bookname}">{util->unHtml p=$bookinfo[0].bookname|truncate:22:"..":false}</a>
+                    </div> 
+                    <div style="width:20px; height:100%; float:left; padding-top:60px; padding-right:30px">
+                        <img src="{util->baseUrl}/img/mark_jia.gif" width="14" height="14"  />
+                    </div>                      
+                    {section name=zhbID loop=$arrayZhBooks}
+                    <div style="width:150px; height:100%; float:left; background-color:#F5F8FC; padding-top:7px">
+                        <a href="{util->baseUrl}/bookinfo-{$arrayZhBooks[zhbID].0.id}.html"><img src="{$system[0].bookimgurl}/{$arrayZhBooks[zhbID].0.bookimg}" width="90" height="110" style="border:1px solid #333333" /></a><br /><br />
+                        <a href="{util->baseUrl}/bookinfo-{$arrayZhBooks[zhbID].0.id}.html" class="a1" title="{util->unHtml p=$arrayZhBooks[zhbID].0.bookname}">{util->unHtml p=$arrayZhBooks[zhbID].0.bookname|truncate:20:"..":false}</a>
+                    </div>
+                    {/section}
+                </div> 
+                
+                <div style="width:95%; height:25px; text-align:left; text-align:right; padding-top:6px; padding-right:20px">
+                    <a href="{util->baseUrl}/cart-{$zhIDs}-gAdd.html"><img src="{util->baseUrl}/img/button_incargrp.gif" border="0" /></a>
+                </div>
+                                 
+                <hr style="width:95%; height:1px; border:1px dotted #CCCCCC"/>
+                <div style="width:95%; height:25px; text-align:left">
+                    <li style="display:inline; float:left"><strong>·用户评论</strong></li>
+                    <li style="display:inline; float:right; padding-right:20px">共有评论&nbsp;{$totalpl}&nbsp;条</li>
+                </div>
+                {section name=bpID loop=$pls}
+                <div style="width:95%; height:22px; text-align:left; border-top:1px solid #CCCCCC; background-color:#EFF3F7; padding-top:4px; padding-left:15px">
+                    <li style="display: inline; width:40%"><font color="#0328C1">作者：{util->unHtml p=$pls[bpID].usernc}</font></li>
+                    <li style="display: inline; width:35%"><font color="#0328C1">发表时间：{$pls[bpID].addtime}</font></li>
+                    <li style="display: inline; width:20%"><font color="#0328C1"><font color="#0328C1">IP：{$pls[bpID].ip}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{if $isAdmin=="T"}[<a href="{util->baseUrl}/bookinfo-{$cctype}-{$bid}-{$pls[bpID].id}.html" class="a1">删除</a>]{/if}</font></li>
+                </div> 
+                <div style="width:95%; height:40px; text-align:left; line-height:22px; padding:10px">
+                    {util->unHtml p=$pls[bpID].content}                               
+                </div> 
+                {/section}
+                <br />                 
+                 <form name="form_pl" method="post" action="{util->baseUrl}/bookinfo.html" onsubmit="return chkinputpl(this)">              
+                <div style="width:95%; height:50px; text-align:left">
+                <font color="#990000"> 评论内容：</font><br/><br/>
+                <textarea name="content" cols="80" rows="6" class="input2"></textarea><br/><br/>
+                <input type="submit" value="提交" />&nbsp;&nbsp;<input type="reset" value="重置" />
+                <br/><br/>                                  
+                </div> 
+                <input type="hidden" name="bid" value="{$bid}" /><input type="hidden" name="cctype" value="{$cctype}" />                                
+                </form>
+                             
+                
+            </div>
+            
+            
+            
+        </div>             
+    </div>
+</div>

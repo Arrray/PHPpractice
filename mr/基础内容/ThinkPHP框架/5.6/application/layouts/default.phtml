@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <?php 
+            echo $this->headMeta()->setHttpEquiv('content-type', 'text/html; charset=utf-8')          
+                                  ->appendHttpEquiv('x-ua-compatible', 'ie=7');
+        ?>
+        <?php echo $this->headLink()->setStylesheet($this->baseUrl('/css/style.css'))?>
+        <style type="text/css">
+            .default-body                {background:url(<?php echo $this->baseUrl('/img/bg.jpg')?>) repeat-x 0 0; background-color:#E7F6FB;}
+            .default-top                 {width:980px; height:30px; clear:both;}
+            .default-top .li1            {width:600px; height:30px; line-height:30px; text-align:left; color:#FFFFFF; float:left;}
+            .default-top .li2            {width:200px; height:30px; line-height:30px; text-align:right; color:#FFFFFF; float:right;}
+            .default-main                {width:980px; background-color:#FFFFFF; clear:both;}
+        </style>
+    </head>
+    <body class="default-body">
+        <div class="default-top">
+            <ul>
+             </ul>
+        </div>
+        <div class="default-main">
+            <?php echo $this->render('default_header.phtml')?>  
+            <?php echo $this->layout()->content;?>
+            <?php echo $this->render('default_footer.phtml')?>
+        </div>
+        <div class="cell_h"></div>
+    </body>
+</html>

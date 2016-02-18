@@ -1,0 +1,78 @@
+<div style="width:98%; height:25px; text-align:left"><input type="button" value="添加图书信息"  onclick="window.location.href='{util->baseUrl}/admin-book.php'" />&nbsp;&nbsp;<input type="button" value="浏览图书信息" onclick="window.location.href='{util->baseUrl}/admin-listbook.php'"/>&nbsp;&nbsp;<input type="button" value="查询图书信息" onclick="window.location.href='{util->baseUrl}/admin-searchbook.php'"/></div>       
+  
+    <div style="width:98%;  border:1px solid #006D84">
+        
+        <div style="width:100%; height:25px; border:1px solid #FFFFFF; background-color:#4995A8; text-align:left; padding-top:5px; padding-left:20px; color:#FFFFFF">
+            <li style="display:inline; float:left"><strong>查询图书信息</strong></li>
+        </div>
+         
+        <div style="width:100%">
+        <form name="form_searchbook" method="post" action="{util->baseUrl}/admin-searchbook.php" onsubmit="return chkinputsearchbook(this)">
+           查询关键字： <input name="bookname" size="50" class="input" value="{$bookname}" />&nbsp;&nbsp;<input type="submit" value="查询" />
+       </form>
+         </div>
+        
+    </div> 
+        
+   <br/>
+    {if $isFind == 'T'}   
+    <div style="width:98%;  border:1px solid #006D84">
+        <div style="width:100%; height:25px; border:1px solid #FFFFFF; background-color:#4995A8; text-align:left; padding-top:5px; padding-left:20px; color:#FFFFFF">
+            <li style="display:inline; float:left"><strong>查询到的图书信息</strong></li>
+        </div>
+        
+        
+    
+        <div style="width:100%; background-color:#CCCCCC">
+            <div style="width:30%; height:16px; float:left; padding-top:3px; border-right:1px solid #FFFFFF">
+               图书名称
+            </div>            
+ 
+             <div style="width:15%; height:16px; float:left; padding-top:3px; border-right:1px solid #FFFFFF">
+              出版社
+            </div>  
+            <div style="width:15%; height:16px; float:left; padding-top:3px; border-right:1px solid #FFFFFF">
+              作者
+            </div>             
+            <div style="width:15%; height:16px; float:left; padding-top:3px; border-right:1px solid #FFFFFF">
+              市场价（元）
+            </div>
+            <div style="width:15%; height:16px; float:left; padding-top:3px; border-right:1px solid #FFFFFF">
+              会员价（元）
+            </div>                                                              
+             <div style="width:10%; height:16px; float:left; padding-top:3px">
+               操作
+            </div>       
+        </div>  
+        {section name=bID loop=$books }
+        <div style="width:100%; border-top:1px solid #006D84">
+            <div style="width:30%; height:20px; float:left; padding-top:4px; border-right:1px solid #006D84; text-align:left; padding-left:5px">
+               {util->unHtml p=$books[bID].bookname}
+            </div> 
+                       
+            <div style="width:15%; height:20px; float:left; padding-top:4px; border-right:1px solid #006D84">
+               {util->unHtml p=$books[bID].pubname}
+            </div> 
+ 
+            <div style="width:15%; height:20px; float:left; padding-top:4px; border-right:1px solid #006D84">
+               {util->unHtml p=$books[bID].writer}
+            </div>             
+
+            <div style="width:15%; height:20px; float:left; padding-top:4px; border-right:1px solid #006D84">
+               {util->moneyFormat p=$books[bID].oldprice}
+            </div>             
+
+            <div style="width:15%; height:20px; float:left; padding-top:4px; border-right:1px solid #006D84">
+               {util->moneyFormat p=$books[bID].newprice}
+            </div> 
+                                   
+                         
+            <div style="width:9%; height:20px; float:left; padding-top:2px">
+                <a href="{util->baseUrl}/admin-book.php?f=edit&id={$books[bID].id}"><img src="{util->baseUrl}/img/edit.gif" border="0"/></a>&nbsp;<a href="javascript:if(window.confirm('确定删除？')==true){ldelim}window.location.href='{util->baseUrl}/admin-searchbook.php?f=del&id={$books[bID].id}&bookname={$bookname}';{rdelim}"><img src="{util->baseUrl}/img/del.gif" border="0"/></a>
+            </div>       
+        </div>          
+        {/section}
+    </div>
+    <br />
+{/if}
+    

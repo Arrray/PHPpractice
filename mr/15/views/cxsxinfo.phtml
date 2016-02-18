@@ -1,0 +1,76 @@
+<div style="width:950px; background-color:#FFFFFF">
+    <div style="width:930px">
+        <div style="width:200px; float:left">
+            <div style="width:200px; height:30px">
+                <div style="width:6px; height:30px; background:url({util->baseUrl}/img/dg_left.gif); float:left"></div>
+                <div style="width:188px; height:30px; background:url({util->baseUrl}/img/dg_center.gif); float:left; padding-top:5px">
+                    <div style="width:45px; height:25px; float:left; padding-top:5px; {if $cctype == 1}background:url({util->baseUrl}/img/dg_button_bg.gif){/if}"><a href="{util->baseUrl}/cxsxinfo-1-{$cid}.html" class="{if $cctype == 1}a2{else}a1{/if}"><strong>全部</strong></a></div>
+                    
+                    <div style="width:45px; height:25px;  float:left; padding-top:5px; {if $cctype == 2}background:url({util->baseUrl}/img/dg_button_bg.gif){/if}"><a href="{util->baseUrl}/cxsxinfo-2-{$cid}.html" class="{if $cctype == 2}a2{else}a1{/if}"><strong>初级</strong></a></div>
+                
+                    <div style="width:45px; height:25px;  float:left; padding-top:5px; {if $cctype == 3}background:url({util->baseUrl}/img/dg_button_bg.gif){/if}"><a href="{util->baseUrl}/cxsxinfo-3-{$cid}.html" class="{if $cctype == 3}a2{else}a1{/if}"><strong>中级</strong></a></div>
+                    
+                    <div style="width:45px; height:25px;  float:left; padding-top:5px; {if $cctype == 4}background:url({util->baseUrl}/img/dg_button_bg.gif){/if}"><a href="{util->baseUrl}/cxsxinfo-4-{$cid}.html" class="{if $cctype == 4}a2{else}a1{/if}"><strong>高级</strong></a></div>
+                </div>    
+                <div style="width:6px; height:30px; background:url({util->baseUrl}/img/dg_right.gif); float:right"></div>        
+            </div>
+            <div style="width:200px; background-color:#FDFBED; border-left:1px solid #FF6700; border-right:1px solid #FF6700; border-bottom:1px solid #FF6700">
+                <div style="width:100%; height:22px; border-bottom:1px dotted #CCCCCC; background-color:#F7F7F7; padding-top:5px; text-align:left; padding-left:15px">
+                                                     当前导航：
+                    {if $cctype == '1'}
+                                                                全部图书导航
+                    {elseif $cctype == '2'}
+                                                                  初级入门类图书
+                    {elseif $cctype == '3'}
+                                                                  提高必备类图书
+                    {elseif $cctype == '4'}
+                                                                  高级导向类图书
+                    {/if}
+                </div>
+                <div style="width:50px; height:10px; font-size:0px"></div>
+                {section name=bID loop=$bigtypes}
+                <div style="width:195px">
+                    <div style="width:100%; height:25px; text-align:left; padding-left:6px; padding-top:5px; color:#990000">
+                        ·&nbsp;{util->unHtml p=$bigtypes[bID].typename}
+                    </div>
+                
+                    <div style="width:100%">
+                        {section name=sID loop=$smalltypes}
+                        {if $bigtypes[bID].id == $smalltypes[sID].bigtypeid}
+                        <div style="width:49%; height:18px; float:left; text-align:left; padding-left:12px">
+                            ·&nbsp;<a href="{util->baseUrl}/listbook-{$smalltypes[sID].id}-{if $cctype==1}1{elseif $cctype==2}2{elseif $cctype==3}3{elseif $cctype==4}4{/if}.html" class="a4">{util->unHtml p=$smalltypes[sID].typename}</a>
+                        </div>
+                        {/if}    
+                        {/section}   
+                    </div>
+                
+                </div>
+                {/section}
+                <div style="width:50px; height:10px; font-size:0px"></div>
+            </div>
+            
+            <div style="width:50px; height:7px; font-size:0px"></div>                
+            
+        </div>
+        <!-- 中间 -->
+        
+        <div style="width:700px; height:100%; float:right">
+            <div style="width: 100%; height:30px; text-align:left; padding-top:5px; border-bottom:1px solid #CCCCCC">
+                                         当前位置：明日网上书店&nbsp;>>&nbsp;网上畅销书询 
+            </div>  
+            
+            <div style="width:100%">
+                <div style="width:95%; height:35px; text-align:left; border-bottom:1px dotted #333333; padding-top:12px; font-size:13px; color:#003399">
+                    <li style="display:inline; width:450px; float:left"><strong> 主题： {util->unHtml p=$cxsx[0].title}</strong></li>
+                    <li style="dispaly:inline; width:180px; float:right">发布时间：{util->msubstr p=$cxsx[0].addtime p1=0 p2=10}</li>   
+                </div>
+                <div style="width:95%; text-align:left; padding-top:15px; line-height:20px; font-size:14px">
+                     {util->unHtml p=$cxsx[0].content}
+                </div>
+            </div>
+            
+            
+            
+        </div>             
+    </div>
+</div>

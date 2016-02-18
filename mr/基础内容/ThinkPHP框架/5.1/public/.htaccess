@@ -1,0 +1,7 @@
+# Helicon ISAPI_Rewrite configuration file
+# Version 3.1.0.66
+
+#开启URL重写
+RewriteEngine on
+#除扩展名为.js、.css、.gif、.jpg、.png、.bmp的文件外，访问其他文件都转向到index.php引导文件
+RewriteRule !\.(js|css|gif|jpg|png|bmp)$ index.php

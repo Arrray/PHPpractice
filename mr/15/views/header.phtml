@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <meta name="keywords" content="图书|图书网|编程词典|编程|买书|租书|计算机|电子图书|IT|科技|java|.net|c#|php|明日">
+        <meta name="description" content="明日网上书店">
+        <title>{$title}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=gbk" />
+        <link rel="shortcut icon" href="{util->baseUrl}/img/icon.ico" type="image/x-icon" />
+        <link rel="stylesheet" type="text/css" href="{util->baseUrl}/css/style.css" />
+    </head>
+    <script language="javascript" src="{util->baseUrl}/js/jquery.js"></script>
+    <script language="javascript" src="{util->baseUrl}/js/fun.js"></script>
+    <body>
+        <div style="width:950px; background-color:#FFFFFF">
+            <div style="width:100%; height:22px; background-color:#EFF4F8; border-bottom:1px dotted #BAC8CA; padding:2px; padding-left:20px; padding-right:22px">
+                <li style="display:inline; width:13px; height:12px; float:left; background:url({util->baseUrl}/img/mark_home.gif); font-size:0px; margin-top:5px"></li>
+                <li style="display:inline; float:left; padding-left:5px; margin-top:5px">设为首页</li>
+                <li style="display:inline; float:left; padding-left:20px; padding-right:30px; margin-top:5px; width:340px">您好！欢迎来到明日网上书店&nbsp;&nbsp;{if $isLogin == 'T'}{$unc}&nbsp;&nbsp;[<a href="{util->baseUrl}/logout.html" class="a1">退出登录</a>]{else}[<a href="{util->baseUrl}/login.html" class="a1">登录</a>]&nbsp;[<a href="{util->baseUrl}/register.html" class="a1">免费注册</a>]{/if}</li>
+                <li style="display:inline; width:12px; height:12px; float:left; background:url({util->baseUrl}/img/mark_top.gif); font-size:0px; margin-top:5px"></li>
+                <li style="display:inline; float:left; padding-left:10px; margin-top:5px"><a href="{util->baseUrl}/mrbookph.html" class="a1">明日图书排行</a>&nbsp;&nbsp;<a href="{util->baseUrl}/cxsx.html" class="a1">网上畅销书询</a>&nbsp;&nbsp;<a href="http://www.mrbccd.com" class="a6" target="_blank">[编程词典]</a></li>
+                <li style="display:inline; width:200px; height:20px; background:url({util->baseUrl}/img/tel.gif); float:right"></li>                               
+                
+           
+            </div>
+            <div style="width:100%">
+                <div style="width:300px; float:left; padding-top:10px; font-size:0px">
+                    <img src="{util->baseUrl}/img/logo.jpg" />
+                </div>
+                <div style="width:500px; float:left; padding-top:10px ">
+                    <div style="width:100%; height:23px; padding-left:30px">
+                        <div style="width:54px; height:23px; float:left; background:url({if $dh == 'index'}{util->baseUrl}/img/button_top_1.gif{else}{util->baseUrl}/img/button_top_2.gif{/if}); padding-top:6px"><a href="{util->baseUrl}/index.html" class="{if $dh == 'index'}a2{else}a1{/if}"><strong>首页</strong></a></div>
+                        <div style="width:6px; height:23px; float:left; font-size:0px"></div>
+                        <div style="width:54px; height:23px; float:left;  background:url({if $dh == 'new'}{util->baseUrl}/img/button_top_1.gif{else}{util->baseUrl}/img/button_top_2.gif{/if}); padding-top:6px"><a href="{util->baseUrl}/listsepbook-new.html" class="{if $dh == 'new'}a2{else}a1{/if}"><strong>新书</strong></a></div>
+                        <div style="width:6px; height:23px; float:left; font-size:0px"></div>
+                        <div style="width:54px; height:23px; float:left;  background:url({if $dh == 'sepprice'}{util->baseUrl}/img/button_top_1.gif{else}{util->baseUrl}/img/button_top_2.gif{/if}); padding-top:6px"><a href="{util->baseUrl}/listsepbook-sepprice.html" class="{if $dh == 'sepprice'}a2{else}a1{/if}" ><strong>特价</strong></a></div>
+                        <div style="width:6px; height:23px; float:left; font-size:0px"></div>
+                        <div style="width:54px; height:23px; float:left;  background:url({if $dh == 'hotsell'}{util->baseUrl}/img/button_top_1.gif{else}{util->baseUrl}/img/button_top_2.gif{/if}); padding-top:6px"><a href="{util->baseUrl}/listsepbook-hotsell.html" class="{if $dh == 'hotsell'}a2{else}a1{/if}" ><strong>热卖</strong></a></div>
+                        <div style="width:6px; height:23px; float:left; font-size:0px"></div>
+                        <div style="width:54px; height:23px; float:left;  background:url({if $dh == 'term'}{util->baseUrl}/img/button_top_1.gif{else}{util->baseUrl}/img/button_top_2.gif{/if}); padding-top:6px"><a href="{util->baseUrl}/listsepbook-term.html" class="{if $dh == 'term'}a2{else}a1{/if}" ><strong>期书</strong></a></div>
+                        <div style="width:6px; height:23px; float:left; font-size:0px"></div>
+                        <div style="width:54px; height:23px; float:left;  background:url({if $dh == 'listread'}{util->baseUrl}/img/button_top_1.gif{else}{util->baseUrl}/img/button_top_2.gif{/if}); padding-top:6px"><a href="{util->baseUrl}/listreadbook.html" class="{if $dh == 'listread'}a2{else}a1{/if}" ><strong>试读</strong></a></div>
+                    </div>
+                    
+                    <div style="width:500px; height:36px">
+                    <form name="form_search" method="post" action="{util->baseUrl}/search.html" onSubmit="return chkinputSimpleSearch(this)">
+                        <div style="width:8px; height:36px; float:left; background:url({util->baseUrl}/img/top_search_left.gif)"></div> 
+                        <div style="width:484px; height:36px; float:left; background:url({util->baseUrl}/img/top_search_center.gif); text-align:left">
+                            <li style="display:inline; height:35px; padding-top:5px"><input type="text" name="keyWord" size="40" class="input1" value="{if $keytxt!=''}{$keytxt}{else}请输入要查询的图书名称{/if}" onMouseOver="this.select()"/></li>
+                            <li style="display:inline; height:35px; padding-top:5px; padding-left:8px"><input type="hidden" name="stype" value="simple" /><input type="image" src="{util->baseUrl}/img/button_findbook.gif" /></li>
+                        </div>
+                        <div style="width:8px; height:36px; float:right; background:url({util->baseUrl}/img/top_search_right.gif)"></div>   
+                    </form>
+                    </div>  
+                    
+                </div>
+                <div style="width:150px; float:right; padding-top:23px; text-align:left; padding-left:30px; line-height:20px">
+                    <li style="display:inline; width:23px; height:22px; background:url({util->baseUrl}/img/mark_search.gif); font-size:0px"></li>                    
+                    <li style="display:inline; padding-left:15px"><a href="advancedsearch.html" class="a8">高级搜索</a></li><br />
+                    <li style="display:inline; width:22px; height:15px; background:url({util->baseUrl}/img/mark_car1.gif); font-size:0px"></li>                               
+                    <li style="display:inline; font-size:12px; padding-left:15px"><a href="{util->baseUrl}/cart.html" class="a8">我的购物车</a></li>         
+                </div>                
+            </div>
+            
+            <div style="width:50px; height:8px; font-size:0px"></div>
+            
+            <div style="width:930px; height:26px">
+                <div style="width:10px; height:26px; background:url({util->baseUrl}/img/dh_left.gif); float:left"></div>
+                <div style="width:910px; height:26px; background:url({util->baseUrl}/img/dh_center.gif); float:left; padding-top:6px">
+                   {section name=bdhID loop=$bigtypeDhs}
+                       <li style="display:inline; color:#FFFFFF">|</li>
+                       <li style="display:inline"><a href="{util->baseUrl}/listbook-{getSidByBid bid=$bigtypeDhs[bdhID].id}-1.html" class="a2"><strong>{util->unHtml p=$bigtypeDhs[bdhID].typename}</strong></a></li>
+                   {/section}
+                   <li style="display:inline; color:#FFFFFF">|</li>
+                </div>
+                <div style="width:10px; height:26px; background:url({util->baseUrl}/img/dh_right.gif); float:right"></div>
+            </div>
+            <div style="width:50px; height:7px; font-size:0px"></div>
+        </div>
+        
+        

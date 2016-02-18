@@ -1,0 +1,26 @@
+    <div style="width:98%; height:25px; text-align:left"><input type="button" value="添加明日图书排行信息"  onclick="window.location.href='{util->baseUrl}/admin-mrbookph.php'" />&nbsp;&nbsp;<input type="button" value="浏览明日图书排行信息" onclick="window.location.href='{util->baseUrl}/admin-listmrbookph.php'"/></div>    
+    <div style="width:98%;  border:1px solid #006D84">
+        <div style="width:100%; height:25px; border:1px solid #FFFFFF; background-color:#4995A8; text-align:left; padding-left:5px; padding-top:5px; color:#FFFFFF">
+            <li style="display:inline; float:left"><strong>添加明日图书排行信息</strong></li>
+        </div>
+        
+        <div style="width:100%; text-align:left; padding-top:20px; padding:5px">
+         
+          <form name="form_addcxsx" method="post" action="{util->baseUrl}/admin-mrbookph.php" onsubmit="return chkInputCommon(this)">
+            <div style="width:100%; text-align:left; padding-top:5px">
+                  主题：<input type="text" name="title" size="80" class="input" {if $isEdit=="T"}value="{$info[0].title}"{/if}/><br /><br /> 
+                内容： {if $isEdit=="F"}
+                  {util->editor p1 ='content' p2 =''}<br /><br /> 
+                {else}
+                   {util->editor p1 ='content' p2 =$info[0].content}<br /><br /> 
+                   <input type="hidden" name="id" value="{$info[0].id}" /> 
+                {/if}
+                
+                  
+                <input type="submit" value="{if $isEdit=="F"}添加{else}更改{/if}" />&nbsp;&nbsp;<input type="reset" value="重置" />
+            </div> 
+            </form>  
+        
+    
+        </div>    
+    </div>

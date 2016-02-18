@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title><?php echo $this->escape($this->title); ?></title>
+<style type="text/css">
+<!--
+.submit {
+	font-weight:bold;
+	width:112px;
+	border:medium none;
+	background:#FFF url(<?php echo $this->baseUrl("images/index_02.jpg"); ?>) no-repeat;
+	cursor:pointer;
+	line-height:33px;
+	font-size:14px;
+}
+-->
+</style>
+</head>
+
+<body>
+<form id="form1" name="form1" method="post" action="<?php echo $this->Url(array('controller'=>'index','action'=>'index')); ?>">
+<table width="338" height="168" border="0" align="center" cellpadding="0" cellspacing="0" background="<?php echo $this->baseUrl("images/index_01.jpg"); ?>">
+  <tr>
+    <td width="37" valign="top"><table width="338" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="112"></td>
+        <td width="176" height="62"></td>
+        <td width="50"></td>
+      </tr>
+      <tr>
+        <td width="112"></td>
+        <td height="22" align="center" valign="top">
+          <input name="username" type="text" size="24" maxlength="10" /></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td height="15"></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td align="center" valign="top"><input name="password" type="password" size="25" maxlength="10" /></td>
+        <td></td>
+      </tr>
+      
+    </table></td>
+  </tr>
+  
+</table>
+<table width="338" height="62" border="0" align="center" cellpadding="0" cellspacing="0" background="<?php echo $this->baseUrl("images/index_04.jpg"); ?>">
+  <tr>
+    <td width="40" height="33"></td>
+    <td width="112" height="33" align="left" valign="top"><input type="submit" name="submit" class="submit" value="  "/></td>
+    <td width="30"></td>
+    <td width="112" align="left" valign="top"><img src="<?php echo $this->baseUrl("images/index_03.jpg"); ?>" width="112" height="33" border="0"/></td>
+    <td width="44"></td>
+  </tr>
+</table>
+</form>
+</body>
+</html>

@@ -1,0 +1,64 @@
+
+<div style="width:950px; background-color:#FFFFFF">
+    <div style="width:930px; height:20px; background:url({util->baseUrl}/img/title4.gif); border-top:1px solid #CCCCCC; padding-top:3px; padding-left:20px; font-size:13px; text-align:left">
+               您当前的位置：明日网上书店&nbsp;>>&nbsp;确认订单
+    </div>
+    <br />
+    <div>
+        <img src="{util->baseUrl}/img/gulc3.gif" usemap="#Map" border="0"/>
+        <map name="Map" id="Map">
+            <area shape="rect" coords="190,45,296,80" href="{util->baseUrl}/cart.html" />
+            <area shape="rect" coords="312,23,446,60" href="{util->baseUrl}/getbuyuserinfo.html" />
+        </map>
+    </div>
+    <br />
+    <div style="width:850px; height:22px; border-bottom:1px dotted #333333">
+        <div style="width:120px; height:22px; float:left; background-color:#7C7C7C; color:#FFFFFF; padding-top:5px">您所订购的图书</div>
+    </div>
+    <br />    
+    <div style="width:800px; height:22px; border-bottom:1px solid #333333">
+        <div style="width: 40%; height:12px; float:left; text-align:center; font-size:13px; color:#003399">图书名称</div>  
+        <div style="width: 20%; height:12px; float:left; text-align:center; font-size:13px; color:#003399">会员价（元）</div> 
+        <div style="width: 20%; height:12px; float:left; text-align:center; font-size:13px; color:#003399">数量（本）</div>   
+        <div style="width: 20%; height:12px; float:left; text-align:center; font-size:13px; color:#003399">价格小计（元）</div>       
+    </div> 
+    {section name=cbID loop=$arrayCarInfos}
+    <div style="width:800px; height:22px; padding-top:10px">
+        <div style="width: 40%; height:12px; float:left; text-align:center; font-size:13px; text-align:left"><strong>{util->unHtml p=$arrayCarInfos[cbID].bookname}</strong></div>  
+        <div style="width: 20%; height:12px; float:left; text-align:center; font-size:13px"><strong>{util->moneyFormat p=$arrayCarInfos[cbID].newprice}</strong></div> 
+        <div style="width: 20%; height:12px; float:left; text-align:center; font-size:13px"><strong>{$arrayCarInfos[cbID].num}</strong></div>   
+        <div style="width: 20%; height:12px; float:left; text-align:center; font-size:13px"><strong>{util->moneyFormat p=$arrayCarInfos[cbID].smallTotalPrice}</strong></div>       
+    </div> 
+    {/section}
+    <br /> 
+    <div style="width:800px; height:25px; border-top:1px solid #333333">
+        <div style="width:200px; float:right; padding-top:5px; text-align:right">图书价格总计：&nbsp;<strong>{util->moneyFormat p=$totalPrice}</strong>&nbsp;元</div>
+    </div>
+    <div style="width:800px; height:25px">
+        <div style="width:200px; float:right; padding-top:5px; text-align:right">运费：&nbsp;<strong>{util->moneyFormat p=$smarty.session.recuserinfo.recpay}</strong>&nbsp;元</div>
+    </div>    
+    <div style="width:800px; height:25px">
+        <div style="width:200px; float:right; padding-top:5px; text-align:right; border-top:1px solid #333333">您应该支付的总运费：&nbsp;<strong>{util->moneyFormat p=$smarty.session.recuserinfo.recpayall}</strong>&nbsp;元</div>
+    </div>    
+    <div style="width:850px; height:22px; border-bottom:1px dotted #333333">
+        <div style="width:120px; height:22px; float:left; background-color:#7C7C7C; color:#FFFFFF; padding-top:5px">收货人信息</div>
+    </div>  
+    <br /> 
+    <div style="width:800px; height:25px">
+        <li style="display:inline; height:25px; text-align:left; width:100%">订购用户昵称：{$smarty.session.recuserinfo.unc}</li>
+        <li style="display:inline; height:25px; text-align:left; width:50%">收货人姓名：{$smarty.session.recuserinfo.username}</li>
+        <li style="display:inline; height:25px; text-align:left; width:50%">性别：{$smarty.session.recuserinfo.sex}</li>
+        <li style="display:inline; height:25px; text-align:left; width:100%">收货人详细地址：{$smarty.session.recuserinfo.address}</li>
+        <li style="display:inline; height:25px; text-align:left; width:50%">邮政编码：{$smarty.session.recuserinfo.yb}</li>
+        <li style="display:inline; height:25px; text-align:left; width:50%">联系电话：{$smarty.session.recuserinfo.tel}</li>   
+        <li style="display:inline; height:25px; text-align:left; width:50%; float:left">发票抬头：{if $smarty.session.recuserinfo.tt==''}不要发票{else}{$smarty.session.recuserinfo.tt}{/if}</li>     
+    
+    </div> 
+     <div style="width:930px; height:25px;  border-top:1px solid #333333; padding-top:10px">
+              <a href="{util->baseUrl}/selectpaytype.html"><img src="{util->baseUrl}/img/button_selpaytype.gif" border="0" /></a>
+    </div>  
+    
+    
+     <br />
+</div>
+       

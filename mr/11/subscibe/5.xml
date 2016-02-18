@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="gb2312"?>
+<rss xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:taxo="http://purl.org/rss/1.0/modules/taxonomy/" version="2.0">
+  <channel>
+    <title>明日科技</title>
+    <link>http://www.mingrisoft.com</link>
+    <description>$_SESSION[name]</description>
+    <dc:creator>http://www.mingrisoft.com</dc:creator>
+	<item>
+		<title>青花瓷</title>
+		<link>http://192.168.1.59/MR/21/01/look.php?video_id=2&amp;video_name=青花瓷</link>			
+　		<description>
+
+&lt;a href='http://192.168.1.59/MR/21/01/look.php?video_id=2&amp;video_name=青花瓷' target='_blank'&gt;&lt;img name=news src=upfiles/video/1221027186.jpg alt='很好听的一首歌' width=130 height=150 border=3 style=border-color:#CCCCCC; margin-top:15px; margin-left:15px; margin-bottom:15px; margin-right:15px;/&gt;&lt;/a&gt;&lt;br/&gt;&lt;br/&gt;播放：0
+
+
+</description>
+　		<pubDate>2008-09-10 14:13:06</pubDate>　　
+	</item></channel></rss>

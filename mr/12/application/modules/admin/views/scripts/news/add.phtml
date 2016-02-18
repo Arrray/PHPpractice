@@ -1,0 +1,121 @@
+<style type="text/css">
+    .nav                              {width:96%; height:23px; border-bottom:3px solid #94E279; clear:both;}  
+    .nav .li1                         {width:80px; height:23px; line-height:23px; float:left; background-color:#D0F9C1; margin-left:8px;}
+    .nav .li2                         {width:80px; height:23px; line-height:23px; float:left; background-color:#E7F6FB; margin-left:8px;}                            
+    .part1                            {width:96%; border:1px solid #BDE2FD; clear:both;}
+    .part1 .msg                       {width:90%; padding:10px; border:1px solid #DB752A; background-color:#FEF5EF; text-align:left; font-size:14px; color:#DB752A;}
+    .part1 .line                      {width:100%; height:28px; line-height:28px; text-align:left; clear:both;}
+    .part1 .editArea                  {width:100%; text-align:left; clear:both;}
+    .btn                              {width:96%; height:25px; line-height:25px; text-align:left; clear:both;} 
+</style>
+<div class="nav">
+    <ul>
+        <li class="li1">
+            <a href="<?php echo $this->baseUrl('/admin/news/add')?>" class="a3">添加</a>
+        </li>
+        <li class="li2">
+            <a href="<?php echo $this->baseUrl('/admin/news/list/flag/all/lt/0/page/1')?>" class="a3">更改</a>
+        </li>
+        <li class="li2">
+            <a href="<?php echo $this->baseUrl('/admin/news/search')?>" class="a3">查询</a>
+        </li>
+    </ul>
+</div>
+<div class="cell_h"></div>
+<form name="form_news" id="form_news" method="post" action="" enctype="multipart/form-data" style="margin:0px; padding:0px;"/>
+<div class="part1">
+    <div class="cell_h"></div>
+    <?php if(trim($this->msg)!=''):?>
+    <div class="msg">
+        <?php echo $this->msg?>
+    </div>
+    <div class="cell_h"></div>
+    <?php endif;?>
+    <div class="line">
+　新闻主题：<input type="text" name="title" id="title" <?php if($this->pData!=null):?>value="<?php echo $this->pData['title']?>"<?php endif;?> class="input" style="width:500px; height:17px; line-height:17px;"/>
+    </div>
+    <div class="line">
+　所属类别：<select name="flag" id="flag" class="input" style="height:17px;">
+               <option value="">请选择</option>
+               <option value="0" <?php if($this->pData!=null && $this->pData['flag']==0):?>selected<?php endif;?>>站内新闻</option>
+               <option value="1" <?php if($this->pData!=null && $this->pData['flag']==1):?>selected<?php endif;?>>IT人物</option>
+               <option value="2" <?php if($this->pData!=null && $this->pData['flag']==2):?>selected<?php endif;?>>高端访谈</option>
+               <option value="3" <?php if($this->pData!=null && $this->pData['flag']==3):?>selected<?php endif;?>>产品快讯</option>
+               <option value="4" <?php if($this->pData!=null && $this->pData['flag']==4):?>selected<?php endif;?>>企业动态</option>
+               <option value="5" <?php if($this->pData!=null && $this->pData['flag']==5):?>selected<?php endif;?>>互联网</option>
+               <option value="6" <?php if($this->pData!=null && $this->pData['flag']==6):?>selected<?php endif;?>>游戏资讯</option>
+               <option value="7" <?php if($this->pData!=null && $this->pData['flag']==7):?>selected<?php endif;?>>广告传媒</option>
+               <option value="8" <?php if($this->pData!=null && $this->pData['flag']==8):?>selected<?php endif;?>>财经报道</option>
+               <option value="9" <?php if($this->pData!=null && $this->pData['flag']==9):?>selected<?php endif;?>>图片新闻</option>
+               <option value="10" <?php if($this->pData!=null && $this->pData['flag']==10):?>selected<?php endif;?>>综合资讯</option>
+           </select>　　　
+               　　今日推荐：<input type="checkbox" name="istodaycommend" id="istodaycommend" value="1" <?php if($this->pData!=null && isset($this->pData['istodaycommend']) && $this->pData['istodaycommend']==1):?>checked<?php endif;?>/>
+    </div>
+    <div class="line">
+　作　　者：<input type="text" name="author" id="author" <?php if($this->pData!=null):?>value="<?php echo $this->pData['author']?>"<?php endif;?> class="input" style="width:110px; height:17px; line-height:17px;"/>
+　来　　源：<input type="text" name="source" id="source" <?php if($this->pData!=null):?>value="<?php echo $this->pData['source']?>"<?php endif;?> class="input" style="width:310px; height:17px; line-height:17px;"/>
+    </div>
+    <div class="line">
+　关联标签：<input type="text" name="relativetag" id="relativetag" <?php if($this->pData!=null):?>value="<?php echo $this->pData['relativetag']?>"<?php endif;?> class="input" style="width:305px; height:17px; line-height:17px;"/>　(关联标签用空格分隔)
+    </div>
+    <div class="line">
+　热门标签：<input type="text" name="tags" id="tags" <?php if($this->pData!=null):?>value="<?php echo $this->pData['tags']?>"<?php endif;?> class="input" style="width:305px; height:17px; line-height:17px;"/>　(标签用逗号分割，如：web,php,jsp)
+    </div>
+    <div class="line">
+　图片封面：<input type="file" name="imagename" id="imagename" class="input" style="width:505px; height:17px; line-height:17px;"/>　(图片规格120*80　只允许GIF|JPG|BMP格式，并不能超过1M)
+    </div>           
+    <div class="editArea">
+        <script language="javascript">
+            var lzhEditor = new LzhEditor('content', '100%', '260', '<?php if($this->pData!=null):?><?php echo str_replace(chr(13), '', str_replace(chr(10), '', $this->pData['content']))?><?php endif;?>', '<?php echo $this->baseUrl('/js/LzhEditor')?>', '<?php echo $this->baseUrl('/common/upload')?>');
+            lzhEditor.Create();
+        </script> 
+    </div> 
+</div>
+<div class="cell_h"></div>
+<div class="btn">
+    <input type="hidden" name="postMark" id="postMark" value="<?php echo $this->postMark?>" />
+    <input type="hidden" name="newsid" id="newsid" value="<?php echo $this->pData['newsid']?>" />
+　　<input type="button" value="提交" onclick="submitFun()" />　　　　　<input type="button" value="更改新闻" onclick="window.location.href='<?php echo $this->baseUrl('/admin/news/list/flag/all/lt/0/page/1')?>'" />　　<input type="button" value="查询新闻" onclick="window.location.href='<?php echo $this->baseUrl('/admin/news/search')?>'" />
+</div>
+</form>
+<script language="javascript">
+    function submitFun(){
+         if($.trim($("#title").val())==""){
+             alert("请输入新闻主题！");
+             $("#title").focus();
+             return;
+         }
+         if($("#flag").val()==""){
+             alert("请选择新闻类别！");
+             $("#flag").focus();
+             return;
+         }
+         if($.trim($("#author").val())==""){
+             alert("请输入作者名称！");
+             $("#author").focus();
+             return;
+         }
+         if($.trim($("#source").val())==""){
+             alert("请输入新闻来源！");
+             $("#source").focus();
+             return;
+         }
+         if($.trim($("#relativetag").val())==""){
+             alert("请输入相关新闻标签！");
+             $("#relativetag").focus();
+             return;
+         }
+         if($.trim($("#tags").val())==""){
+             alert("请输入热门标签！");
+             $("#tags").focus();
+             return;
+         }
+         lzhEditor.Submit();
+         if($.trim($("#content").val())=="" || $.trim($("#content").val()).toUpperCase()=="<P>&nbsp;</P>".toUpperCase()){
+             alert("请输入新闻内容！");
+             window.frames["editor"].focus();
+             return;
+         }
+ 	     form_news.submit();
+    }
+</script> 

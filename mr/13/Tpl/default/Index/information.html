@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="../Public/Jquery/jquery-1.4.2.js"></script>
+<link type="text/css" rel="stylesheet" href="../Public/Css/information.css">
+<title>页面提示</title>
+</head>
+<body>
+<div id="date">
+	<div class="hint">{$hint}</div>
+	<div class="content">
+		<span class="spanT">5</span>秒后自动跳转，如未跳转，请单击<a href="{$url}">这里</a>
+	</div>
+</div>
+<script type="text/javascript">
+	$(function(){
+		time();
+	});
+	var times=$("span").text();
+	function time(){
+		if(times==0){
+			var url=$("a").attr('href');
+			window.location.href=url;
+		}else{
+			window.setTimeout('time()',1000);
+			times=times-1;
+			$("span").text(times);
+		}
+	}
+</script>
+</body>
+</html>

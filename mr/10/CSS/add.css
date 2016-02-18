@@ -1,0 +1,29 @@
+/* 发贴页样式*/
+body,form,input,h1,table{font:9pt/14pt Georgia,Verdana,"sans-serif","宋体";color:#333;margin:0;}
+body{background:#f6f6ea;}
+img{border:0;}
+a{color:#70B817;text-decoration:none;}
+a:hover{color:#FF3992;text-decoration:underline;}
+#header{background:url(../images/bg_top.jpg) repeat-x; height:82px;}
+#header img{margin-left:80px;}
+#menu{background:url(../images/bg_search.gif) repeat-x;height:31px; border-top:2px solid #3D9A13;border-bottom:2px solid #3D9A13;padding:2px 0 0 5px;}
+#menu img{margin-right:5px;}
+#menu .input{margin-bottom:4px;padding:3px;background:url(../images/bg_input.gif) no-repeat; border:1px solid #369;}
+
+#footer{text-align:center;font-size:8pt;}
+#mainList{background:#fff url(../images/bg_list.jpg) repeat-x bottom;text-align:center;padding:1px 0 87px 0;}
+.StepTable{float:left;width:750px;background:#fff;margin:0;padding:2px;}
+.StepTable th{background:#F6FFDA;color:#70B817;width:100px;text-align:right;font-weight:normal;}
+.StepTable td{text-align:left;}
+.Step{color:#333;background:#70B817;border:1px solid #3D9A13;}
+#Peview{float:left;margin:1px;}
+#Peview #infoAD{color:#70B817;padding:10px;margin:1px 5px 10px 5px;border:1px solid #70B817;width:210px;text-align:left;}
+.Char{color:#FF0000;}
+.colorBlock0{cursor:pointer;background:#FFEEF4;border:1px solid #000; width:34px; height:34px;float:left;margin:3px;}
+.colorBlock1{cursor:pointer;background:#FFFFFF;border:1px solid #000; width:34px; height:34px;float:left;margin:3px;}
+.colorBlock2{cursor:pointer;background:#ECF8FF;border:1px solid #000; width:34px; height:34px;float:left;margin:3px;}
+.colorBlock3{cursor:pointer;background:#F0FFE9;border:1px solid #000; width:34px; height:34px;float:left;margin:3px;}
+.colorBlock4{cursor:pointer;background:#F9ECFF;border:1px solid #000; width:34px; height:34px;float:left;margin:3px;}
+.colorBlock5{cursor:pointer;background:#FFFFE5;border:1px solid #000; width:34px; height:34px;float:left;margin:3px;}
+.iconBox{float:left;cursor:pointer;margin:3px;}
+.red{color:#FF0000;}

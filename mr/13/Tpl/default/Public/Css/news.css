@@ -1,0 +1,8 @@
+@CHARSET "UTF-8";
+#content{margin:10px auto;}
+.table_1{width:800px; height:30px;border:5px solid #e7e7e7;font-size:14px;font-family:"楷体_gb2312";background-image:url(../Images/titlePic.jpg);color:white}
+.table_2{width:800px; height:70px;border:5px solid #e7e7e7;border-bottom:0;border-top:0;font-size:14px;font-family:"楷体_gb2312"}
+.table_3{width:800px; height:30px;border:5px solid #e7e7e7;font-size:14px;font-family:"楷体_gb2312";background-image:url(../Images/titlePic.jpg);color:white}
+.br{line-height:1px;width:800px;zoom:0.75;}
+.page{width:800px;height:20px;background-image:url(../Images/titlePic.jpg);}
+.page span{color:white;font-family:"楷体_gb2312";font-size:15px;padding-top:1px;}

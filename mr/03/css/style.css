@@ -1,0 +1,192 @@
+/* CSS Document */
+body{
+	margin:0px;
+	background-color:#FFFFFF;
+	height:100%;
+}
+body,th,td{
+	font-size:12px;
+	color:#000000;
+}
+a{
+	cursor: hand;
+}
+a:link {
+	text-decoration: none;
+	color:#000000;
+}
+a:visited {
+	text-decoration: none;
+	color:#000000;
+}
+a:hover {
+	text-decoration:underline;
+	color:#000000;
+}
+a:active {
+	text-decoration: none;
+	color:#000000;
+}
+ul{
+	list-style-type:none;
+}
+#contain{
+	position: absolute;
+	margin:0 auto;
+	text-align:center;
+	width:100%;
+}
+#links{
+	position:relative;
+	width:843px;
+	height:73px;
+	text-align:right;
+	background-image:url(../images/logo.gif);
+	background-position:top left;
+	background-repeat:no-repeat;
+}
+#header{
+	position:relative;
+	width: 843px;
+}
+#left{
+	position: absolute;
+	width:190px;
+	height:155px;
+	left: 0px;
+	top: 0px;
+	border: 2px #0000FF solid;
+
+}
+#bccd{
+	position:absolute;
+	width:190px;
+	height:133px;
+	left:0px;
+	top:165px;
+	background-image:url(../images/mrbccd.gif);
+	background-position: top;
+	background-repeat:no-repeat;
+
+}
+#foundbook{
+	position:absolute;
+	width:190px;
+	height:46px;
+	left:0px;
+	top:308px;
+	background-image: url(../images/fbook.gif);
+	background-position: top;
+	background-repeat:no-repeat;
+
+}
+#mingrisoft{
+	position:absolute;
+	width:190px;
+	height:46px;
+	left:0px;
+	top:364px;
+	background-image: url(../images/mingrisoft.gif);
+	background-position: top;
+	background-repeat:no-repeat;
+}
+#mrbbs{
+	position:absolute;
+	width:190px;
+	height:45px;
+	left:0px;
+	top:420px;
+	background-image: url(../images/mrbbs.gif);
+	background-position: top;
+	background-repeat:no-repeat;
+}
+#right{
+	position: absolute;
+	background-image: url(../images/top.gif);
+	background-position:top right;
+	background-repeat:no-repeat;
+	width:644px;
+	height:109px;
+	top: 0px;
+	left: 198px;
+}
+#found{
+	position: absolute;
+	text-align:center;
+	left: 198px;
+	top:125px;
+	width:644px;
+	height: 25px;
+	line-height:25px;
+	background-color: #DFF4FF;
+	text-align: left;
+	padding-top: 5px;
+	border: 1px #597ecf solid;
+}
+#bottom{
+	position: absolute; 
+	background-color:#f0f0f0;
+	color: #53360e;
+	width:843px;
+	line-height:25px;
+	padding:20px 0;
+	left: 0px;
+	top: 475px;
+}
+
+
+#showname{
+	color: #cc0000;
+}
+#sys{
+	position:relative;
+	text-align:right;
+	width: 320px;
+	top:72%;
+}
+#content{
+	position: absolute;
+	left: 198px;
+	top: 175px;
+	width:644px;
+	height:290px;
+}
+#filelist{
+	padding:1px;
+}
+#filelist ul{
+	padding: 1px;
+}
+#filelist li{
+	float: left;
+	height:20px;
+	line-height:20px;
+	text-align:center;
+	overflow: hidden;
+}
+#filelist #delbtn{
+	width: 60px;
+}
+input{
+	width: 100px;
+	height: 16px;
+	border: 1px #000000 solid;
+}
+#downbtn{
+	background-color: #597ecf;
+	background-image:url(../images/down.gif);
+	background-position:center;
+	background-repeat:no-repeat;
+	width: 51px;
+	height: 18px;
+	border: 1px #597ecf solid;
+}
+#found #foundbtn{
+	background-color: #597ecf;
+	background-image: url(../images/foundbtn.gif);
+	background-position:center;
+	background-repeat:no-repeat;
+	width: 51px;
+	height: 18px;
+	border: 1px #597ecf solid;
+}

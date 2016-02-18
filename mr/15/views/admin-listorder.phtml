@@ -1,0 +1,136 @@
+ <div style="width:98%;  border:1px solid #006D84">
+        <div style="width:100%; height:25px; border:1px solid #FFFFFF; background-color:#4995A8; text-align:left; padding-top:5px; padding-left:20px; color:#FFFFFF">
+            <li style="display:inline; float:left"><strong>浏览订单信息</strong></li>
+        </div>
+        
+        <div style="width:100%; background-color:#CCCCCC">
+            <div style="width:15%; height:16px; float:left; padding-top:3px; border-right:1px solid #FFFFFF">
+             订单号
+            </div>            
+ 
+             <div style="width:10%; height:16px; float:left; padding-top:3px; border-right:1px solid #FFFFFF">
+              订购人
+            </div>  
+            <div style="width:15%; height:16px; float:left; padding-top:3px; border-right:1px solid #FFFFFF">
+               联系电话
+            </div>             
+            <div style="width:8%; height:16px; float:left; padding-top:3px; border-right:1px solid #FFFFFF">
+      图书费用        
+            </div>
+            <div style="width:8%; height:16px; float:left; padding-top:3px; border-right:1px solid #FFFFFF">
+         运费    
+            </div>
+            <div style="width:8%; height:16px; float:left; padding-top:3px; border-right:1px solid #FFFFFF">
+      总费用        
+            </div>
+            <div style="width:26%; height:16px; float:left; padding-top:3px; border-right:1px solid #FFFFFF">
+      状态    
+            </div>                                                                                        
+             <div style="width:9%; height:16px; float:left; padding-top:3px">
+               操作
+            </div>       
+        </div>  
+        {section name=oID loop=$orders.data }
+        <div style="width:100%; border-top:1px solid #006D84">
+            <div style="width:15%; height:20px; float:left; padding-top:4px; border-right:1px solid #006D84; text-align:left; padding-left:5px">
+              {$orders.data[oID].orderno}
+            </div> 
+                       
+            <div style="width:10%; height:20px; float:left; padding-top:4px; border-right:1px solid #006D84">
+               {$orders.data[oID].username}
+            </div> 
+ 
+            <div style="width:15%; height:20px; float:left; padding-top:4px; border-right:1px solid #006D84">
+               {$orders.data[oID].tel}
+            </div>             
+
+            <div style="width:8%; height:20px; float:left; padding-top:4px; border-right:1px solid #006D84">
+             {util->moneyFormat p=$orders.data[oID].goodsprice}
+            </div>             
+
+            <div style="width:8%; height:20px; float:left; padding-top:4px; border-right:1px solid #006D84">
+             {util->moneyFormat p=$orders.data[oID].yjprice}
+            </div> 
+                                   
+             <div style="width:8%; height:20px; float:left; padding-top:4px; border-right:1px solid #006D84">
+               {util->moneyFormat p=$orders.data[oID].totalprice}
+            </div> 
+             <div style="width:26%; height:20px; float:left;  border-right:1px solid #006D84;{if $orders.data[oID].isqx==1}padding-top:4px{/if}">
+              {if $orders.data[oID].isqx==1}--已取消--{else}付款：<input type="checkbox" name="isfk" {if $orders.data[oID].isfk==1}checked{/if} onclick="window.location.href='admin-listorder.php?c=isfk&id={$orders.data[oID].id}'" />&nbsp;&nbsp;发货：<input type="checkbox" name="isfh" {if $orders.data[oID].isfh==1}checked{/if} onclick="window.location.href='admin-listorder.php?c=isfh&id={$orders.data[oID].id}'">&nbsp;&nbsp;收货：<input type="checkbox" name="issh" {if $orders.data[oID].issh==1}checked{/if} onclick="window.location.href='admin-listorder.php?c=issh&id={$orders.data[oID].id}'">{/if}
+            </div>                                     
+            <div style="width:9%; height:20px; float:left; padding-top:2px">
+                <a href="{util->baseUrl}/admin-listorder.php?f=edit&id={$orders.data[oID].id}"><img src="{util->baseUrl}/img/edit.gif" border="0"/></a>&nbsp;<a href="javascript:if(window.confirm('确定删除？')==true){ldelim}window.location.href='{util->baseUrl}/admin-listorder.php?f=del&id={$orders.data[oID].id}';{rdelim}"><img src="{util->baseUrl}/img/del.gif" border="0"/></a>
+            </div>       
+        </div>          
+        {/section}
+    </div>
+    <br />
+    <div style="width:98%; height:25px; border-top:1px dotted #CCCCCC; padding-top:5px; text-align:left; padding-left:20px; background-color:#FFFBE5">
+          {if $orders.countRs > 0}   
+          <li style="display:inline; padding-left:20px">{$nowtype}共有订单&nbsp;{$orders.countRs}&nbsp;条&nbsp;&nbsp;每页显示&nbsp;{$orders.pageSize}&nbsp;条&nbsp;&nbsp;第&nbsp;{$orders.page}&nbsp;页/共&nbsp;{$orders.countPage}&nbsp;页&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="{util->baseUrl}/admin-listorder.php?page={$orders.first}" class="a1">首页</a>&nbsp;
+              <a href="{util->baseUrl}/admin-listorder.php?page={$orders.previous}" class="a1">上一页</a>&nbsp;
+              <a href="{util->baseUrl}/admin-listorder.php?page={$orders.next}" class="a1">下一页</a>&nbsp;
+              <a href="{util->baseUrl}/admin-listorder.php?page={$orders.last}" class="a1">尾页</a>
+          </li>           
+          {/if}
+    </div> 
+    
+    <br>
+   {if $isShow == 'T'}         
+
+    <div style="width:780px; border-top:1px dotted #CCCCCC; border-bottom:1px dotted #CCCCCC; padding:15px">
+        <div style="width:750px; height:22px; text-align:left; padding-top:5px">
+            <li style="display:inline; width:200px; height:22px; background-color:#006D84; padding-top:5px; padding-left:10px; color:#FFFFFF; float:left"> <strong>订单号：{$order[0].orderno}</strong></li>
+            <li style="display:inline; width:200px; height:22px; padding-top:5px; float:right">订购时间：{$order[0].addtime}</li>
+        </div>
+        <div style="width:50px; height:2px; font-size:0px"></div>        
+        <div style="width:750px; border:1px solid #006D84;padding-top:10px">
+            <div>
+                <li style="display:inline; width:50%; height:25px; float:left; text-align:left; padding-left:20px">收货人姓名：{util->unHtml p=$order[0].username}</li>
+                <li style="display:inline; width:50%; height:25px; float:left; text-align:left;">性&nbsp;&nbsp;别：&nbsp;&nbsp;{$order[0].sex}</li>
+                <li style="display:inline; width:50%; height:25px; float:left; text-align:left; padding-left:20px">邮&nbsp;&nbsp;编：&nbsp;&nbsp;&nbsp;&nbsp;{$order[0].yb}</li>
+                <li style="display:inline; width:50%; height:25px; float:left; text-align:left;">联系电话：{$order[0].tel}</li>
+                <li style="display:inline; width:50%; height:25px; float:left; text-align:left; padding-left:20px">收货方式：&nbsp;&nbsp;{$order[0].rectype}</li>
+                <li style="display:inline; width:50%; height:25px; float:left; text-align:left">支付方式：{$order[0].paytype}</li>
+                 <li style="display:inline; width:100%; height:25px; float:left; text-align:left; padding-left:20px">收货地址：&nbsp;&nbsp;{util->unHtml p = $order[0].address}</li>
+            </div>
+           <br />
+            <div style="width:88%; height:22px">
+                <div style="width: 30%; height:22px; float:left; text-align:left">图书名称</div>  
+                <div style="width: 15%; height:22px; float:left; text-align:center">市场价（元）</div> 
+                <div style="width: 15%; height:22px; float:left; text-align:center">会员价（元）</div> 
+                <div style="width: 15%; height:22px; float:left; text-align:center">订购数量（本）</div>   
+                <div style="width: 20%; height:22px; float:left; text-align:center">价格小计（元）</div>    
+            </div>  
+            <div style="width:90%;  border-top:1px solid #333333; border-bottom:1px solid #333333; padding-top:10px ">                 
+                {section name=cbID loop=$arrayCarInfos}
+                <div style="width:95%; height:22px">
+                    <div style="width: 30%; height:22px; float:left; text-align:left"><strong><a href="bookinfo-{$arrayCarInfos[cbID].id}.html" class="a7">{util->unHtml p=$arrayCarInfos[cbID].bookname}</a></strong></div>  
+                    <div style="width: 15%; height:22px; float:left; text-align:center"><strong><s>{util->moneyFormat p=$arrayCarInfos[cbID].oldprice}</s></strong></div> 
+                    <div style="width: 15%; height:22px; float:left; text-align:center"><strong>{util->moneyFormat p=$arrayCarInfos[cbID].newprice}</strong></div> 
+                    <div style="width: 15%; height:22px; float:left; text-align:center"><strong>{$arrayCarInfos[cbID].num}</strong></div>   
+                    <div style="width: 20%; height:22px; float:left; text-align:center"><strong>{util->moneyFormat p=$arrayCarInfos[cbID].smallTotalPrice}</strong></div>    
+               </div>    
+               {/section}
+            </div> 
+    <div style="width:88%; height:25px">
+        <div style="width:200px; float:right; padding-top:5px; text-align:right">图书价格总计：&nbsp;<strong>{util->moneyFormat p=$order[0].goodsprice}</strong>&nbsp;元</div>
+    </div>
+    <div style="width:88%; height:25px">
+        <div style="width:200px; float:right; padding-top:5px; text-align:right">运费：&nbsp;<strong>{util->moneyFormat p=$order[0].yjprice}</strong>&nbsp;元</div>
+    </div>    
+    <div style="width:88%; height:25px">
+        <div style="width:200px; float:right; padding-top:5px; text-align:right; border-top:1px solid #333333">您应该支付的总运费：&nbsp;<strong>{util->moneyFormat p=$order[0].totalprice}</strong>&nbsp;元</div>
+    </div>             
+            <br />
+         
+        </div>
+        
+        
+    </div> 
+
+  {/if}
+            
+    
+    

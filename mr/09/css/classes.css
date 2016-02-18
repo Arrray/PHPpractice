@@ -1,0 +1,9 @@
+/* CSS Document */
+*{margin:0; padding:0; font-size:12px;}
+.tdc{width:65px; height:30px;}
+.div1{margin:15px 0 0 0;}
+a:link{color:#FF9900;}
+a:active{color:#FF9900;}
+a:visited{color:#FF9900;}
+a:hover{ color:#FF0000;}
+a{text-decoration:none;}

@@ -1,0 +1,6 @@
+/* CSS Document */
+*{margin:0; padding:0; font-size:12px;}
+body{text-align:center;}
+.music_l_div1{ width:1004px; height:720px;  background:url(../images/116.jpg)}
+.music_l_mid{ margin:210px 0 0 5px;width:500px; height:340px;}
+.music_l_include{margin:10px;}

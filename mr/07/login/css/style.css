@@ -1,0 +1,40 @@
+/* CSS Document */
+body {
+	margin-left: 12px;
+	margin-top: 12px;
+}
+body,td,th {
+	font-size: 12px;
+}
+a {
+	cursor:hand;
+}
+.top {
+	border-top: 1px #666699 solid;
+	border-left: 1px #666699 solid;
+	border-right: 1px #666699 solid;
+}
+.center{
+	border: 1px #666699 solid;
+}
+.bottom {
+	border-left: 1px #666699 solid;
+	border-right: 1px #666699 solid;
+}
+.txt{
+	border:1px #000000 solid;
+	width: 180px;
+	height: 20px;
+}
+.btn{
+	background-color:#FFFFFF;
+	border: 1px #ffffff solid;
+}
+.regdiv {
+	border: 1px #f0f0f0 dashed;
+	background-color:#FFFFCC;
+	height:20px;
+	text-align:left;
+	text-indent:2px;
+	vertical-align:bottom;
+}

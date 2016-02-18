@@ -1,0 +1,8 @@
+<html>
+    <head>
+        <title>明日IT新闻网</title>
+    </head>
+    <body>
+    恭喜您！您已经成功注册为明日IT新闻网的会员！
+    </body>
+</html>

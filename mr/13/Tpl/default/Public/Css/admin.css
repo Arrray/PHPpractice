@@ -1,0 +1,10 @@
+@CHARSET "UTF-8";
+#form{width:400px;height:300px;margin:100px 500px}
+.title{width:400px;height:33px;-moz-border-radius: 6px;-webkit-border-radius: 6px;border-radius:6px;behavior: url(../Hac/styleCss.htc);background-color:white;background-image:url(../Images/adminTitleImage.jpg);position:absolute;z-index:1}
+img{margin-left:8px;margin-top:6px}
+.titleName{font-size:15px;padding:5px 15px;margin-top:-9px;color:white;font-family:"楷体_gb2312"}
+.titleBottom{width:400px;height:100px;-moz-border-radius: 6px;-webkit-border-radius: 6px;border-radius:6px;behavior: url(../Hac/styleCss.htc);background-color:white;border:1px solid #21920C;}
+.titleForm{margin-left:100px;margin-top:60px;font-size:15px;font-weight:1000;}
+.inOne{border:1px solid #909090;width:140px}
+.inTwo{border:0;width:74px;height:25px;background-image:url(../Images/bottomLogin.jpg)}
+.inThree{border:0;width:74px;height:25px;background-image:url(../Images/bottomRes.jpg)}
