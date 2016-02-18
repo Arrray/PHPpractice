@@ -5,8 +5,9 @@
 	if(!empty($_COOKIE['name']) and !is_null($_COOKIE['name'])){
 		$_SESSION['name'] = $_COOKIE['name'];    //将cookie保存到session中
 //		跳转到main.php页
-		header('location:http://localhost/PHPpractice/mr/05/01/main.php');
-	}else{
-		header('location:http://'.$_SERVER['SERVER_NAME'].dirname($_SERVER['SCRIPT_NAME']).'/login.php');
+		header('location:http:63342/PHPpractice/mr/01/01/main.php');
+	}else{    //cookie为空。说明没有登录
+//		跳转到login.php页
+		header('location:http:63342/PHPpractice/mr/01/01/login.php');
 	}
 ?>

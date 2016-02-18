@@ -1,20 +1,21 @@
 <?php
+//E-mailæ¿€æ´»æŠ€æœ¯
 session_start();
 header('Content-Type:text/html;charset=gb2312');
 include_once("conn/conn.php");
-if (!empty($_GET['name']) && !is_null($_GET['name'])){				//¼¤»î×¢²áÓÃ»§
+if (!empty($_GET['name']) && !is_null($_GET['name'])){				//æ¿€æ´»æ³¨å†Œç”¨æˆ·
 	$num=$conne->getRowsNum("select * from tb_member where name='".$_GET['name']."' and password = '".$_GET['pwd']."'");
 	if ($num>0){
 		$upnum=$conne->uidRst("update tb_member set active = 1 where name='".$_GET['name']."' and password = '".$_GET['pwd']."'");
 		if($upnum > 0){
 			$_SESSION['name'] = $_GET['name'];
-			echo "<script>alert('ÓÃ»§¼¤»î³É¹¦£¡');window.location.href='main.php';</script>";
+			echo "<script>alert('ç”¨æˆ·æ¿€æ´»æˆåŠŸï¼');window.location.href='main.php';</script>";
 		}else{
-			echo "<script>alert('ÄúÒÑ¾­¼¤»î£¡');window.location.href='main.php';</script>";
+			echo "<script>alert('æ‚¨å·²ç»æ¿€æ´»ï¼');window.location.href='main.php';</script>";
 		}
 		
 	}else{
-		echo "<script>alert('ÓÃ»§¼¤»îÊ§°Ü£¡');window.location.href='register.php';</script>";
+		echo "<script>alert('ç”¨æˆ·æ¿€æ´»å¤±è´¥ï¼');window.location.href='register.php';</script>";
 	}
 }
 ?>

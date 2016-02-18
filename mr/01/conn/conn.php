@@ -1,19 +1,19 @@
 <?php
 class opmysql{
-	private $host = 'localhost';			//·þÎñÆ÷µØÖ·
-	private $name = 'root';					//µÇÂ¼ÕËºÅ
-	private $pwd = '111';					//µÇÂ¼ÃÜÂë
-	private $dBase = 'db_reglog';			//Êý¾Ý¿âÃû³Æ
-	private $conn = '';						//Êý¾Ý¿âÁ´½Ó×ÊÔ´
-	private $result = '';					//½á¹û¼¯
-	private $msg = '';						//·µ»Ø½á¹û
-	private $fields;						//·µ»Ø×Ö¶Î
-	private $fieldsNum = 0;					//·µ»Ø×Ö¶ÎÊý
-	private $rowsNum = 0;					//·µ»Ø½á¹ûÊý
-	private $rowsRst = '';					//·µ»Øµ¥Ìõ¼ÇÂ¼µÄ×Ö¶ÎÊý×é
-	private $filesArray = array();			//·µ»Ø×Ö¶ÎÊý×é
-	private $rowsArray = array();			//·µ»Ø½á¹ûÊý×é
-	//³õÊ¼»¯Àà
+	private $host = 'localhost';			//æœåŠ¡å™¨åœ°å€
+	private $name = 'root';					//ç™»å½•è´¦å·
+	private $pwd = 'root';					//ç™»å½•å¯†ç 
+	private $dBase = 'db_reglog';			//æ•°æ®åº“åç§°
+	private $conn = '';						//æ•°æ®åº“è¿žæŽ¥èµ„æº
+	private $result = '';					//ç»“æžœé›†
+	private $msg = '';						//è¿”å›žç»“æžœ
+	private $fields;						//è¿”å›žå­—æ®µ
+	private $fieldsNum = 0;					//è¿”å›žå­—æ®µæ•°
+	private $rowsNum = 0;					//è¿”å›žç»“æžœæ•°
+	private $rowsRst = '';					//è¿”å›žå•æ¡è®°å½•çš„å­—æ®µæ•°ç»„
+	private $filesArray = array();			//è¿”å›žå­—æ®µæ•°ç»„
+	private $rowsArray = array();			//è¿”å›žç»“æžœæ•°ç»„
+	//è°ƒç”¨inin_connå‡½æ•°
 	function __construct($host='',$name='',$pwd='',$dBase=''){
 		if($host != '')
 			$this->host = $host;
@@ -25,25 +25,25 @@ class opmysql{
 			$this->dBase = $dBase;
 		$this->init_conn();
 	}
-	//Á´½ÓÊý¾Ý¿â
+	//è¿žæŽ¥æ•°æ®åº“
 	function init_conn(){
 		$this->conn=@mysql_connect($this->host,$this->name,$this->pwd);
 		@mysql_select_db($this->dBase,$this->conn);
-		mysql_query("set names gb2312");
+		mysql_query("set names gb2312");  //è®¾ç½®ç¼–ç 
 	}
-	//²éÑ¯½á¹û
+	//æŸ¥è¯¢ç»“æžœ
 	function mysql_query_rst($sql){
 		if($this->conn == ''){
 			$this->init_conn();
 		}
 		$this->result = @mysql_query($sql,$this->conn);
 	}
-	//È¡µÃ×Ö¶ÎÊý 
+	//
 	function getFieldsNum($sql){
 		$this->mysql_query_rst($sql);
 		$this->fieldsNum = @mysql_num_fields($this->result);
 	}
-	//È¡µÃ²éÑ¯½á¹ûÊý
+	//æ ¹æ®æŸ¥è¯¢ç»“æžœï¼Œè¿”å›žè®°å½•æ•°
 	function getRowsNum($sql){
 		$this->mysql_query_rst($sql);
 		if(mysql_errno() == 0){
@@ -52,7 +52,7 @@ class opmysql{
 			return '';
 		}	
 	}
-	//È¡µÃ¼ÇÂ¼Êý×é£¨µ¥Ìõ¼ÇÂ¼£©
+	//å°†æŸ¥è¯¢ç»“æžœè¾“å‡ºæˆä¸€ä¸ªæ•°ç»„å¹¶è¿”å›ž
 	function getRowsRst($sql){
 		$this->mysql_query_rst($sql);
 		if(mysql_error() == 0){
@@ -62,7 +62,7 @@ class opmysql{
 			return '';
 		}
 	}
-	//È¡µÃ¼ÇÂ¼Êý×é£¨¶àÌõ¼ÇÂ¼£©
+	//åŽ»çš„è®°å½•æ•°ç»„ï¼ˆå¤šæ¡è®°å½•ï¼‰
 	function getRowsArray($sql){
 		$this->mysql_query_rst($sql);
 		if(mysql_errno() == 0){
@@ -74,7 +74,7 @@ class opmysql{
 			return '';
 		}
 	}
-	//¸üÐÂ¡¢É¾³ý¡¢Ìí¼Ó¼ÇÂ¼Êý
+	//è¿”å›žæ›´æ–°ã€åˆ é™¤ã€æ·»åŠ çš„è®°å½•æ•°å‡½æ•°
 	function uidRst($sql){
 		if($this->conn == ''){
 			$this->init_conn();
@@ -87,7 +87,7 @@ class opmysql{
 			return '';
 		}
 	}
-	//»ñÈ¡¶ÔÓ¦µÄ×Ö¶ÎÖµ
+	//
 	function getFields($sql,$fields){
 		$this->mysql_query_rst($sql);
 		if(mysql_errno() == 0){
@@ -102,14 +102,14 @@ class opmysql{
 		}
 	}
 	
-	//´íÎóÐÅÏ¢
+	//
 	function msg_error(){
 		if(mysql_errno() != 0) {
 			$this->msg = mysql_error();
 		}
 		return $this->msg;
 	}
-	//ÊÍ·Å½á¹û¼¯
+	//é‡Šæ”¾ç»“æžœé›†å‡½æ•°
 	function close_rst(){
 		mysql_free_result($this->result);
 		$this->msg = '';
@@ -118,7 +118,7 @@ class opmysql{
 		$this->filesArray = '';
 		$this->rowsArray = '';
 	}
-	//¹Ø±ÕÊý¾Ý¿â
+	//å…³é—­æ•°æ®åº“
 	function close_conn(){
 		$this->close_rst();
 		mysql_close($this->conn);

@@ -1,20 +1,21 @@
 <?php
-	header("content-type:image/png");	//ÉèÖÃÒ³Ãæ±àÂë		
-	$num = $_GET['num'];			//»ñÈ¡³¬¼¶Á´½Ó´«µÝµÄËæ»úÊý
-	$imagewidth=60;				//¶¨Òå»­²¼µÄ¿í
-	$imageheight=18;				//¶¨Òå»­²¼µÄ¸ß
-	$numimage = imagecreate($imagewidth,$imageheight);			//´´½¨»­²¼
-	imagecolorallocate($numimage,240,240,240);				//ÉèÖÃ»­²¼ÑÕÉ«
-	for($i=0;$i<strlen($num);$i++){							//Ñ­»·¶ÁÈ¡Ëæ»úÊý
+//éªŒè¯ç ç”Ÿæˆæ–‡ä»¶
+	header("content-type:image/png");	//è®¾ç½®é¡µé¢ç¼–ç 
+	$num = $_GET['num'];			//èŽ·å–è¶…é“¾æŽ¥ä¼ é€’çš„éšæœºæ•°
+	$imagewidth=60;				//å®šä¹‰ç”»å¸ƒçš„å®½
+	$imageheight=18;				//å®šä¹‰ç”»å¸ƒçš„é«˜
+	$numimage = imagecreate($imagewidth,$imageheight);			//åˆ›å»ºç”»å¸ƒ
+	imagecolorallocate($numimage,240,240,240);				//è®¾ç½®ç”»å¸ƒé¢œè‰²
+	for($i=0;$i<strlen($num);$i++){							//å¾ªçŽ¯è¯»å–éšæœºæ•°
 		$x = mt_rand(1,8)+$imagewidth*$i/4;
 		$y = mt_rand(1,$imageheight/4);
-		$color=imagecolorallocate($numimage,mt_rand(0,150),mt_rand(0,150),mt_rand(0,150)); //¶¨ÒåÍ¼ÏñµÄÑÕÉ«
-		imagestring($numimage,5,$x,$y,$num[$i],$color);			//½«Ëæ»úÊýÐ´Èëµ½»­²¼ÖÐ
+		$color=imagecolorallocate($numimage,mt_rand(0,150),mt_rand(0,150),mt_rand(0,150)); //å®šä¹‰å›¾åƒçš„é¢œè‰²
+		imagestring($numimage,5,$x,$y,$num[$i],$color);			//å°†éšæœºæ•°å†™å…¥ç”»å¸ƒä¸­
 	}
-	for($i=0;$i<200;$i++){			//forÑ­»·Óï¾äÉú³É¸ÉÈÅÏß
-  		$randcolor=imagecolorallocate($numimage,rand(200,255),rand(200,255),rand(200,255));	//¶¨ÒåÑÕÉ«
-  		imagesetpixel($numimage,rand()%70,rand()%20,$randcolor); 		//Éú³É¸ÉÈÅÏß
+	for($i=0;$i<200;$i++){			//forå¾ªçŽ¯è¯­å¥ç”Ÿæˆå¹²æ‰°çº¿
+  		$randcolor=imagecolorallocate($numimage,rand(200,255),rand(200,255),rand(200,255));	//å®šä¹‰é¢œè‰²
+  		imagesetpixel($numimage,rand()%70,rand()%20,$randcolor); 		//ç”Ÿæˆå¹²æ‰°çº¿
 	}
-	imagepng($numimage);			//Éú³ÉÍ¼Ïñ
-	imagedestroy($numimage);			//ÊÍ·Å×ÊÔ´
+	imagepng($numimage);			//ç”Ÿæˆå›¾åƒ
+	imagedestroy($numimage);			//é‡Šæ”¾èµ„æº
 ?>
